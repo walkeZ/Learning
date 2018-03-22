@@ -1,4 +1,4 @@
-package com.walke.cachedemo.mine.loadimg;
+package com.walke.cachedemo.loadimg;
 
 import android.content.Context;
 import android.graphics.Bitmap;

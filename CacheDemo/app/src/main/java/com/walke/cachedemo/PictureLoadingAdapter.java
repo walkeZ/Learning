@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import com.walke.cachedemo.example1.LocalCacheUtil;
 import com.walke.cachedemo.example1.MemoryCacheUtil;
 import com.walke.cachedemo.example1.NetCacheUtil;
-import com.walke.cachedemo.mine.loadimg.ImgLoader;
+import com.walke.cachedemo.loadimg.ImgLoader;
 
 import java.util.List;
 
