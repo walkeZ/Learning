@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 实际情况遇到：后台返回的图片地址有时效参数(时间section参数，如下?后的参数)
+ * 例：http://gzmabang.oss-cn-shenzhen.aliyuncs.com/cover/a55e8b7e993541bb8bca86b0f929db1a.jpg?Expires=1521712141&OSSAccessKeyId=LTAInmM8wmsUeEmE&Signature=RUqbM2G%2Fe6ZY0nM6x5HFzOUBwpc%3D
+ *
  * 因为目前工程无法使用第三方，只能搞一个三级缓存了三级缓存分为内存缓存，本地缓存，网络缓存；
  * 缓存的步骤依次是网络，内存，本地，然后取的顺序为内存，本地，网络。
  * 在加载图片时引用时尽量采用弱引用避免出现图片过多产生OOM.。
@@ -29,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         // 设置布局管理器  3表示列数
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
 
     }
 
