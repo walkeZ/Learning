@@ -1,0 +1,48 @@
+1.从手机获取文件，
+
+adb pull /storage/emulated/0/TermialLog  C:\Users\caihui\Desktop\LogTest\
+
+#将sdcard中的一个xxx.jpg 拷贝到我PC的桌面上 或  D:\Android\sdk\platform-tools 的目录中。
+
+2.从电脑中copy文件到设备(手机/机器)  /mnt/sdcard：“大屏机”sd卡路径
+//文件 
+adb push D:\work\terminalKey\secret.key  /mnt/sdcard/
+adb push D:\xxx.key  /mnt/sdcard/
+
+adb push D:\work\terminalKey\zs\002\secret.key  /mnt/sdcard/
+
+//文件夹
+
+//文件夹
+adb push C:\Users\caihui\Desktop\LogTest\txt  /mnt/sdcard/TermialLog
+
+
+
+
+3.转化 .hprof文件[java内存使用信息]
+//在Android的SDK目录的platform-tools文件夹下运行cmd:执行以下命令
+//然后用jdk中的bin目录下  jvisualvm.exe  程序打开。注意0301[文件夹不会自动创建，要有对应文件夹]
+hprof-conv  D:\herp\orginal\0118\2018-01-18_18.56.0040.hprof   D:\herp\change\0118\2018-01-18_18.56.0040s.hprof
+
+hprof-conv  D:\herp\orginal\0301\2018-03-01_17.01.0007.hprof   D:\herp\change\0301\2018-03-01_17.01.0007s.hprof
+
+//android adb 捕获屏幕截图的命令 把当前的截图保存在目录 sdcard下，名字为 1.png
+
+adb shell screencap -p /mnt/sdcard/p1.png 
+
+adb pull /mnt/sdcard/p1.png  C:\Users\caihui\Desktop\
+
+
+4.adb截屏命令（保存到SDCard）
+
+adb shell /system/bin/screencap -p /sdcard/screenshot.png
+adb shell /system/bin/screencap -p /mnt/sdcard/look_pic.png  //终端
+adb pull /sdcard/screenshot.png d:/screenshot.png（保存到电脑
+
+
+5.使用adb命令安装apk，在cmd中输入：adb install apk的绝对路径 
+
+
+
+6.adb devices查看调试连接的设备
+

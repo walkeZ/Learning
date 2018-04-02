@@ -1,0 +1,113 @@
+
+
+0.终端后台地址(个人账号：walke 密码：123456)
+
+http://ggy.gdcaihui.com/admin/main.php?
+
+1.获取终端日志地址(最后拼接"终端号/日期/文件类型")
+
+https://ggy.gdcaihui.com/data/log/100002/2018-01-30.zip
+
+2.大屏机3.1新版界面项目SVN地址
+
+http://192.168.1.200:81/svn/GUAGUAYI/trunk/terminal_fragment_v3
+
+
+Neither the JAVA_HOME　nor the JRE_HOME enviroment variable is defind 
+At least one of these enviroment variable is needed to run this program.
+
+无论是JAVA_HOME还是JRE_HOME defind环境变量
+至少其中一个环境变量需要运行这个程序
+
+The JRE_HOME environment variable is not defined correctly
+The environment variable is needed to run this program.
+
+JRE_HOME环境变量没有正确定义。
+运行这个程序需要环境变量。
+
+
+The enviroment variable JAVA_HOME(with the value of C:\Program Files\Java\jdk1.7.0_79) does not point to valid JVM installation.
+JAVA_HOME环境变量(的值C:\Program?Files\Java\ jdk1.7.0_79)JVM不指向有效的安装。
+
+JRE_HOME
+C:\Program Files\Java\jdk1.7.0_79\jre
+
+环境变量path中： %JRE_HOME%
+
+JAVA_HOME
+C:\Program Files\Java\jdk1.7.0_79\bin
+
+android java bin 环境：C:\Program Files\Java\jdk1.8.0_73\bin
+
+发现：bin文件夹是javac环境[在控制台(黑窗口)运行javac"有反应：有一大串东西打印出来"]
+      jre文件夹是java环境[仅配置bin环境到path，在控制台(黑窗口)运行javac"有反应：有一大串东西打印出来"，运行java无反应]
+      注：直接配置bin的上一级目录在控制台运行javac/java均无反应
+	Tomcat直接在JAVA_HOME配置bin的上一级目录即可
+
+
+		MyEclipse
+
+  There already is a runtime environment created for selected server type.
+  Please choose whether you want to reuse existing or create a new one.
+
+  已经为选定的服务器类型创建了运行时环境。请选择是否要重用现有的或创建一个新的。
+
+
+
+		MySQL
+Query OK, 1 row affected, 1 warning (0.03 sec)
+  查询OK, 1行受影响，1警告(0.03秒)
+
+Rows matched: 1  Changed: 1  Warnings: 1
+  行匹配:1更改:1警告:1。
+
+
+
+C:\ProgramData\Oracle\Java\javapath
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
