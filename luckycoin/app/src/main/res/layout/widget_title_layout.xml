@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wtl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/title_status"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/wtl_stutas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/wtl_tvCenter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="123456"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_textSize" />
+
+        <LinearLayout
+            android:id="@+id/wtl_llLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginLeft="12dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:background="@drawable/corner_area"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <ImageView
+                android:id="@+id/wtl_ivLeft"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:src="@mipmap/ticai" />
+
+            <TextView
+                android:id="@+id/wtl_tvArea"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="阳江地区"
+                android:textColor="#fdfdfd"
+                android:layout_marginLeft="4dp"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/wtl_flRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:id="@+id/wtl_ivRight"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:padding="11dp"
+                android:scaleType="fitEnd"
+                android:src="@mipmap/scan_white3x" />
+            <TextView
+                android:id="@+id/wtl_tvRight"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="兑换规则"
+                android:textColor="#fdfdfd"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

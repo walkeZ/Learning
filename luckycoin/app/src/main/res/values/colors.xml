@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="transparentMiddle">#22ffffff</color><!--半透明-->
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="dialog_line">#77aaaaaa</color>
+    <color name="title_status">#2ABEFE</color><!--# 12B6Fe-->
+    <color name="defaultBackground">#f8f8f8</color>
+    <color name="line">#eaeaea</color>
+
+    <color name="blueUnPress">#12B6FE</color>
+    <color name="bluePress">#1187ba</color>
+
+    <color name="textBlack">#333333</color>
+    <color name="textBlue">#0073ff</color>
+    <color name="item_pressed">#eeeeee</color>
+    <color name="grayUnPress">#b6b6b6</color>
+    <color name="item_unpressed">#00ffffff</color>
+
+    <color name="areaBg">#02abff</color>
+    <color name="title_status_home">#12b6fe</color>
+
+</resources>

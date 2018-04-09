@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/height_TextEditTextView">
+    <TextView
+        android:id="@+id/te_leftTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:text="用户名:"
+        android:textColor="@color/textBack"
+        android:textSize="15sp"
+        android:layout_marginLeft="@dimen/marginLeft_TextEditTextView"
+        android:paddingRight="12dp"
+        android:singleLine="true"/>
+    <walke.baselibrary.widget.ClearEditText
+        android:id="@+id/te_rightHint"
+        style="?android:attr/textViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="输入用户名"
+        android:textColorHint="@color/hintOrNormalColor"
+        android:background="@null"
+        android:textColor="@color/textBlack"
+        android:textSize="15sp"
+        android:singleLine="true"
+        android:textCursorDrawable="@null"
+        android:cursorVisible="true"/>
+
+</LinearLayout>

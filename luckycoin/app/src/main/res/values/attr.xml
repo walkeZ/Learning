@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <attr name="img" format="reference"/>
+    <attr name="text" format="string|reference"/>
+
+    <declare-styleable name="ErrorLayout">
+        <attr name="img"/>
+        <attr name="text"/>
+    </declare-styleable>
+
+</resources>

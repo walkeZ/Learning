@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/abl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/title_status">
+
+    <View
+        android:id="@+id/abl_stutas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <ImageView
+            android:id="@+id/abl_ivLeft"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:padding="11dp"
+            android:scaleType="fitStart"
+            android:src="@mipmap/back_white3x"
+            android:background="@drawable/pressed_default_transparent"/>
+
+        <!--android:layout_marginTop="25dp"-->
+
+        <ImageView
+            android:id="@+id/abl_ivRight"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitEnd"
+            android:src="@mipmap/scan_white3x"
+            android:padding="11dp"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/abl_tvCenter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/abl_ivLeft"
+            android:layout_toLeftOf="@id/abl_ivRight"
+            android:gravity="center"
+            android:text="123456"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_textSize"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:marqueeRepeatLimit="marquee_forever" />
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:textStyle="bold"-->
+    </RelativeLayout>
+
+
+</LinearLayout>

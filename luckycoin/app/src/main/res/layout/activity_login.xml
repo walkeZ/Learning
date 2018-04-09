@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@mipmap/header_default2x"
+        android:padding="23dp"/>
+
+    <walke.baselibrary.widget.TextEditTextView
+        android:id="@+id/al_phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_TextEditTextView"
+        android:background="@drawable/frame_bottom"
+        android:paddingLeft="8dp"
+        app:etType="phone"
+        app:leftRightDistance="16dp"
+        app:leftTileText="手机号"
+        app:rightHintText="请输入手机号码" />
+   <!-- <com.gdcaihui.luckycoin.android.control.PasswordView
+        android:id="@+id/al_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_TextEditTextView"
+        android:background="@drawable/frame_bottom_selector"
+        app:leftTileText="密　码"
+        app:rightHintText="请输入6-15位密码"/>
+
+    <com.gdcaihui.luckycoin.android.control.AuthCodeView
+        android:id="@+id/al_authCodeView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_TextEditTextView"
+        android:background="@drawable/frame_bottom"/>-->
+
+    <Button
+        android:id="@+id/al_loginButton"
+        style="@style/LoginButtonUnable"
+        android:layout_marginTop="20dp"
+        android:text="登录"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/al_toRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pressed_default_transparent"
+            android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:paddingTop="5dp"
+            android:text="手机快速注册"
+            android:textColor="@color/textBlack"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/al_forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/pressed_default_transparent"
+            android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:paddingTop="5dp"
+            android:text="忘记密码？"
+            android:textColor="@color/textBlack"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,124 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.gdcaihui.luckycoin.android.widget.TittleLayout
+        android:id="@+id/ah_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title_status_home"/>
+
+    <View
+        android:id="@+id/ah_bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"/>
+
+    <com.gdcaihui.luckycoin.android.widget.GViewPager
+        android:id="@+id/ah_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ah_bottomView"
+        android:layout_below="@id/ah_top"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lineSize"
+        android:background="#d6d6d6"
+        android:layout_above="@id/ah_bottomView"/>
+
+    <com.gdcaihui.luckycoin.android.widget.SemicircleView
+        android:layout_width="56dp"
+        android:layout_height="28dp"
+        android:layout_above="@id/ah_bottomView"
+        android:layout_centerHorizontal="true"
+        android:padding="1dp"/>
+
+    <ImageView
+        android:id="@+id/ah_cashPay"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_above="@id/ah_bottomView"
+        android:src="@mipmap/tab_scan2x"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-32dp"
+        android:padding="6dp" />
+
+    <RadioGroup
+        android:id="@+id/ah_bottom_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp">
+
+        <RadioButton
+            android:id="@+id/ah_infoRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_rank"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="@drawable/tab_textcolor"
+            android:textSize="11sp" />
+
+        <RadioButton
+            android:id="@+id/ah_cashRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_scan"
+            android:gravity="center"
+            android:text="扫码兑积分"
+            android:textColor="@drawable/tab_textcolor"
+            android:textSize="11sp" />
+
+        <RadioButton
+            android:id="@+id/ah_mineRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_mine"
+            android:gravity="center"
+            android:drawablePadding="2dp"
+            android:text="个人中心"
+            android:textColor="@drawable/tab_textcolor"
+            android:textSize="11sp" />
+    </RadioGroup>
+
+
+    <ImageView
+        android:id="@+id/ah_launch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/launch2x"
+        android:background="@color/white"/>
+
+    <TextView
+        android:id="@+id/home_tvTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:layout_marginTop="36dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/ah_ivTest"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/logo3x"
+        android:background="@color/white"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

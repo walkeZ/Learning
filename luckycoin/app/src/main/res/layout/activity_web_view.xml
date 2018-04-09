@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/awv_topInterval"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/defaultBackground"
+        android:visibility="gone"/>
+
+    <com.itheima.view.BridgeWebView
+        android:id="@+id/awv_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/awv_topInterval"/>
+    <ProgressBar
+        android:id="@+id/awv_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:progressDrawable="@drawable/pb_webview" />
+
+   <com.gdcaihui.luckycoin.android.control.layout.ErrorLayout
+       android:id="@+id/awv_errorLayout"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:visibility="gone"/>
+
+
+
+</RelativeLayout>
