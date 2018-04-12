@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--                    -->
+    <attr name="leftTileText" format="string|reference" />
+    <attr name="rightHintText" format="string|reference" />
+    <attr name="leftRightDistance" format="integer|dimension|reference" />
+    <attr name="etType" format="enum">
+        <enum name="defaultCode" value="-1"/>
+        <enum name="phone" value="0"/>
+        <enum name="password" value="1"/>
+        <enum name="phoneAuthCode" value="2"/>
+        <enum name="imageAuthCode" value="3"/>
+    </attr>
+    <declare-styleable name="TextEditTextView">
+        <attr name="leftTileText"/>
+        <attr name="rightHintText"/>
+        <attr name="leftRightDistance"/>
+        <attr name="etType"/>
+    </declare-styleable>
+    <!--                    -->
+
+</resources>

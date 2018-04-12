@@ -1,0 +1,209 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    //直接运行(debug包)也是有签名的
+    //微信不允许没签名的apk授权  [包名有修改则需要重新生成一个新的jks文件]
+    signingConfigs {
+        relase {
+            keyAlias 'com.gdcaihui.luckycoin.android'
+            keyPassword 'xiongrui'
+            storeFile file('D:\\askey\\lucky_coin.jks')
+            storePassword 'xiongrui'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.gdcaihui.luckycoin.android"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 2                   //2
+        versionName "1.2.2"             //1.2.0
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    productFlavors {
+        caihui {
+            // 每个环境包名不同
+            applicationId "com.gdcaihui.luckycoin.android"
+            // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+
+            // 修改 AndroidManifest.xml 里渠道变量
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "caihui"
+                                    , app_icon         : "@mipmap/logo3x"]
+        }
+
+        yingyongbao {
+            // 每个环境包名不同
+            applicationId "com.gdcaihui.luckycoin.android"
+            // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+
+            // 修改 AndroidManifest.xml 里渠道变量
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"
+                                    , app_icon         : "@mipmap/logo3x"]
+        }
+
+        yangjiang {
+            // 每个环境包名不同
+            applicationId "com.gdcaihui.luckycoin.android.yangjiang"
+            // 动态添加 string.xml 字段；
+            // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
+            resValue "string", "app_name", "阳江体彩积分"
+            resValue "bool", "auto_updates", 'false'
+
+            // 修改 AndroidManifest.xml 里渠道变量
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yangjiang"
+                                    , app_icon         : "@mipmap/logo3x_yangjiang"]
+        }
+        c360 {
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "c360", app_icon : "@mipmap/logo3x"]
+        }
+        baidu {
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu", app_icon : "@mipmap/logo3x"]
+        }
+
+        huawei {
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei", app_icon : "@mipmap/logo3x"]
+        }
+        meizu {
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "meizu", app_icon : "@mipmap/logo3x"]
+        }
+        xiaomi {
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi", app_icon : "@mipmap/logo3x"]
+        }
+        vivo {
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "vivo", app_icon : "@mipmap/logo3x"]
+        }
+        oppo {
+
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "oppo", app_icon : "@mipmap/logo3x"]
+        }
+        ali {
+            applicationId "com.gdcaihui.luckycoin.android"
+            resValue "string", "app_name", "幸运积分"
+            resValue "bool", "auto_updates", 'false'
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "ali", app_icon : "@mipmap/logo3x"]
+        }
+
+
+        /* //这个会影响  android:icon="${app_icon}"
+         productFlavors.all { flavor ->
+             flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+         }*/
+
+    }
+
+
+    //移除lint检测的error
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+
+
+        debug {
+            signingConfig signingConfigs.relase //(debug)使用签名
+        }
+        release {
+            minifyEnabled true
+            // 使用config签名
+            signingConfig signingConfigs.relase
+            // 混淆文件位置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 批量打包
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        //输出apk名称为：渠道名_版本名_时间.apk
+//                        def fileName = "${variant.productFlavors[0].name}_v${defaultConfig.versionName}_${releaseTime()}.apk"
+                        def fileName = "${variant.productFlavors[0].name}_v${defaultConfig.versionName}_c${defaultConfig.versionCode}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            //......
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+    mavenCentral() // jcenter() works as well because it pulls from Maven Central
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile project(':baselibrary')
+    compile files('libs/core-3.2.1.jar')
+
+    //百分比布局
+    compile 'com.android.support:percent:22.2.0'
+    //okhttp包
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.f2prateek.rx.preferences:rx-preferences:1.0.1'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.okio:okio:1.6.0'
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    compile 'com.trello:rxlifecycle:0.4.0'
+    compile 'com.trello:rxlifecycle-components:0.4.0'
+    compile 'com.github.franmontiel:PersistentCookieJar:v0.9.3'
+    // bugly崩溃分析
+    // 其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //谷歌官方推荐的图片加载框架 glide
+    //compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
+    //webview与js交互
+    compile 'com.github.open-android:BridgeWebView:v1.0'
+    //圆形图片
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    //图片框架Picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+}

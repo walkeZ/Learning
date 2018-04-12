@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/dialog_backgroud"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/dla_tips"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="正在为您下载最新版安装包"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp">
+
+        <ImageView
+            android:id="@+id/dla_ivOk"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:src="@mipmap/ok"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:visibility="gone"/>
+        <ProgressBar
+            android:id="@+id/dla_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:progressDrawable="@drawable/pb_loadapk"
+            android:layout_gravity="center_vertical"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/dla_percent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="0%"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lineHeight_View"
+        android:background="@color/dialog_line" />
+    <LinearLayout
+        android:id="@+id/dla_buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/dla_leftButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/item_click_selector"
+            android:text="取消"
+            android:textColor="@color/textBlue"
+            android:padding="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <View
+            android:layout_width="@dimen/lineHeight_View"
+            android:layout_height="match_parent"
+            android:background="@color/dialog_line" />
+
+        <Button
+            android:id="@+id/dla_rightButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/item_click_selector"
+            android:text="确定"
+            android:textColor="@color/textBlue"
+            android:padding="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+</LinearLayout>
