@@ -1,15 +1,19 @@
-apply plugin: 'com.android.application'
+//apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'//改成这个+添加applicationId可以独立启动该Module [在启动按钮(绿色向右三角形)的左边可选择启动Module]
 
 android {
     compileSdkVersion 26
     buildToolsVersion "27.0.3"
+
     defaultConfig {
-        applicationId "com.walke.autolayoutdemo"
+        applicationId "com.walke.yatoooondemo" //+
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -25,10 +29,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 
-    //鸿洋大神的屏幕适配库
-    compile 'com.zhy:autolayout:1.4.5'
-
+    //不用改变自己的布局编写习惯的适配库
+    compile 'me.yatoooon:screenadaptation:1.0.7'
 }
