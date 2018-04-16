@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AutoLayoutDemo.iml" filepath="$PROJECT_DIR$/AutoLayoutDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/anim/anim.iml" filepath="$PROJECT_DIR$/anim/anim.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewexplosion/viewexplosion.iml" filepath="$PROJECT_DIR$/viewexplosion/viewexplosion.iml" />
       <module fileurl="file://$PROJECT_DIR$/yatoooondemo/yatoooondemo.iml" filepath="$PROJECT_DIR$/yatoooondemo/yatoooondemo.iml" />
     </modules>
   </component>

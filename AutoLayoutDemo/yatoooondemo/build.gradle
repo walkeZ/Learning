@@ -1,5 +1,8 @@
 //apply plugin: 'com.android.library'
 apply plugin: 'com.android.application'//改成这个+添加applicationId可以独立启动该Module [在启动按钮(绿色向右三角形)的左边可选择启动Module]
+//可能会报错：Error:Dependency AutoLayoutDemo:yatoooondemo:unspecified on project anim resolves to an APK archive...
+//原因 apply plugin: 'com.android.application' 是独立app项目，其他appModule[如项目中的anim、app]不可直接引用。
+//    apply plugin: 'com.android.library' 标识为Android的module(依赖)可以被引用
 
 android {
     compileSdkVersion 26

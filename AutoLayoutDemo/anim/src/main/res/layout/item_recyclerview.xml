@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="text"
+            type="String" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="#ad90b5ff"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:id="@+id/rc_itemText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="@{text}"
+            android:layout_centerInParent="true"
+            android:background="#b4ffa3a3"/>
+
+    </RelativeLayout>
+    <!-- 居中成功：
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:background="#ad90b5ff"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:id="@+id/rc_itemText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="@{text}"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:background="#b4ffa3a3"/>
+
+    </RelativeLayout>
+    -->
+
+    <!-- 不居中
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/rc_itemText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="@{text}"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>-->
+
+   <!--
+   可实现居中
+   其他不居中 如：android:layout_height="45dp"
+
+   <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/rc_itemText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:text="@{text}"/>
+
+    </LinearLayout>
+    -->
+</layout>

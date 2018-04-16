@@ -1,1 +1,1 @@
-include ':app', ':yatoooondemo'
+include ':app', ':yatoooondemo', ':anim', ':viewexplosion'
