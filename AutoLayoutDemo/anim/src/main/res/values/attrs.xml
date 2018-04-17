@@ -6,4 +6,33 @@
         <attr name="end_color" format="string"/>
         <attr name="anim_duration" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="SnowflakesView">
+        <attr name="snowCount" format="integer"/>
+        <attr name="fallSpeed" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="DropAnimationView">
+        <!-- Animation rate, use px/s as a unit -->
+        <attr name="rate" format="integer" />
+
+        <!-- Minimum size of the falling view -->
+        <attr name="minSize" format="dimension" />
+
+        <!-- Maximum size of the falling view -->
+        <attr name="maxSize" format="dimension" />
+
+        <!-- The bigger view should be falling fast -->
+        <attr name="largePercent" format="fraction" />
+
+        <!-- Whether enable horizontal translation, default false -->
+        <attr name="xAnimate" format="boolean" />
+
+        <!-- Whether enable vertical translation, default true  -->
+        <attr name="yAnimate" format="boolean" />
+
+        <!-- Whether enable rotation, default false -->
+        <attr name="rotationAnimate" format="boolean" />
+    </declare-styleable>
+
 </resources>

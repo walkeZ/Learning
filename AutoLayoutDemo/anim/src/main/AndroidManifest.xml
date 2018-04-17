@@ -21,6 +21,9 @@
         <activity android:name=".springback.SpringbackActivity"/>
         <activity android:name=".explosions.ParticleExplosionsActivity"/>
         <activity android:name=".fireworks.FireworksEditTextActivity"/>
+        <activity android:name=".falling.SnowFallActivity"/>
+        <activity android:name=".falling.FallActivity1"/>
+        <activity android:name=".falling.FallLeafActivity"/>
     </application>
 
 </manifest>

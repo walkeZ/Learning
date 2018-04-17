@@ -12,6 +12,9 @@ public class Datas {
             "AbsListView 回弹效果",
             "View 粒子爆炸效果",
             "为EditText添加烟花效果的实现",
+            "雪花飘落效果",
+            "树叶单个飘落效果",
+            "树叶多个飘落效果",
     };
 
     public static String[] TESTS=new String[]{

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\software\AndroidStudio2.3.2\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="D:\ASprojects\AS2.3.3\1804\Game2048\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0_12e094d4be4eb93e86b97c0e98a5ebb6254f9395.jar" />
+    </item>
+
+</items>

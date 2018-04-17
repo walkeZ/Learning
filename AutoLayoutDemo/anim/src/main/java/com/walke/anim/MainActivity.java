@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import com.walke.anim.coin_wallet.CoinWalletActivity;
 import com.walke.anim.config.Datas;
 import com.walke.anim.explosions.ParticleExplosionsActivity;
+import com.walke.anim.falling.FallActivity1;
+import com.walke.anim.falling.FallLeafActivity;
+import com.walke.anim.falling.SnowFallActivity;
 import com.walke.anim.fireworks.FireworksEditTextActivity;
 import com.walke.anim.point.PointFallActivity;
 import com.walke.anim.springback.SpringbackActivity;
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements RCSimpleAdapter.O
         mActivities.add(new SpringbackActivity());
         mActivities.add(new ParticleExplosionsActivity());
         mActivities.add(new FireworksEditTextActivity());
+        mActivities.add(new SnowFallActivity());
+        mActivities.add(new FallActivity1());
+        mActivities.add(new FallLeafActivity());
 
     }
 

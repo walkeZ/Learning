@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by walke.Z on 2018/4/16.
+ * AbsListView 回弹效果
  */
 
 public class SpringbackActivity extends AppActivity {
