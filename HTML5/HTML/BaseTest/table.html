@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格练习</title>
+</head>
+
+<body>
+    <table>
+        <!-- 快捷键：
+        		Crtl+shift+d ：复制当前行到下一行
+				Ctrl+ ? :注释选中内容或当前行 
+				Ctrl+shift+ ? :注释选中内容
+				Ctrl+s : 保存
+				Ctrl+f : 全局查找
+				Ctrl+h : 全局查找+替換
+				Ctrl+shift+h ：格式化代码，会与搜狗输入法冲突
+				 	①先添加html-css-js prettify插件后重启，
+				 	②报错：an unhandle OS error was encountered while prettifying,
+						意思大概是node.js什么路径没配置对。找到自己的node.exe正确路径
+						替换HTMLPrettify.sublime-settings中的node_path的“windows”对应值
+						保存后重启Sublime
+				Ctrl+shift+上箭头 ：将该行上移一行
+				 		 -->
+        <tr>
+            <td>张三</td>
+            <!-- 单个表格 -->
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>男</td>
+            <td>已婚婚</td>
+        </tr>
+    </table>
+    <br>
+    <!-- br: 换行 -->
+    <table border="1">
+        <!-- 快捷键：Crtl+shift+d ：复制当前行到下一行
+				 Ctrl+ ? :注释选中内容或当前行 
+				 Ctrl+shift+ ? :注释选中内容 -->
+        <tr>
+            <td>张三</td>
+            <!-- 单个表格 -->
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>男</td>
+            <td>已婚婚</td>
+        </tr>
+    </table>
+    <br>
+    <!-- br: 换行 -->
+    <table border="1" style="width: 300px;">
+        <!-- border="n" : 边框 n 外层边框宽度-->
+        <tr>
+            <!-- 快捷键：Crtl+shift+d ：复制当前行到下一行
+				 Ctrl+ ? :注释选中内容或当前行 
+				 Ctrl+shift+ ? :注释选中内容 -->
+            <th>姓名</th>
+            <th>性别</th>
+            <th>婚姻状况</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <!-- 单个表格 -->
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+        <!-- <tr>
+		<td>王五</td>
+		<td>男</td>
+		<td>已婚婚</td>
+	</tr> -->
+    </table>
+    <br>
+    <table border="1" style="width: 300px;">
+        <!-- border="n" : 边框 n 外层边框宽度-->
+        <tr>
+            <!-- 快捷键：Crtl+shift+d ：复制当前行到下一行
+				 Ctrl+ ? :注释选中内容或当前行 
+				 Ctrl+shift+ ? :注释选中内容 -->
+            <th>姓名</th>
+            <th>性别</th>
+            <th>婚姻状况</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <!-- 单个表格 -->
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+        <tr>
+            <td colspan="2">共计：2人</td>
+            <!-- colspan="2":占用2个单元格 -->
+        </tr>
+        <tr>
+            <td colspan="3">共计：2人</td>
+            <!-- colspan="3":占用三个单元格 -->
+        </tr>
+    </table>
+    <br>
+    <table border="1" style="width: 300px;">
+        <tr>
+            <th></th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>婚姻状况</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <!-- 单个表格 -->
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+        <tr>
+            <!-- colspan="3":占用三个单元格 -->
+            <td colspan="3">共计：2人</td>
+        </tr>
+    </table>
+    <br>
+    <table border="1" style="width: 300px;">
+        <tr>
+            <th rowspan="4">基本情况</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>婚姻状况</th>
+        </tr>
+        <tr>
+            <!-- 单个表格 -->
+            <td>张三</td>
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+        <tr>
+            <td colspan="3">共计：2人</td>
+            <!-- colspan="3":占用三个单元格 -->
+        </tr>
+    </table>
+    <br>
+    <table border="1" style="width: 300px;">
+        <tr>
+            <td colspan="3">共计：2人</td>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>婚姻状况</th>
+        </tr>
+    </table>
+    <br>
+    <table border="1" style="width: 300px;">
+    	<!-- 标题 -->
+    	<caption>这是一个表格[人员信息]</caption>
+        <tfoot>
+            <tr>
+                <td colspan="3">共计：2人</td>
+            </tr>
+        </tfoot>
+        <tbody>
+        <!-- 设置某行颜色 -->
+            <tr style="background: red;">
+                <td>张三</td>
+                <td>男</td>
+                <td>未婚</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>女</td>
+                <td>已婚</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>婚姻状况</th>
+            </tr>
+        </thead>
+    </table>
+    <br>
+
+
+    <table border="1" style="width: 300px;">
+    	<!-- 标题 -->
+    	<caption>这是一个表格[人员信息]</caption>
+        <tfoot>
+            <tr>
+                <td colspan="3">共计：2人</td>
+            </tr>
+        </tfoot>
+        <tbody>
+         <!-- 设置某列颜色 默认第一列 -->
+        	<colgroup style="background: red;"></colgroup>
+       
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>未婚</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>女</td>
+                <td>已婚</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>婚姻状况</th>
+            </tr>
+        </thead>
+    </table>
+    <br>
+
+     <table border="1" style="width: 300px;">
+      <!-- 设置某列颜色 span:选择几个 -->
+        <colgroup style="background: red;" span="2"></colgroup>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>婚姻状况</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>男</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>已婚</td>
+        </tr>
+    
+    </table>
+    <br>
+
+
+    <table border="1" style="width: 500px;">
+      <!-- 设置某列颜色 span:选择几个 -->
+        <colgroup style="background: green;" span="1"></colgroup>
+        <colgroup style="background: red;" span="1"></colgroup>
+        <colgroup style="background: blue;" span="2"></colgroup>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>婚姻状况</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>男</td>
+            <td>20</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>25</td>
+            <td>已婚</td>
+        </tr>
+    
+    </table>
+    <br>
+
+    <table border="1" style="width: 500px;">
+      <!-- 设置某列颜色 span:选择几个 -->
+        <colgroup>
+        	<!-- 佔位符 -->
+        	<col>
+        	<col>
+        	<col style="background: red" span="2">
+        </colgroup>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>婚姻状况</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>男</td>
+            <td>20</td>
+            <td>未婚</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>25</td>
+            <td>已婚</td>
+        </tr>
+    
+    </table>
+    <br>
+</body>
+
+</html>
