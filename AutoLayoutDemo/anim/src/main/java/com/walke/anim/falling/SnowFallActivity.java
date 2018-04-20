@@ -8,6 +8,7 @@ import com.walke.anim.R;
 
 /**
  * Created by walke.Z on 2018/4/17.
+ * 雪花飘落效果
  */
 
 public class SnowFallActivity extends AppActivity {

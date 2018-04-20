@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.walke.anim.camera.Camera3DActivity;
+import com.walke.anim.camera.CameraActivity;
 import com.walke.anim.coin_wallet.CoinWalletActivity;
 import com.walke.anim.config.Datas;
 import com.walke.anim.explosions.ParticleExplosionsActivity;
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements RCSimpleAdapter.O
         mActivities.add(new SnowFallActivity());
         mActivities.add(new FallActivity1());
         mActivities.add(new FallLeafActivity());
+        mActivities.add(new CameraActivity());
+        mActivities.add(new Camera3DActivity());
 
     }
 

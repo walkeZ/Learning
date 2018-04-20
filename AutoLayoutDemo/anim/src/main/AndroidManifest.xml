@@ -24,6 +24,8 @@
         <activity android:name=".falling.SnowFallActivity"/>
         <activity android:name=".falling.FallActivity1"/>
         <activity android:name=".falling.FallLeafActivity"/>
+        <activity android:name=".camera.CameraActivity"/>
+        <activity android:name=".camera.Camera3DActivity"/>
     </application>
 
 </manifest>

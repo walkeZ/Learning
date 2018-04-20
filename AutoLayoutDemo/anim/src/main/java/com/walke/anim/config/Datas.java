@@ -15,6 +15,8 @@ public class Datas {
             "雪花飘落效果",
             "树叶单个飘落效果",
             "树叶多个飘落效果",
+            "android.graphics.Camera实现图像的旋转、缩放基础",
+            "android.graphics.Camera实现图像的旋转、缩放",
     };
 
     public static String[] TESTS=new String[]{

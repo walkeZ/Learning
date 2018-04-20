@@ -1,0 +1,7 @@
+/*@charset "utf-8";*/
+
+/*  b:默认使用到HTML页面中的所有<b>元素
+	p:默认使用到HTML页面中的所有<p>元素 */
+b{
+	font-style: italic;
+}

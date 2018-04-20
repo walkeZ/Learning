@@ -5,6 +5,9 @@ import android.os.Bundle;
 import com.walke.anim.AppActivity;
 import com.walke.anim.R;
 
+/**
+ * 树叶多个飘落效果
+ */
 public class FallLeafActivity extends AppActivity {
 
 	@Override

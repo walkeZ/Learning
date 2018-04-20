@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/*@import "style1_1.css";*/ /*使用方式1，使用方式2在HTML文档中多用一个link标签,注意顺序？*/
+
+/*  b:默认使用到HTML页面中的所有<b>元素
+	p:默认使用到HTML页面中的所有<p>元素 */
+p {
+	color: green;
+	font-size: 25px;
+
+}
+
+h1{
+	color: orange;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+
+h2{
+	color: orange !important;
+	font-size: 35px !important;
+	font-weight: bold;
+}

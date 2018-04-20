@@ -14,6 +14,7 @@ import com.walke.anim.R;
 /**
  * Created by walke.Z on 2018/4/16.
  * 参考：https://github.com/835127729/ViewExplosion
+ * View爆炸散落效果
  */
 
 public class ParticleExplosionsActivity extends AppActivity {

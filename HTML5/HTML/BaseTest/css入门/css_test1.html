@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css入门</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="style1_1.css">
+    <!-- 方案2 -->
+    <!-- <style type="text/css">
+    P{
+        color: red;
+        font-size: 32px;
+    }</style> -->
+    <style type="text/css">
+    h1 {
+        color: red;
+        font-size: 25px;
+        font-style: italic;
+    }
+
+    h2 {
+        color: red;
+        font-size: 25px;
+        font-style: italic;
+    }
+
+    h3 {
+        border: 1px solid red;/* border: 外边框*/
+        color: red;
+    }
+    h4 {
+        border: 1px solid red;
+    }
+    </style>
+</head>
+
+<body>
+    CSS：层叠样式表，用来对HTML文档外观的表现形式进行排版和格式化。
+    <!-- 方案1 元素内嵌样式 -->
+    <!-- <p style="color: red;font-size: 42px;">这是一个段落、文本</p> -->
+    <!-- 方案2. 文档内嵌样式(在head节点里[一般在title节点下方]使用style节点)
+     在<head>元素之间创建<style>元素，通过选择器的方式调用指定的元素并设置相关CSS -->
+    <!-- <p style">这是另一个段落、文本</p> -->
+    <!-- 方案3. 外部引用样式(在外部建一个.css文件[如style1.css]，然后在在head节点里使用link进行引用)
+     项目中常用。在很多时候，大量的HTML页面使用了同一组css。那么就可以将这些css样式保存在
+     一个单独的.css文件中，然后通过<link>元素引用它即可。@charset “utf-8”：表明css的字符编码格式。
+     如果不写默认就是utf-8。如果有多个.css文件，.css文件中可以使用@import导入方式引入.css文件。
+     只不过，性能不如多个<link>链接 -->
+    <p style ">这是第三个...</p>
+    <p style">这是第三个<b>段落、文本</b></p>
+
+    <b>b元素本身隐含加粗样式</b>
+    <br>
+    <b style="font-weight:normal;">去除b元素本身隐含加粗样式</b>
+    <br>
+    <span>span元素没有隐含，但可以设置它加粗</span>
+    <br>
+    <span style="font-weight:bold;">span元素没有隐含，但可以设置它加粗</span>
+    <!-- 这里的font-style替换了<head>中的，<head>中的font-size、color替换了style.css中的 -->
+    <h1 style="font-style: normal;color: green;">这个是一个标题：叠加三种定义样式的方式</h1>
+    <!-- 样式表层叠：
+        样式表层叠通过5种方式进行，如果样式相同，那么会产生比如"冲突替换"。这时，它的
+        优先级顺序就显得比较重要。以下是优先级排序(低->高)
+        a.浏览器样式(元素自身隐含(携带)的样式)
+        b.外部引入样式(使用<link>引入的样式)
+        c.文档内嵌样式(在head中使用<style>元素设置)
+        d.元素内嵌样式(在元素中使用style属性设置) -->
+    <h2 style="font-style: normal;color: green;">这个另一个标题：叠加三种定义样式的方式</h2>
+    <!-- 如果某一个样式被优先级高的替换了，却又想执行这个样式方案，可以将这个方案标记成
+        重要样式(important)。强制设置最高优先级如： color: orange !important; -->
+
+    <h3>这个是一个<b>H3标题</b></h3>
+    <!-- 这里<b>元素也变红色了，原因这里的<b>继承了父元素(上一层元素)的样式
+        样式继承只适用于元素的外观(文字大小、颜色、字体)，而元素在页面上的布局样式则
+        不会被继承，如果继承这种样式，就必须使用强制继承：inherit 。用的比较少-->
+    <h4>这个是一个<b style="border: inherit;">H4标题</b></h4>
+    
+</body>
+
+</html>

@@ -18,6 +18,7 @@ package com.walke.anim.coin_wallet;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
@@ -49,6 +50,7 @@ public class ThreeDRotateAnimation extends Animation {
         super.initialize(width, height, parentWidth, parentHeight);
         centerX = width / 2;
         centerY = height / 2;
+        Log.i("walke", "initialize: ----------> centerX = "+centerX+" ---> centerY = "+centerY );
         setDuration(500);
         setInterpolator(new LinearInterpolator());
     }
@@ -62,6 +64,7 @@ public class ThreeDRotateAnimation extends Animation {
         final Matrix matrix = t.getMatrix();
         camera.save();
         camera.rotateY(360 * interpolatedTime);
+        Log.i("walke", "applyTransformation: ----------------- interpolatedTime = "+interpolatedTime);
         camera.getMatrix(matrix);
         matrix.preTranslate(-centerX, -centerY);
         matrix.postTranslate(centerX, centerY);

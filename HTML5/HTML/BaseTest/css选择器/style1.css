@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+*{
+	border: 1px solid red;
+}
+/* " * " 通用选择器还匹配到了html和body元素 */
+
+/* .xx  类选择器，常用 */
+p.abc{
+	color: red;
+}
+.abc{
+	color: blue;
+}
+
+.def{
+	font-size: 36px;
+}
+
+[href]{
+	color: green;
+	font-size:30px;
+}
+
+[type=password]{
+	border: 1px solid blue;
+	color: green;
+	font-size:30px;
+}

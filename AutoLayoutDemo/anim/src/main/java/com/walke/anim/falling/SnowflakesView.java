@@ -15,6 +15,7 @@ import java.util.Random;
  * Created by walke.Z on 2018/4/17.
  *
  * 参考： https://github.com/OptimusPrimeRen/SnowflakesView/blob/master/app/src/main/java/com/opr/snowflakesview/SnowflakesView.java
+ * 有问题，性能不稳定，动画执行一段时间后"异常"停止
  */
 
 public class SnowflakesView extends View {

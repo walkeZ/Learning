@@ -3,11 +3,19 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-    android:background="@color/blue">
+    >
     <com.walke.anim.falling.SnowflakesView
         android:id="@+id/asf_snowflakesView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:background="@color/blue"/>
+    <com.walke.anim.falling.SnowView
+        android:id="@+id/asf_snowView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="4dp"
+        android:background="#d17fff94"/>
 
 </LinearLayout>

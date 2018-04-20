@@ -26,6 +26,7 @@ import java.util.TimerTask;
 /**
  * 参考
  * https://github.com/abalalovski/FallAnimationSample
+ * 树叶单个飘落效果
  */
 public class FallActivity1 extends AppActivity {
 
