@@ -10,14 +10,14 @@ import com.walke.anim.R;
  * Created by walke.Z on 2018/4/16.
  */
 
-public class CameraActivity extends AppActivity {
+public class CameraTestActivity2 extends AppActivity {
 
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera_test1);
+        setContentView(R.layout.activity_camera_test2);
 
     }
 

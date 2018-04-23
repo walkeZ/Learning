@@ -13,10 +13,12 @@ public class Datas {
             "View 粒子爆炸效果",
             "为EditText添加烟花效果的实现",
             "雪花飘落效果",
+            "Walke雪花飘落效果",
             "树叶单个飘落效果",
             "树叶多个飘落效果",
             "android.graphics.Camera实现图像的旋转、缩放基础",
-            "android.graphics.Camera实现图像的旋转、缩放",
+            "android.graphics.Camera自定义实现图像的旋转、下落",
+            "android.graphics.Camera自定义实现单个图像的旋转、下落",
     };
 
     public static String[] TESTS=new String[]{

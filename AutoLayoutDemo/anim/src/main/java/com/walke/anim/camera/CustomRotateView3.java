@@ -1,4 +1,4 @@
-package com.walke.anim.falling;
+package com.walke.anim.camera;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -23,7 +23,7 @@ import com.walke.anim.R;
  *
  */
 
-public class SnowView extends View {
+public class CustomRotateView3 extends View {
 
     private Bitmap mSnow;
 
@@ -53,16 +53,20 @@ public class SnowView extends View {
      * graphics 包中的类，用于实现旋转
      */
     Camera mCamera;
+    /**
+     * 是否在下落
+     */
+    private boolean isDowning;
 
-    public SnowView(Context context) {
+    public CustomRotateView3(Context context) {
         this(context,null);
     }
 
-    public SnowView(Context context, @Nullable AttributeSet attrs) {
+    public CustomRotateView3(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public SnowView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomRotateView3(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mSnow = BitmapFactory.decodeResource(getContext().getResources(), R.mipmap.image_snow);
         mPaint = new Paint();
@@ -82,59 +86,52 @@ public class SnowView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mY1+=2;
-
-        //新增-------
-//        Matrix matrix = canvas.getMatrix();
-//
-//        mCamera.save();
-//        if (degrees<360){
-//            degrees++;
-//        }else {
-//            degrees=0;
-//        }
-//        mCamera.rotateY(degrees);
-//        mCamera.getMatrix(matrix);
-////        int centerX = (int) mX1;
-////        int centerY = (int) mY1;
-//        int centerX = mSnow.getWidth()/2;
-//        int centerY = mSnow.getHeight()/2;
-//        // 设置图像处理的中心点
-//        matrix.preTranslate(centerX, centerY);
-//        mCamera.restore();
-//        canvas.setMatrix(matrix);
-//        Log.i("walke", "SnowView  onDraw: ----> degrees = "+degrees+"--- centerX = "+centerX+"--- centerY = "+centerY);
-//
-
+//        mY1+=2;
 
         //新增-------
         Matrix mMatrix=new Matrix();
-//        mMatrix.setTranslate(mX1,mY1);
-
         mCamera.save();
         if (degrees<360){
-            degrees++;
+            degrees+=3;
         }else {
             degrees=0;
         }
         mCamera.rotateY(degrees);
+        // translate
+        if (mY1==0)
+            isDowning=true;
 
-//        mCamera.setLocation(mX1,mY1,0);
+        if (isDowning) {
+            if (mY1 > -(mHeight - mSnow.getHeight())) {
+                mY1 -= 0.5;
+            } else {
+                isDowning = false;
+            }
+        }else {
+            mY1 += 0.5;
+        }
 
+       /* if (mY1>-(mHeight-mSnow.getHeight())){
+            mY1-=0.5;
+        }else {
+            mY1+=0.5;
+        }*/
+        mCamera.translate(-20, mY1, 50);// mY1: -50
         mCamera.getMatrix(mMatrix);
         int centerX = mSnow.getWidth() / 2;
         int centerY = mSnow.getHeight() / 2;
+
         mMatrix.preTranslate(-centerX, -centerY);
         mMatrix.postTranslate(centerX, centerY);
         mCamera.restore();
-//        canvas.setMatrix(mMatrix);//bug：设置后没显示了
-        Log.i("walke", "SnowUtils3 draw: -------> centerX = "+centerX+" ---> centerY = "+centerY );
-
-
-        canvas.drawBitmap(mSnow, mMatrix,mPaint);// 画图由左上角开始
-
-//        canvas.drawBitmap(mSnow, 0, mY1, mPaint);// 画图由左上角开始
+        Log.i("walke", "CustomRotateView3 draw: -------> centerX = "+centerX+" ---> centerY = "+centerY );
+//        RectF src = new RectF(mX1, mY1, mSnow.getWidth(), mSnow.getHeight()+mY1);
 //        mY1+=2;
+//        RectF dst = new RectF(mX1, mY1, mSnow.getWidth(), mSnow.getHeight()+mY1);
+//        mMatrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER);
+//        canvas.setMatrix(mMatrix);
+//        canvas.drawBitmap(mSnow,mX1,mY1,mPaint);
+        canvas.drawBitmap(mSnow, mMatrix,mPaint);// 画图由左上角开始
 
         invalidate();//60帧每秒
     }

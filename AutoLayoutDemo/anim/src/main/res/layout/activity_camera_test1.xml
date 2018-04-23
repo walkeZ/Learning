@@ -5,12 +5,73 @@
               android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="160dp"
         android:orientation="horizontal">
-        <com.walke.anim.camera.CustomRotateView
-            android:layout_width="100dp"
+        <com.walke.anim.camera.CustomRotateView1
+            android:layout_width="84dp"
             android:layout_height="match_parent"
             android:background="#79a1f7"/>
+        <com.walke.anim.camera.CustomRotateView2
+            android:layout_width="84dp"
+            android:layout_height="match_parent"
+            android:background="#79a1f7"
+            android:layout_marginLeft="3dp"/>
+        <com.walke.anim.camera.CustomRotateView3
+            android:layout_width="84dp"
+            android:layout_height="match_parent"
+            android:background="#79a1f7"
+            android:layout_marginLeft="3dp"/>
+        <com.walke.anim.camera.CustomRotateView4
+            android:layout_width="84dp"
+            android:layout_height="match_parent"
+            android:background="#79a1f7"
+            android:layout_marginLeft="3dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="6dp">
+        <com.walke.anim.camera.CustomRotateView5
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#79a1f7"/>
+        <com.walke.anim.camera.CustomRotateView6
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#79a1f7"
+            android:layout_marginLeft="3dp"/>
+        <com.walke.anim.camera.CustomRotateView7
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#79a1f7"
+            android:layout_marginLeft="3dp"/>
+        <com.walke.anim.camera.CustomRotateView8
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#79a1f7"
+            android:layout_marginLeft="3dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="6dp">
+        <com.walke.anim.camera.CustomRotateView9
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#79a1f7"/>
+        <com.walke.anim.camera.CustomRotateView6
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#79a1f7"
+            android:layout_marginLeft="3dp"/>
     </LinearLayout>
 
 

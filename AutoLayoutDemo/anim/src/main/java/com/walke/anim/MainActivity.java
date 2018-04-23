@@ -7,13 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.walke.anim.camera.Camera3DActivity;
-import com.walke.anim.camera.CameraActivity;
+import com.walke.anim.camera.CameraTestActivity1;
+import com.walke.anim.camera.CameraTestActivity2;
 import com.walke.anim.coin_wallet.CoinWalletActivity;
 import com.walke.anim.config.Datas;
 import com.walke.anim.explosions.ParticleExplosionsActivity;
 import com.walke.anim.falling.FallActivity1;
 import com.walke.anim.falling.FallLeafActivity;
 import com.walke.anim.falling.SnowFallActivity;
+import com.walke.anim.falling.SnowFallActivity1;
 import com.walke.anim.fireworks.FireworksEditTextActivity;
 import com.walke.anim.point.PointFallActivity;
 import com.walke.anim.springback.SpringbackActivity;
@@ -55,10 +57,12 @@ public class MainActivity extends AppCompatActivity implements RCSimpleAdapter.O
         mActivities.add(new ParticleExplosionsActivity());
         mActivities.add(new FireworksEditTextActivity());
         mActivities.add(new SnowFallActivity());
+        mActivities.add(new SnowFallActivity1());
         mActivities.add(new FallActivity1());
         mActivities.add(new FallLeafActivity());
-        mActivities.add(new CameraActivity());
         mActivities.add(new Camera3DActivity());
+        mActivities.add(new CameraTestActivity1());
+        mActivities.add(new CameraTestActivity2());
 
     }
 

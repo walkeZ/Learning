@@ -1,0 +1,131 @@
+package com.walke.anim.camera;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Camera;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.View;
+
+import com.walke.anim.R;
+
+/**
+ * Created by walke.Z on 2018/4/20.
+ * 雪花飘落效果：
+ * 1，单个飘落效果
+ * a.onDraw 使用 canvas.drawBitmap()方法绘制雪花
+ * b.改变绘制位置实现动画效果
+ */
+
+public class FallView extends View {
+
+    private Bitmap mSnow;
+
+    /**
+     * 控件宽度
+     */
+    private int mWidth;
+    /**
+     * 控件高度
+     */
+    private int mHeight;
+
+    /**
+     * 画笔
+     */
+    private Paint mPaint;
+    /**
+     *
+     */
+    private float mX1;
+    /**
+     *
+     */
+    private float mY1 = 0;
+
+    /**
+     * graphics 包中的类，用于实现旋转
+     */
+    Camera mCamera;
+    /**
+     * 飘落速度
+     */
+    private float mSpeed = 1.5f;
+
+    public FallView(Context context) {
+        this(context, null);
+    }
+
+    public FallView(Context context, @Nullable AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public FallView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        mSnow = BitmapFactory.decodeResource(getContext().getResources(), R.mipmap.image_snow_96);
+        mPaint = new Paint();
+        mCamera = new Camera();
+    }
+
+    private void resizeBitmap(float scale) {
+        Matrix m = new Matrix();
+        m.setScale(scale, scale);
+        mSnow = Bitmap.createBitmap(mSnow, 0, 0, mSnow.getWidth(), mSnow.getHeight(), m, true);
+    }
+
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mWidth = w;
+        mHeight = h;
+        mX1 = (mWidth - mSnow.getWidth()) / 2;
+    }
+
+    private float degrees = 0;
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        //使用 graphics.Camera -------
+        Matrix mMatrix = new Matrix();
+        mCamera.save(); // 记录一下初始状态。save()和restore()可以将图像过渡得柔和一些。
+
+        //旋转角度
+        if (degrees < 360) {
+            degrees += 6;
+        } else {
+            degrees = 0;
+        }
+        mCamera.rotateY(degrees);
+
+        // 平移--下落
+        if (mY1 > -(mHeight - mSnow.getHeight())) {
+            mY1 -= mSpeed;//注意这里是 -
+        }
+        mCamera.translate(mX1, mY1, 0);// mY1: -50
+
+
+        mCamera.getMatrix(mMatrix);
+        int centerX = (mWidth) / 2;
+        int centerY = mSnow.getHeight() / 2;
+
+        mMatrix.preTranslate(-centerX, -centerY);
+        mMatrix.postTranslate(centerX, centerY);
+
+        mCamera.restore();
+//        Log.i("walke", "FallView draw: -------> mX1 = "+mX1+" ---> mY1 = "+mY1 );
+        canvas.drawBitmap(mSnow, mMatrix, mPaint);// 画图由左上角开始
+
+        // 普通图片向下应用用以下两行代码即可
+        // canvas.drawBitmap(mSnow, mX1, mY1, mPaint);// 画图由左上角开始
+        // mY1+=2;
+
+        invalidate();//60帧每秒
+    }
+}

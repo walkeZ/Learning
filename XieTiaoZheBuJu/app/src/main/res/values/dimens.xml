@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titleHeight">48dp</dimen>
+    <dimen name="toolbar_title_big">48sp</dimen>
+
+    <dimen name="fab_margin">15dp</dimen>
+    <dimen name="toolbar_height">240dp</dimen>
+    <dimen name="widget_margin_normal">5dp</dimen>
+    <dimen name="titleSize">18sp</dimen>
+</resources>

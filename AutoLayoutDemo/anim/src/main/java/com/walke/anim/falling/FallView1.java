@@ -1,4 +1,4 @@
-package com.walke.anim.camera;
+package com.walke.anim.falling;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,7 +9,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.walke.anim.R;
@@ -23,7 +22,7 @@ import com.walke.anim.R;
  *
  */
 
-public class CustomRotateView extends View {
+public class FallView1 extends View {
 
     private Bitmap mSnow;
 
@@ -53,21 +52,45 @@ public class CustomRotateView extends View {
      * graphics 包中的类，用于实现旋转
      */
     Camera mCamera;
+    /**
+     * 是否在下落
+     */
+    private boolean isDowning;
+    /**
+     * 飘落速度
+     */
+    private float mSpeed;
 
-    public CustomRotateView(Context context) {
+    public FallView1(Context context) {
         this(context,null);
     }
 
-    public CustomRotateView(Context context, @Nullable AttributeSet attrs) {
+    public FallView1(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
-
-    public CustomRotateView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    public FallView1(Context context, float scale, int alpha, float speed) {
+        super(context);
         mSnow = BitmapFactory.decodeResource(getContext().getResources(), R.mipmap.image_snow);
+        resizeBitmap(scale);
+        mPaint = new Paint();
+        mCamera = new Camera();
+        mPaint.setAlpha(alpha);
+        mSpeed=speed;
+    }
+
+    public FallView1(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        mSnow = BitmapFactory.decodeResource(getContext().getResources(), R.mipmap.image_snow_96);
         mPaint = new Paint();
         mCamera = new Camera();
     }
+
+    private void resizeBitmap(float scale){
+        Matrix m = new Matrix();
+        m.setScale(scale, scale);
+        mSnow = Bitmap.createBitmap(mSnow,0,0,mSnow.getWidth(),mSnow.getHeight(),m,true);
+    }
+
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -82,53 +105,30 @@ public class CustomRotateView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mY1+=2;
-
-        //新增-------
-//        Matrix matrix = canvas.getMatrix();
-//
-//        mCamera.save();
-//        if (degrees<360){
-//            degrees++;
-//        }else {
-//            degrees=0;
-//        }
-//        mCamera.rotateY(degrees);
-//        mCamera.getMatrix(matrix);
-////        int centerX = (int) mX1;
-////        int centerY = (int) mY1;
-//        int centerX = mSnow.getWidth()/2;
-//        int centerY = mSnow.getHeight()/2;
-//        // 设置图像处理的中心点
-//        matrix.preTranslate(centerX, centerY);
-//        mCamera.restore();
-//        canvas.setMatrix(matrix);
-//        Log.i("walke", "SnowView  onDraw: ----> degrees = "+degrees+"--- centerX = "+centerX+"--- centerY = "+centerY);
-//
-
+//        mY1+=2;
 
         //新增-------
         Matrix mMatrix=new Matrix();
-        mCamera.save();
+        mCamera.save(); // 记录一下初始状态。save()和restore()可以将图像过渡得柔和一些。
         if (degrees<360){
-            degrees++;
+            degrees+=6;
         }else {
             degrees=0;
         }
         mCamera.rotateY(degrees);
+        // translate
+        if (mY1>-(mHeight-mSnow.getHeight())){
+            mY1-=mSpeed;
+        }
+        mCamera.translate(mX1, mY1, 0);// mY1: -50
         mCamera.getMatrix(mMatrix);
-        int centerX = mSnow.getWidth() / 2;
+        int centerX = (mWidth)/2;
         int centerY = mSnow.getHeight() / 2;
         mMatrix.preTranslate(-centerX, -centerY);
         mMatrix.postTranslate(centerX, centerY);
         mCamera.restore();
-//        canvas.setMatrix(mMatrix);
-        Log.i("walke", "SnowUtils3 draw: -------> centerX = "+centerX+" ---> centerY = "+centerY );
-
+//        Log.i("walke", "FallView draw: -------> mX1 = "+mX1+" ---> mY1 = "+mY1 );
         canvas.drawBitmap(mSnow, mMatrix,mPaint);// 画图由左上角开始
-
-//        canvas.drawBitmap(mSnow, mX1, mY1, mPaint);// 画图由左上角开始
-//        mY1+=2;
 
         invalidate();//60帧每秒
     }
