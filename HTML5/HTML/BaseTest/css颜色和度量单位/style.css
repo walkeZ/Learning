@@ -1,0 +1,90 @@
+@charset "utf-8"
+
+body{
+	
+	font-size: 50px;
+
+}
+/* 
+  颜色表地址页面：
+  http://xh.5156edu.com/page/z1015m9220j18754.html;
+  http://www.w3school.com.cn/tags/html_ref_colornames.asp;
+ */
+h1{
+	color: red;
+
+}
+h2{
+	color: MediumOrchid;
+	
+}
+
+h3{
+	color: #0f0;
+	background: gray;
+}
+
+h4{
+	/*	rgba:红,绿,蓝,透明度(float)
+		hsla:色调,Saturation饱和度,Lightness亮度,alpha透明度
+			Hue(色调)。 0(或360)表示红色，120表示绿色，240表示蓝色,当然可取其他数值来确定其它颜色
+			Saturation(饱和度)。 取值为0%到100%之间的值
+			Lightness(亮度)。 取值为0%到100%之间的值；
+			alpha(透明度)。 取值在0到1之间；*/
+	color: rgba(102,153,255,0.6);
+	background: hsl(120,50%,70%);
+	height: 2em;
+}
+/*
+	度量单位：
+	绝对单位： in -- 英寸
+			   cm -- 厘米
+			   mm -- 毫米
+			   pt -- 磅
+			   pc -- pica
+	相对单位： em -- 与元素字号挂钩      	 ------常用
+			   ex -- 与元素的“x高度”挂钩	 
+			   px -- 像素，与分辩率挂钩		 ------常用
+			   %  -- 相对父节点(标签的)百分比------常用
+ */
+
+h5{
+	color: navy;
+	background: gray;
+	height: 1em;
+}
+
+h6{
+	color: navy;
+	background: hsla(120,50%,70%,0.6);
+	height: 3em;
+}
+
+
+p{
+	background: gray;
+	color: #00f;
+	font-size: 10px;
+	width: 70% ;  /* 这个百分比有效 */
+}
+
+
+b{
+	font-size: 200% ; /* 如果父节点没有设定大小，百分比相对原来浏览器的默认大小。这个百分比无效 */
+	padding-left: 20px; /* padding:内边距; margin:外边距;*/
+	margin: 40px;
+	background: hsla(120,50%,70%,0.6);
+}
+
+div.test{
+	color: #ff12bb;
+	font-size: 40px;
+}
+
+div.test{
+	color: #ff12bb;
+	font-size: 40px;
+}
+span{
+	font-size: 200% ; /* 如果父节点没有设定大小，百分比相对原来浏览器的默认大小。这个百分比有效 */
+}

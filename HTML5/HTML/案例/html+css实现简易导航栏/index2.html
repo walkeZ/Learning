@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- 声明文档的类型 网页H5文档 -->
+<html lang="zh">
+<!-- html：根目录标签，lang="zh"：语言中文 -->
+
+<head>
+    <!-- 用户是看不见的，给浏览器看的(识别的) -->
+    <meta charset="UTF-8">
+    <!-- 国际编码，字符的编码格式 -->
+    <title>html+css实现简易导航栏</title>
+    <!--  -->
+    <meta name="keywords" content="html+css实现简易导航栏">
+    <!-- 让搜索引擎找到我们的网页 -->
+    <meta name="description" content="walke首个练习案例">
+    <!-- 网页的介绍 -->
+    <style type="text/css">
+    /*样式*/
+
+    * {
+        /*(泛)通配符选择器，默认响应网页中所有元素*/
+        margin: 0; /*当大小为0是可以不写单位，规范TGuide也建议不写单位 */
+        padding: 0;
+    }
+
+    body {
+        /*样式选择器(元素/标签选择器)，默认响应网页中所有该元素*/
+        margin: 0;
+        /* 外边距：相对父元素/兄弟元素 */
+        padding: 0;
+        /* 内边距：相对自己的内容(包括子元素) */
+        background-color: #000;
+
+        perspective: 800px; /*景深/摄像头，界面到眼睛的距离，*/
+    }
+
+    .nav {
+        /*样式选择器(class选择器)，通过标签的class属性，对应选中*/
+        width: 460px;
+        /* 宽度 */
+        height: 42px;
+        /* 高度 */
+        margin: 100px auto;
+        /* 上下外边距100px、左右外边距自动居中 */
+        /* background: #368;背景色，在浏览器的审查元素工具中，可以看到右下角的Styles旁边的Computed(计算) */
+        background-color: #00f;
+        /* 背景色(16进制的当两两成对是可简写比如00f=0000ff，0f0f0f则不行)，更优 */
+        animation: go 2s infinite; /*使用动画 动画名称 时间 重复次数 infinite (无数次) */
+    }
+
+    .nav:hover {
+       animation-play-state: paused; /*动画暂停*/
+    }
+
+    .nav ul {
+        /*样式选择器("空格"后代选择器)，默认响应.nav中的子代ul和ul的后代*/
+        list-style: none;
+        /*去除 ul自带的样式(小黑圆点)*/
+        padding: 0;
+        /* 原来有默认自带40px的padding-left值，不设置为0时，左边显示40px的pink颜色(当前样式设置的)*/
+        background-color: pink;
+    }
+
+    .nav ul li {
+    	position: relative; /* 定位的参考物*/
+        /*样式选择器("空格"后代选择器)，默认响应.nav子代ul中的li和li的后代*/
+        float: left;
+        /* float(浮动)，可跳出文档流(待补充)，这里意思是：让元素水平向左顺序排列 */
+        width: 90px;
+        height: 40px;
+        border: 1px solid #fff;
+        /* 设置边框：宽度1px 样式solid(填充) 颜色#fff(白色) */
+        background-color: #368;
+    }
+
+    .nav ul li h3 {
+        width: 90px;
+        height: 40px;
+        background-color: #00f;
+        color: #fff;
+        /*设置文字颜色*/
+        text-align: center;
+        /*设置文字居中(这里水平居中)*/
+        line-height: 40px;
+        /* 当 line-height 与 height 同高，其文字会居中(垂直居中) */
+    }
+    .nav ul.title ul.list {
+        overflow: hidden;
+        height: 0;
+        transition: .5s;  /*动画过渡时间：0.5s可写成.5s*/
+    }
+     .nav ul.title li:hover ul.list { /*当鼠标移动到里li(:hover的前一个元素)时，改变ul.list(:hover的后一个元素)的样式*/
+        height: 168px;
+    }
+    /* .nav ul li ul li{ 选择器不能太长，一般不超过5个 
+			这个“ ul li ul li ”结构不应使用，会造成选择器污染
+			规范参考：TGuide的 http://tguide.qq.com/main/base.htm#css-title
+			color: #fff; 
+			text-align: center;
+			line-height: 40px;
+			background-color: #88885b;
+		} */
+
+    .nav ul.title ul.list>li {
+        /*样式选择器(">"子代选择器)，默认响应.nav子代ul中的li(不包含li的后代)*/
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        background-color: #88885b;
+    }
+
+    .nav ul.title>li:after { /*after:伪元素*/
+        content: '';
+        position: absolute; /* 相对某个元素(该元素[一般为父元素]应该要使用position)的绝对位置 */
+        width: 0px;
+        height: 40px;
+        top: 0;
+        /*以下两行代码实现居中*/
+        left: 0;right: 0;
+        margin: auto;
+        background-color: rgba(249,204,157,0.66);
+        transition: .5s;
+    }
+
+    .nav ul.title li .hide { /*遮罩层的样式*/
+     	position: absolute; /* 相对某个元素(该元素[一般为父元素]应该要使用position)的绝对位置 */
+       	width: 0px;
+       	height: 40px;
+       	top: 0;
+       	/*以下两行代码实现居中*/
+       	left: 0;right: 0;
+       	margin: auto;
+        background-color: rgba(249,204,157,0.66);
+        transition: .5s;
+    }
+    .nav ul.title li:hover after {
+       	width: 100%;
+    }
+
+    @keyframes go { /* 定义动画 go动画名称 ,在要使用的元素样式中以animation调用*/
+        0%{transform: rotateY(45deg)}  /*变换属性:旋转Y轴(角度[正值 顺时针，负值 逆时针]);*/
+        50%{transform: rotateY(-45deg)} /*注意0%、50%、100%之间不用“;”号*/
+        100%{transform: rotateY(45deg)}
+    }
+   /* .nav ul.title {
+        margin-left: 0;
+    }*/
+    </style>
+</head>
+
+<body>
+    <!-- 用户能看到的区域 -->
+    <!-- 
+	1.div标签：盒子，是个容器，可存放很多东西：文字、图片等，
+			是块级元素，也就是说，浏览器通常会在 div 元素前后放置一个换行符 
+	2.class="nav"给当前标签取名，命名规范小写英文，不能数字开头和结尾，见明知意
+	3.ul li 无序列表标签组。成对出现。
+	-->
+    <div class="nav">
+        <ul class="title">
+            <!-- 快捷编码：li*5->按Tab键 -->
+            <li>
+                <h3>首页</h3>
+                <ul class="list">
+                    <li>关于我们</li>
+                    <li>了解我们</li>
+                    <li>我们的团队</li>
+                    <li>帮助</li>
+                </ul>
+               
+            </li>
+            <li>
+                <h3>html</h3>
+                <ul class="list">
+                    <li>div</li>
+                    <li>p</li>
+                    <li>span</li>
+                    <li>br</li>
+                    
+                </ul>
+            </li>
+            <li>
+                <h3>css</h3>
+                <ul class="list">
+                    <li>style</li>
+                    <li>class</li>
+                    <li>id</li>
+                    <li>width</li>
+                    
+                </ul>
+            </li>
+            <li>
+                <h3>js</h3>
+                <ul class="list">
+                    <li>function</li>
+                    <li>var</li>
+                    <li>json</li>
+                    <li>String</li>
+                    
+                </ul>
+            </li>
+            <li>
+                <h3>html5</h3>
+                <ul class="list">
+                    <li>nav</li>
+                    <li>header</li>
+                    <li>footer</li>
+                    <li>aside</li>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+@charset "utf-8"
+ /* 发现第一个样式不起效, */
+h2{
+	font-size: 30px;
+	color: #0f0;
+}
+
+p{
+	font-size: 50px;
+	color: red;
+}
+
