@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <Button
+        android:id="@+id/query_btQueryAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查询全部/改"
+        android:background="@color/colorAccent"
+        android:textColor="@color/text"
+        android:textSize="@dimen/buttonTextSize"/>
+    <Button
+        android:id="@+id/query_btQueryByCondition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="条件查询"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/text"/>
+    <Button
+        android:id="@+id/query_btQueryOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="其他查询"
+        android:textSize="@dimen/buttonTextSize"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/text"/>
+
+
+</LinearLayout>

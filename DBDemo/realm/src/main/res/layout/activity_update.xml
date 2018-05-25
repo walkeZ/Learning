@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+    <TextView
+        android:id="@+id/update_tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="6dp"
+        android:text="姓名：\n学号："
+        android:lineSpacingExtra="4dp"/>
+
+    <EditText
+        android:id="@+id/update_etName"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/stroke_bg"
+        android:hint="请输入新的名字"
+        android:paddingLeft="6dp"/>
+
+    <Button
+        android:id="@+id/update_btUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认修改"
+        android:textSize="@dimen/buttonTextSize"
+        android:textColor="@color/text"
+        android:background="@color/colorAccent"
+        android:layout_margin="30dp"/>
+
+</LinearLayout>
