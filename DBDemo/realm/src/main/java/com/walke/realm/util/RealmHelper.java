@@ -96,9 +96,9 @@ public class RealmHelper {
      * @param age
      * @return
      */
-    public Student queryByAge(int age){
-        Student student = mRealm.where(Student.class).equalTo("age", age).findFirst();
-        return student ;
+    public List<Student> queryByAge(int age){
+        List<Student> students = mRealm.where(Student.class).equalTo("age", age).findAll();
+        return students ;
     }
 
     /** 检查是否存在

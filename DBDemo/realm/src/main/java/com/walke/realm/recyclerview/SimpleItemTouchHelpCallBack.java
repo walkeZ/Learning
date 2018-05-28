@@ -34,19 +34,25 @@ public class SimpleItemTouchHelpCallBack extends ItemTouchHelper.Callback{
         return makeMovementFlags(dragFlags,swipeFalgs);
     }
 
-    /** 当用户拖动一个Item进行上下移动从旧位置到新位置时会回调该方法。
-     *  在该方法内，我们可以调用Adapter的notifyItemMove方法来交换两个View Holder的位置，最后返回true。
-     *  表示被拖动的ViewHolder已经移动到目的位置。所以如果要实现拖动交换位置可以重写该方法(前提是支持上下拖动)
-     * @param recyclerView
-     * @param viewHolder
-     * @param target
-     * @return
-     */
+//    /** 当用户拖动一个Item进行上下移动从旧位置到新位置时会回调该方法。
+//     *  在该方法内，我们可以调用Adapter的notifyItemMove方法来交换两个View Holder的位置，最后返回true。
+//     *  表示被拖动的ViewHolder已经移动到目的位置。所以如果要实现拖动交换位置可以重写该方法(前提是支持上下拖动)
+//     * @param recyclerView
+//     * @param viewHolder
+//     * @param target
+//     * @return
+//     */
+//    @Override
+//    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+////        return false;
+//        mAdapter.onItemMove(viewHolder.getAdapterPosition(),target.getAdapterPosition());
+//        return true;
+//    }
+
+
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-//        return false;
-        mAdapter.onItemMove(viewHolder.getAdapterPosition(),target.getAdapterPosition());
-        return true;
+        return false;
     }
 
     /**用户左右滑动Item达到删除条件时，会调用该方法，一般手指触摸滑动的距离达到RecyclerView宽度的一半时，

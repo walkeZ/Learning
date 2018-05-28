@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.walke.realm.R;
+import com.walke.realm.async.AsyncActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * 参考：https://www.jianshu.com/p/28912c2f31db
+ */
 public class RealmActivity extends BaseActivity {
 
     @BindView(R.id.toolBar)
@@ -44,7 +47,8 @@ public class RealmActivity extends BaseActivity {
                 startActivity(new Intent(this,QueryActivity.class));
                 break;
             case R.id.bt_async:
-                Toast.makeText(this,"bt_async",Toast.LENGTH_LONG).show();
+//                Toast.makeText(this,"bt_async",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, AsyncActivity.class));
                 break;
         }
     }

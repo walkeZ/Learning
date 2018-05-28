@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/toolbar"/>
+
+    <EditText
+        android:id="@+id/aqc_etId"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stroke_bg"
+        android:paddingLeft="5dp"
+        android:hint="请输入id(学号)"/>
+    <EditText
+        android:id="@+id/aqc_etName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/stroke_bg"
+        android:hint="请输入年龄(age)"/>
+
+    <Button
+        android:id="@+id/aqc_btQueryById"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/text"
+        android:text="id查询"
+        android:textSize="@dimen/buttonTextSize"/>
+    <Button
+        android:id="@+id/aqc_btQueryByAge"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/text"
+        android:text="age查询"
+        android:textSize="@dimen/buttonTextSize"
+        android:textAllCaps="false"/>
+    <!-- android:textAllCaps="false" 全为大写：false -->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/aqc_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

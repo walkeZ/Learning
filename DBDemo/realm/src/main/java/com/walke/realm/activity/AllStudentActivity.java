@@ -99,7 +99,7 @@ public class AllStudentActivity extends BaseActivity {
             public boolean onMove(int srcPosition, int targetPosition) {
                 Collections.swap(mStudents,srcPosition,targetPosition);
                 mAdapter.notifyDataSetChanged();
-                return true;
+                return false;
             }
         });
         mCallback.setDragEnable(true);//false

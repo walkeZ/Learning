@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <include layout="@layout/toolbar"/>
+
+    <TextView
+        android:id="@+id/aau_tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:text="c传过来的信息"/>
+
+    <EditText
+        android:id="@+id/aau_etName"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stroke_bg"
+        android:paddingLeft="6dp"
+        android:hint="请输入新的name"/>
+
+    <Button
+        android:id="@+id/aau_btUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="@color/text"
+        android:textSize="@dimen/buttonTextSize"
+        android:layout_marginTop="20dp"
+        android:text="确认修改"
+        android:textColor="@color/text"/>
+
+</LinearLayout>

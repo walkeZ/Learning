@@ -27,7 +27,7 @@ public class StudentAdapter extends RVBaseAdapter<Student> implements MyItemTouc
 
     @Override
     protected void itemView(Context context, RVBaseViewHolder holder, final Student student) {
-        holder.setText(R.id.ls_tvName,"姓名："+student.getName());
+        holder.setText(R.id.ls_tvName,"姓名："+student.getName()+ "      年龄："+student.getAge());
         holder.setText(R.id.ls_tvId,"学号："+student.getId());
         final ImageView iv = holder.getView(R.id.ls_img);
         boolean studentExist = mRealmHelper.isStudentExist(student.getId());

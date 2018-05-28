@@ -25,7 +25,7 @@ public class QueryActivity extends BaseActivity {
     @Override
     protected void initView() {
 //        mToolBar.setTitle("查询");
-        setToolBar(mToolBar,"查询/改");
+        setToolBar(mToolBar,"修改、查询");
 
     }
 
@@ -33,12 +33,14 @@ public class QueryActivity extends BaseActivity {
     @OnClick({R.id.query_btQueryAll, R.id.query_btQueryByCondition, R.id.query_btQueryOther})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.query_btQueryAll:
+            case R.id.query_btQueryAll://查询所有、并可修改
                 startActivity(new Intent(this,AllStudentActivity.class));
                 break;
-            case R.id.query_btQueryByCondition:
+            case R.id.query_btQueryByCondition://条件查询
+                startActivity(new Intent(this,ConditionQueryActivity.class));
                 break;
-            case R.id.query_btQueryOther:
+            case R.id.query_btQueryOther://其他查询
+                startActivity(new Intent(this,OtherQueryActivity.class));
                 break;
         }
     }

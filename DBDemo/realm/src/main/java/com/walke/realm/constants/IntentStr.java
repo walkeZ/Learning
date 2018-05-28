@@ -6,4 +6,5 @@ package com.walke.realm.constants;
 
 public class IntentStr {
     public static final String STUDENT="student";
+    public static final String TEACHER="teacher";
 }
