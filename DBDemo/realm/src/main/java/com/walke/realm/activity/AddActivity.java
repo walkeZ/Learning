@@ -5,8 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.walke.realm.R;
-import com.walke.realm.entity.Student;
 import com.walke.realm.adapter.StudentEditAdapter;
+import com.walke.realm.entity.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +36,9 @@ public class AddActivity extends BaseActivity {
         mStudentEditAdapter = new StudentEditAdapter(this,mStudents,R.layout.list_student_5_0_shipei);
 //        mStudentEditAdapter = new StudentEditAdapter(this,mStudents,R.layout.list_student);
         mAddRecyclerView.setAdapter(mStudentEditAdapter);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolBar);
+//       mToolBar=(Toolbar) findViewById(R.id.toolBar);
 
     }
 
