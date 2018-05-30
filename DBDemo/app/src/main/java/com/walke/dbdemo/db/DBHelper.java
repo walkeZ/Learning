@@ -1,6 +1,7 @@
 package com.walke.dbdemo.db;
 
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -19,7 +20,7 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "mydb.db";
-    private static final int CURRENT_VERSION = 1;//4
+    private static final int CURRENT_VERSION = 2;//4、1
     public static final String USER_TABLE = "USER";
     public static final String BOOK = "BOOK";
 
@@ -62,8 +63,8 @@ public class DBHelper extends SQLiteOpenHelper {
         //表中有一个列名为_id 并且是主键，该列的值是会自动增长的整数，
         // (例如当你插入一行时SQLite会给这一列自动赋值)，另外还有两列：
         // title(字符)和(浮点数)。注：SQLite会自动为主键创建索引
-        db.execSQL("create table if not exits" + USER_TABLE +
-                "(_id INTEGER primary key autoincrement," +
+        db.execSQL("create table if not exists " + USER_TABLE +
+                " (id INTEGER primary key autoincrement," +
                 "name TEXT," +
                 "tall REAL)");
 
@@ -77,24 +78,42 @@ public class DBHelper extends SQLiteOpenHelper {
      * @param db
      * @param oldVersion
      * @param newVersion
+     *
+     * db.execSQL("drop table if exists Book");//删除Book表
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i("walke--DBHelper", "onUpgrade:------> oldVersion = " + oldVersion + "  newVersion = " + newVersion);
         switch (oldVersion) {
             case 1://版本二执行的更新,old为1，一般新的为2
-                db.execSQL("ALTER TABLE " + USER_TABLE + " ADD COLUMN ‘NICKNAME’");//该语句表示往USER_TABLE表中增加一列，注意拼接时的空格
+                //该语句表示往USER_TABLE表中增加一列，注意拼接时的空格
+                try {
+                    db.execSQL("ALTER TABLE " + USER_TABLE + " add column 'weight'");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                Log.i("walke: DBHelper", "onUpgrade:------> 1");
                 break;
             case 2:// 版本三执行的更新
                 //该语句表示新建一个BOOK表，有id(主键) name price 三列.name、price没声明类型原因：
                 //SQLite最大的特点是你可以把各种类型的数据保存到任何字段中，而不用关心字段声明的数据类型是什么,
-                db.execSQL("create table if not exits" + BOOK + "(_id integer primary key autoincrement," +
-                        "name," +
-                        "price)");
+                try {
+                    db.execSQL("create table if not exists" + BOOK + "(_id integer primary key autoincrement," +
+                            "name," +
+                            "price)");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                Log.i("walke: DBHelper", "onUpgrade:------> 2");
                 break;
             case 3:// 版本四执行的更新
                 // 该语句表示往BOOK表中增加一列author
-                db.execSQL("alter table " + BOOK + " add column ‘author’");
+                try {
+                    db.execSQL("alter table " + BOOK + " add column 'author'");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                Log.i("walke: DBHelper", "onUpgrade:------> 3");
                 break;
 
         }

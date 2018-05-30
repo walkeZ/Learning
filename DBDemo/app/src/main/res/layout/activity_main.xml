@@ -5,98 +5,225 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.walke.dbdemo.MainActivity">
+    tools:context="com.walke.dbdemo.MainActivity"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintTop_creator="1"
+        android:text="DB-api"
+        android:id="@+id/textView2"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        android:id="@+id/textView2"/>
+        android:layout_marginBottom="13dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="add"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="37dp"
+        android:textAllCaps="false"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="29dp"
-        android:textAllCaps="false"/>
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        android:layout_marginLeft="29dp"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="query"
-        tools:layout_constraintTop_creator="1"
+        android:textAllCaps="false"
         tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="41dp"
-        android:layout_marginEnd="41dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="37dp"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintRight_toRightOf="@+id/button4"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/textView"
-        android:layout_marginLeft="41dp"
-        android:layout_marginRight="41dp"
-        android:textAllCaps="false"/>
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/button4"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="delete"
+        android:textAllCaps="false"
         tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        android:layout_marginTop="124dp"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/button"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="121dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="29dp"
-        android:textAllCaps="false"/>
+        app:layout_constraintLeft_toLeftOf="@+id/button"/>
 
     <Button
-        android:id="@+id/main_originUpdate"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
+        android:text="query-BY"
+        android:textAllCaps="false"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintRight_toRightOf="@+id/button6"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/button6"/>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="delete-all"
+        android:textAllCaps="false"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button3"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button3"/>
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="update"
         android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="@+id/button2"
-        app:layout_constraintRight_toRightOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"/>
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintRight_toRightOf="@+id/button8"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="61dp"
+        app:layout_constraintLeft_toLeftOf="@+id/button8"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="originSQL"
+        android:layout_marginStart="31dp"
+        android:textAllCaps="false"
         tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="5dp"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:layout_marginTop="67dp"
         tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="69dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/button"
-        android:layout_marginLeft="37dp"
-        android:textAllCaps="false"/>
+        android:layout_marginLeft="31dp"/>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button5"
+        android:layout_marginTop="61dp"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button5"/>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Query"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button12"
+        app:layout_constraintRight_toRightOf="@+id/button12"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="92dp"
+        app:layout_constraintLeft_toLeftOf="@+id/button12"/>
+
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="delete"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button7"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/button7"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button7"/>
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="38dp"
+        android:text="query-BY"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="129dp"
+        android:layout_marginRight="38dp"/>
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="delete-all"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/button9"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="29dp"/>
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        tools:layout_editor_absoluteX="257dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button10"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/button10"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button10"/>
+
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:text="在log输出中查看效果"
+        android:gravity="center"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="13dp"
+        app:layout_constraintRight_toLeftOf="@+id/textView"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        android:layout_marginTop="22dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="13dp"/>
 
 
 </android.support.constraint.ConstraintLayout>
