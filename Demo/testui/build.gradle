@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.walke.testui"
-        minSdkVersion 15
+        minSdkVersion 18
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -39,5 +39,8 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:0.2'
     androidTestCompile 'com.android.support.test:rules:0.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.1'
+
+    //uiautomator Android 4.3(API level 18)
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
 
 }

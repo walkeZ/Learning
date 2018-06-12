@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.walke.testespresso.MainActivity"
+    android:padding="12dp">
+
+    <EditText
+        android:id="@+id/etNumber1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="number1"
+        android:inputType="number"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintRight_toRightOf="@+id/btCalculate"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/etNumber2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"/>
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:hint="number2"
+        android:id="@+id/etNumber2"
+        android:inputType="number"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/btCalculate"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="77dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="77dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结果："
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="159dp"
+        app:layout_constraintRight_toRightOf="@+id/etNumber2"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@+id/btCalculate"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/btCalculate"
+        android:layout_marginLeft="159dp"
+        android:layout_marginRight="159dp"/>
+
+    <Button
+        android:id="@+id/btCalculate"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:text="calculate"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="148dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btWebView"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:text="WebView"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/btRecyclerView"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Button
+        android:id="@+id/btRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:text="RecyclerView"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/btWebView"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="68dp"
+        app:layout_constraintLeft_toLeftOf="@+id/btWebView"/>
+
+
+</android.support.constraint.ConstraintLayout>

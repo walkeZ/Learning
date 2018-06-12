@@ -1,17 +1,19 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao' // apply greenDao plugin
-apply plugin: 'android-apt'// butterKnife
+apply plugin: 'android-apt'// butterKnife   https://www.jianshu.com/p/18328f6fa8fa
 
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.3"
+
     defaultConfig {
-        applicationId "com.walke.greendao"
+        applicationId "com.walke.testespresso"
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -20,6 +22,11 @@ android {
         }
     }
 }
+
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-annotations:23.1.1'
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -28,20 +35,21 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    // add greenDao library
-    compile 'org.greenrobot:greendao:3.2.2'
-    //加密依赖库
-    compile 'net.zetetic:android-database-sqlcipher:3.5.2'
-    //recylerview
-//    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     //butterKnife
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
-    // 图片框架
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //
+    compile 'com.android.support:design:26.0.0-alpha1'
 
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:' + rootProject.espressoVersion;
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:' + rootProject.espressoVersion) {
+        transitive false
+    };
+    androidTestCompile 'com.android.support.test.espresso:espresso-web:' + rootProject.espressoVersion;
 
+    //Error:Conflict with dependency 'com.android.support:support-annotations'
+    // in project ':TestEspresso'. Resolved versions for app (26.0.0-alpha1) and test app (23.1.1) differ.
+    // See http://g.co/androidstudio/app-test-app-conflict for details.
 
 
 }
