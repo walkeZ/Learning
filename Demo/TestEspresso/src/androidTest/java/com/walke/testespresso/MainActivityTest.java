@@ -8,7 +8,6 @@ import android.support.test.espresso.web.webdriver.DriverAtoms;
 import android.support.test.espresso.web.webdriver.Locator;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.widget.Toast;
 
 import org.hamcrest.Matchers;
 import org.junit.Rule;
@@ -47,9 +46,9 @@ public class MainActivityTest {
         Espresso.onView(withId(R.id.btCalculate)).perform(click());
         //通过id找到textview，并判断是否与文本匹配
         ViewInteraction check = Espresso.onView(withId(R.id.tvResult)).check(matches(withText("计算结果：7")));
-        Toast.makeText(activityTestRule.getActivity(),"计算结果：7", Toast.LENGTH_SHORT).show();
-        ViewInteraction check2 = Espresso.onView(withId(R.id.tvResult)).check(matches(withText("计算结果：6")));
-        System.out.println("-----check2");
+        System.out.println("-----check success");
+//        ViewInteraction check2 = Espresso.onView(withId(R.id.tvResult)).check(matches(withText("计算结果：6")));
+//        System.out.println("-----check2 fail");
     }
 
     @Test
@@ -95,6 +94,8 @@ public class MainActivityTest {
         //执行点击返回按钮事件，关闭跳转到WebViewActivity
         Espresso.pressBack();
         test();
+        testRecycleView();
+        testWebView();
     }
 
 }

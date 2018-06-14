@@ -31,7 +31,7 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
+//配置一些依赖版本，可在model下的build.gradle中引用
 ext {
     buildToolsVersion = "24.0.1"
     supportLibVersion = "24.2.0"
