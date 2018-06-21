@@ -65,32 +65,33 @@ public class AutomatorTest {
         // 等待应用程序启动
         mDevice.wait(Until.hasObject(By.pkg(PACKAGE_ESPRESSOTESTS).depth(0)), 3);
         //通过id找到输入框一
-        UiObject edt1 = mDevice.findObject(new UiSelector().resourceId("me.shihao.espressotests:id/editText")
+        UiObject edt1 = mDevice.findObject(new UiSelector().resourceId(PACKAGE_ESPRESSOTESTS+":id/etNumber1")
                 .className(EditText.class));
         //往里面输入字符2
         edt1.setText("2");
         //通过id找到输入框二
-        UiObject edt2 = mDevice.findObject(new UiSelector().resourceId("me.shihao.espressotests:id/editText2")
+        UiObject edt2 = mDevice.findObject(new UiSelector().resourceId(PACKAGE_ESPRESSOTESTS+":id/etNumber2")
                 .className(EditText.class));
         //往里面输入5
         edt2.setText("5");
         //通过文本"计算"找到按钮
-        UiObject btn = mDevice.findObject(new UiSelector().text("计算").className(Button.class));
+//        UiObject btn = mDevice.findObject(new UiSelector().text("计算").className(Button.class));//注意符号区分中英文输入
+        UiObject btn = mDevice.findObject(new UiSelector().text("calculate").className(Button.class));
         //执行点击事件，计算结果
         btn.click();
         //通过id找到显示结果的textview
-        UiObject tvResult = mDevice.findObject(new UiSelector().resourceId("me.shihao.espressotests:id/textView")
+        UiObject tvResult = mDevice.findObject(new UiSelector().resourceId(PACKAGE_ESPRESSOTESTS+":id/tvResult")
                 .className(TextView.class));
         //判断结果与预期是否匹配
         assertEquals(tvResult.getText(), "计算结果：7");
         //通过文本"RecycleView"找到按钮
-        UiObject btnRecycleView = mDevice.findObject(new UiSelector().text("RecycleView").className(Button.class));
+        UiObject btnRecycleView = mDevice.findObject(new UiSelector().text("RecyclerView").className(Button.class));
         //执行点击事件跳转到另一个界面
         btnRecycleView.click();
         //通过id找到recycleview
         UiScrollable recycleview = new UiScrollable(new UiSelector()
                 .className(RecyclerView.class)
-                .resourceId("me.shihao.espressotests:id/recycleview"));
+                .resourceId(PACKAGE_ESPRESSOTESTS+":id/recyclerView"));
         //滑动到底部
         recycleview.flingForward();
         //滑动到顶部
@@ -105,7 +106,7 @@ public class AutomatorTest {
         //另外一种方式找到Item 2
         UiObject item = mDevice.findObject(new UiSelector()
                 .className(RecyclerView.class)
-                .resourceId("me.shihao.espressotests:id/recycleview")
+                .resourceId(PACKAGE_ESPRESSOTESTS+":id/recyclerView")
                 .childSelector(new UiSelector().text("Item 2")));
         //点击弹出对话框
         item.click();
