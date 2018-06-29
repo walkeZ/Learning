@@ -73,5 +73,5 @@ class Login(unittest.TestCase):
         # 此处加上检测登录是否成功的代码
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':   # 如果是主执行脚本，执行下面的代码，就是在命令行直接调用，不是被其他脚本导入调用
     unittest.main()
