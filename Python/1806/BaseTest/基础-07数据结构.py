@@ -2,6 +2,8 @@
 '''
 列表
 Python中列表是可变的，这是它区别于字符串和元组的最重要的特点，一句话概括即：列表可以修改，而字符串和元组不能。
+    Python中的列表（添加二元列表、连接、查找、排序、反序、赋值、删除、分片操作、负索引、）
+    https://blog.csdn.net/stven_king/article/details/32740217
 '''
 a = [3.1425, 33, 12, 12, 12.5, "walke", 'hello world']
 print(a)
@@ -188,7 +190,53 @@ print(type(person.values()))
 # 构造函数 dict() 直接从键值对元组列表中构建字典。如果有固定的模式，列表推导式指定特定的键值对：
 d=dict([('sape',4139),('guido',4127),('jack',4098)])
 print(d)        # --： {'sape': 4139, 'guido': 4127, 'jack': 4098}
-d={x:x**2 for }
+# 字典推导可以用来创建任意键和值的表达式词典：
+d={x:x**2 for x in (2,4,6)}
+print(d)        # --: {2: 4, 4: 16, 6: 36}
+
+# 如果关键字只是简单地字符串，使用关键字参数指定键值对有时候会更方便
+di=dict(name='walkle',age=26,address='广州越秀东风中路118号',weight=56.95)
+print(di)
+
+'''   遍历技巧
+'''
+# 在字典中遍历时，关键字和对应的值可以使用 items() 方法同时解读出来：
+for k,v in di.items():
+    print('k:',k,'   v：',v)
+
+# 在序列中遍历时，索引位置和对应值可以使用 enumerate() 函数同时得到：
+
+list1=[33,'hello',33.33,'world']
+for i,v in enumerate(list1):
+    print('i:',i,'   v:',v)
+
+# 同时遍历两个或更多的序列，可以使用 zip() 组合：
+
+list2=['walke','lazy','learning',3.1415]
+for q,a in zip(list1,list2):
+    print('What is your {0}?  It is {1}.'.format(q, a))
+
+# 要反向遍历一个序列，首先指定这个序列，然后调用 reversed() 函数：
+print(type(range(3,15,3)))      # <class 'range'>
+l=range(3,15,3)
+print(l)       # --: range(3, 15, 3)
+li=list(range(3,15,3))
+print(li)       # --: [3, 6, 9, 12]
+
+for num11 in reversed(range(3,15,3)):     # 反向遍历一个序列
+    print( num11)
+print('num11=',num11)                     # --: num11= 3 最后一个值
+
+for num11 in range(3,15,3):     # 反向遍历一个序列
+    print( num11)
+print('num11=',num11)                     # --: num11= 12 最后一个值
+
+# 要按顺序遍历一个序列，使用sorted()函数返回一个已排序的序列，并不修改原值
+
+list2=['walke','lazy','learning','apple']
+
+for i in sorted(list2):  # sorted()函数排序要求列表元素类型一致
+    print(i)
 
 
 

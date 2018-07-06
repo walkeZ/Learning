@@ -161,7 +161,7 @@ python 使用 lambda 来创建 匿名函数。
 sum = lambda arg1, arg2: arg1 + arg2   #主体是一个表达式
 print("sum(10,12)=",sum(10,12))
 
-# test= lambda arg1,arg2,arg3:arg1+(arg2*arg3)  # TypeError: must be str, not int
+# testt= lambda arg1,arg2,arg3:arg1+(arg2*arg3)  # TypeError: must be str, not int
 test= lambda arg1,arg2,arg3:arg1+str(arg2*arg3)
 print(test('两个数的乘积是：',3,4))         # --: 两个数的乘积是：12
 
