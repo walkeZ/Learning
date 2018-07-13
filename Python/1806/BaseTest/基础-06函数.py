@@ -189,7 +189,7 @@ g_count=0                           # 当前文件的全局作用域
 print('x=',x,'g_count=',g_count)
 def outer():
     e_count=1                       # 闭包函数外的函数中
-    print('e_count=',e_count)
+    print('x=',x,'g_count=',g_count,'e_count=',e_count)
     def inner():                    # 方法内的子方法在同一层调用，这是闭包函数
         l_count=2                   # 局部作用域
         print('l_count=',l_count)

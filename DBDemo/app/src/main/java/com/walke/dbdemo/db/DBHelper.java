@@ -15,6 +15,11 @@ import android.util.Log;
  * SQLite3支持NULL、INTEGER、REAL（浮点数字）、TEXT(字符串文本)和BLOB(二进制对象)数据类型，虽然它支持的类型只有五种
  * <p>
  * 使用单例模式，懒汉式，
+ *
+ * Android数据库升级、降级、创建(onCreate() onUpgrade() onDowngrade()）的注意点
+ *      http://www.cnblogs.com/xinye/p/3481352.html
+ *      https://www.cnblogs.com/wdht/p/6125793.html
+ *
  */
 
 public class DBHelper extends SQLiteOpenHelper {
