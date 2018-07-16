@@ -11,20 +11,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="练习6-交换变量.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo/练习6-交换变量.py">
+      <file leaf-file-name="练习06-交换变量.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/练习06-交换变量.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="483">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="练习7-if语句.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demo/练习7-if语句.py">
+      <file leaf-file-name="练习07-if语句.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/练习07-if语句.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+            <state relative-caret-position="299">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="练习08-判断字符串是否为数字.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/练习08-判断字符串是否为数字.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="40" column="50" lean-forward="true" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="练习10-判断闰年.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/练习10-判断闰年.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="练习11-获取最大值函数.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demo/练习11-获取最大值函数.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="27" column="81" lean-forward="true" selection-start-line="27" selection-start-column="81" selection-end-line="27" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -84,12 +111,16 @@
         <option value="$PROJECT_DIR$/BaseTest/基础-06函数.py" />
         <option value="$PROJECT_DIR$/demo/练习6-交换变量.py" />
         <option value="$PROJECT_DIR$/demo/练习7-if语句.py" />
+        <option value="$PROJECT_DIR$/demo/练习08-判断字符串是否为数字.py" />
+        <option value="$PROJECT_DIR$/demo/练习09-判断奇偶数.py" />
+        <option value="$PROJECT_DIR$/demo/练习10-判断闰年.py" />
+        <option value="$PROJECT_DIR$/demo/练习11-获取最大值函数.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="564" />
-    <option name="y" value="154" />
+    <option name="x" value="688" />
+    <option name="y" value="98" />
     <option name="width" value="1623" />
     <option name="height" value="863" />
   </component>
@@ -98,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -119,6 +149,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -126,14 +157,14 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GIT\Learning\Python\1806" />
+      <recent name="D:\GIT\Learning\Python\1806\BaseTest\test" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GIT\Learning\Python\1806\demo" />
       <recent name="D:\GIT\Learning\Python\1806\BaseTest\test" />
       <recent name="D:\GIT\Learning\Python\1806\BaseTest" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\GIT\Learning\Python\1806" />
-      <recent name="D:\GIT\Learning\Python\1806\BaseTest\test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -148,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.练习7-if语句">
+  <component name="RunManager" selected="Python.练习11-获取最大值函数">
     <configuration name="基础-06函数" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1806" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,7 +198,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="练习3-计算三角形面积" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="练习08-判断字符串是否为数字" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1806" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -179,13 +210,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习3-计算三角形面积.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习08-判断字符串是否为数字.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="练习4-随机数生成" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="练习09-判断奇偶数" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1806" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -197,13 +228,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习4-随机数生成.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习09-判断奇偶数.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="练习5-摄氏度和华氏度转化" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="练习10-判断闰年" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1806" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -215,13 +246,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习5-摄氏度和华氏度转化.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习10-判断闰年.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="练习6-交换变量" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="练习11-获取最大值函数" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1806" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -233,7 +264,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习6-交换变量.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习11-获取最大值函数.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -251,26 +282,26 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/练习7-if语句.py" />
+      <option name="SCRIPT_NAME" value="D:\GIT\Learning\Python\1806\demo\练习07-if语句.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.练习3-计算三角形面积" />
-      <item itemvalue="Python.练习4-随机数生成" />
-      <item itemvalue="Python.练习5-摄氏度和华氏度转化" />
-      <item itemvalue="Python.练习6-交换变量" />
       <item itemvalue="Python.练习7-if语句" />
+      <item itemvalue="Python.练习08-判断字符串是否为数字" />
+      <item itemvalue="Python.练习09-判断奇偶数" />
+      <item itemvalue="Python.练习10-判断闰年" />
+      <item itemvalue="Python.练习11-获取最大值函数" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.练习11-获取最大值函数" />
+        <item itemvalue="Python.练习10-判断闰年" />
+        <item itemvalue="Python.练习09-判断奇偶数" />
+        <item itemvalue="Python.练习08-判断字符串是否为数字" />
         <item itemvalue="Python.练习7-if语句" />
-        <item itemvalue="Python.练习6-交换变量" />
-        <item itemvalue="Python.练习5-摄氏度和华氏度转化" />
-        <item itemvalue="Python.练习4-随机数生成" />
-        <item itemvalue="Python.练习3-计算三角形面积" />
       </list>
     </recent_temporary>
   </component>
@@ -288,26 +319,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="564" y="154" width="1623" height="863" extended-state="0" />
+    <frame x="688" y="98" width="1623" height="863" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16179216" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16179216" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.33556148" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39037433" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.44385028" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.03937008" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33556148" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -356,43 +387,30 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/demo/练习3-计算三角形面积.py</url>
+          <url>file://$PROJECT_DIR$/demo/练习03-计算三角形面积.py</url>
           <line>32</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/demo/练习09-判断奇偶数.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/demo/练习09-判断奇偶数.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/demo/练习09-判断奇偶数.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/1402888915/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6348">
-          <caret line="276" column="4" selection-start-line="276" selection-start-column="4" selection-end-line="276" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BaseTest/基础-07数据结构.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1426">
-          <caret line="62" column="24" lean-forward="true" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BaseTest/基础-07数据结构.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BaseTest/基础-05迭代器与生成器.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BaseTest/基础-06函数.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="874">
@@ -630,14 +648,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习1-算术平方根.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习01-算术平方根.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习2-二次方程.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习02-二次方程.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
@@ -651,28 +669,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习4-随机数生成.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习04-随机数生成.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习3-计算三角形面积.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习03-计算三角形面积.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习5-摄氏度和华氏度转化.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习05-摄氏度和华氏度转化.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习5-摄氏度和华氏度转化02.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习05-摄氏度和华氏度转化02.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
@@ -686,17 +704,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习6-交换变量.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习06-交换变量.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="483">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/练习7-if语句.py">
+    <entry file="file://$PROJECT_DIR$/demo/练习07-if语句.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        <state relative-caret-position="299">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/练习09-判断奇偶数.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/练习08-判断字符串是否为数字.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="40" column="50" lean-forward="true" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/练习10-判断闰年.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/练习11-获取最大值函数.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="27" column="81" lean-forward="true" selection-start-line="27" selection-start-column="81" selection-end-line="27" selection-end-column="81" />
         </state>
       </provider>
     </entry>
