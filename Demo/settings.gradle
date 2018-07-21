@@ -1,1 +1,1 @@
-include ':app', ':testunit', ':testui', ':TestEspresso', ':TestUIAutomator'
+include ':app', ':testunit', ':testui', ':TestEspresso', ':TestUIAutomator', ':helloworld'

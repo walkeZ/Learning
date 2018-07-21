@@ -5,6 +5,8 @@
     注意：Android7.0+ 有兼容问题 参考：https://blog.csdn.net/xl_lx/article/details/78717898
     发现：魅族测试手机老是不能运行，
           终端机和模拟器都可以运行，类似UIAutomator Viewer可用情况，初步估计与root权限有关
+
+    Android提取已安装的apk安装包：在百度云盘：测试->apk提取器.apk
 '''
 
 from appium import webdriver

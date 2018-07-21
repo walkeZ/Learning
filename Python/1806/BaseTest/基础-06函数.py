@@ -257,7 +257,9 @@ def outer():
     print('inner_change()调用后',num)
 outer()
 
-
+f=outer
+print('-------函数也算(/是)一种数据类型(/变量)---------')
+f()
 
 
 

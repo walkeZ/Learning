@@ -1,0 +1,4 @@
+这是第二个测试文件，用于体验Python中file相关方法
+walke is a good man , walke is a handsome man 
+walke is nice man
+wlake is a cool man
