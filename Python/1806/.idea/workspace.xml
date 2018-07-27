@@ -10,17 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="基础-09-file常用方法read.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BaseTest/基础-09-file常用方法read.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="102" column="20" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -39,7 +29,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BaseTest/变量类型.py" />
         <option value="$PROJECT_DIR$/BaseTest/数字.py" />
         <option value="$PROJECT_DIR$/BaseTest/Demo.py" />
         <option value="$PROJECT_DIR$/BaseTest/基础-条件控制.py" />
@@ -88,16 +77,17 @@
         <option value="$PROJECT_DIR$/BaseTest/基础-06函数.py" />
         <option value="$PROJECT_DIR$/BaseTest/基础-06函数2-装饰器.py" />
         <option value="$PROJECT_DIR$/BaseTest/Python与Java的不同" />
-        <option value="$PROJECT_DIR$/BaseTest/基础-09-file常用方法write.py" />
         <option value="$PROJECT_DIR$/BaseTest/基础-09-file常用方法read.py" />
+        <option value="$PROJECT_DIR$/BaseTest/tmp/fileTest3.txt" />
+        <option value="$PROJECT_DIR$/BaseTest/基础-09-file常用方法write.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="59" />
-    <option name="y" value="38" />
-    <option name="width" value="1753" />
-    <option name="height" value="1066" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="211" />
+    <option name="y" value="141" />
+    <option name="width" value="1814" />
+    <option name="height" value="835" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -110,21 +100,6 @@
             <path>
               <item name="1806" type="b2602c69:ProjectViewProjectNode" />
               <item name="1806" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="1806" type="b2602c69:ProjectViewProjectNode" />
-              <item name="1806" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="1806" type="b2602c69:ProjectViewProjectNode" />
-              <item name="1806" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseTest" type="462c0819:PsiDirectoryNode" />
-              <item name="tmp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="1806" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -160,7 +135,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.基础-09-file常用方法read">
+  <component name="RunManager" selected="Python.基础-09-file常用方法write">
     <configuration name="基础-06函数" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1806" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -270,18 +245,17 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
+      <item itemvalue="Python.练习15-阿姆斯特朗数" />
       <item itemvalue="Python.基础-09-file常用方法" />
-      <item itemvalue="Python.基础-06函数" />
       <item itemvalue="Python.基础-06函数2-装饰器" />
       <item itemvalue="Python.基础-09-file常用方法write" />
       <item itemvalue="Python.基础-09-file常用方法read" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.基础-09-file常用方法read" />
         <item itemvalue="Python.基础-09-file常用方法write" />
+        <item itemvalue="Python.基础-09-file常用方法read" />
         <item itemvalue="Python.基础-06函数2-装饰器" />
-        <item itemvalue="Python.基础-06函数" />
         <item itemvalue="Python.基础-09-file常用方法" />
       </list>
     </recent_temporary>
@@ -300,16 +274,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="38" width="1753" height="1066" extended-state="0" />
-    <editor active="true" />
+    <frame x="211" y="141" width="1814" height="835" extended-state="1" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13527697" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13063063" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.37551022" side_tool="true" visible="true" weight="0.40929204" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49912536" weight="0.53731346" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3766892" side_tool="true" visible="true" weight="0.49925706" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6244898" weight="0.40929204" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6233108" weight="0.5007429" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -320,25 +292,26 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49912536" weight="0.53731346" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5505735" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.13541667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3342246" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5505735" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.6751337" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3342246" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -431,13 +404,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BaseTest/test_time02.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BaseTest/基础-07-1del的用法.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -764,17 +730,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BaseTest/tmp/fileTest3.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/BaseTest/基础-09-file常用方法write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="88" column="32" lean-forward="true" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+        <state relative-caret-position="288">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BaseTest/基础-09-file常用方法read.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="102" column="20" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
+        <state relative-caret-position="23">
+          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
         </state>
       </provider>
     </entry>

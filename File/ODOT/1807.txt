@@ -1,0 +1,27 @@
+day 27
+
+1.Android listview scrollview等滑动控件去除顶部下拉时的本月阴影和上下滑动时，
+  顶部和底部的虚化
+  参考：https://blog.csdn.net/dodod2012/article/details/50232275
+  在Android5.0中正常的listview、scrollview等滑动控件在下、上拉时会出现半月形的阴影效果，
+  要去除该默认效果可设置：对控件设置 android: overScrollMode="never"
+  默认情况下ListView/ScrollView在进入和滑出控件时会出现一层虚化的效果，
+  去除该默认效果可设置：android = fadingEdge="none".
+
+2.Https的图片下载需要做一定的兼容。
+	参考：https://www.aliyun.com/jiaocheng/5265.html
+  原因android 也就是说低于API 20+(即android5.0一下)的版本是默认关闭对TLSv1.1和TLSv1.2的支持,若要支持则必须自己打开。
+   SSLContext sc = SSLContext.getInstance("TLS");
+   sc.init(null, null, null);
+   client.setSslSocketFactory(new PicassoSslSocketFactory(sc.getSocketFactory()));
+
+   或 FinalHttp框架。参考终端---浙江投标项目
+   FinalHttp fh = new FinalHttp();
+   KeyStore trustStore = java.security.KeyStore.getInstance(KeyStore.getDefaultType());
+   trustStore.load(null, null);
+   fh.configSSLSocketFactory(new SSLSocketFactoryEx(trustStore));
+   String realpath = path + TerminalApplication.mImageXml.get(key);
+
+
+3.Java基础之list
+

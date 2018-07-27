@@ -1,3 +1,4 @@
+
 1.从手机获取文件，
 
 adb pull /storage/emulated/0/TermialLog  C:\Users\caihui\Desktop\LogTest\
@@ -10,6 +11,8 @@ adb push D:\work\terminalKey\secret.key  /mnt/sdcard/
 adb push D:\xxx.key  /mnt/sdcard/
 
 adb push D:\work\terminalKey\zs\002\secret.key  /mnt/sdcard/
+
+adb push D:\secret.key  /mnt/sdcard/
 
 //文件夹
 
@@ -45,4 +48,38 @@ adb pull /sdcard/screenshot.png d:/screenshot.png（保存到电脑
 
 
 6.adb devices查看调试连接的设备
+
+
+7.monkey压力测试(即乱点)
+adb shell monkey -p 你想测试程序的包名 -v 500
+adb shell monkey -p com.guaguayi.app.android -v 500
+使用流程：进入cmd的控制台-> adb shell【进入Android系统】 
+			-> adb devices【查看连接的设备(模拟器)】
+			-> adb shell monkey -p 你想测试程序的包名 -v 500
+			
+			
+
+
+反编译相关
+路径+命令
+C:\Users\caihui\Desktop\zz\dex2jar-0.0.9.15> d2j-dex2jar.bat classes.dex
+-or- C:\Users\caihui\Desktop\zz\dex2jar-0.0.9.15>dex2jar.bat classes.dex
+将apk反编译(解码)，apk文件和apktool同目录下，会自动生成文件夹HelloWorld，有original、res、smali文件夹
+C:\Users\caihui\Desktop\zz\apktool1.4.1> apktool.bat  d  HelloWorld.apk
+
+
+重新打包成apk，apk文件和apktool同目录下就会在HelloWorld目录下生成两个文件夹：
+  build 文件夹里面是一些中间文件（classes.dex等内容），dist 文件夹里面存放着重新打包出来的apk文件
+C:\Users\caihui\Desktop\zz\apktool>apktool.bat  b  HelloWorld
+
+
+
+
+
+
+
+
+
+
+
 
