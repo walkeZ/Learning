@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hui.mvptest.banner.view.widget.BannerViewPager1
+        android:id="@+id/ab_bannerViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"/>
+
+    <com.hui.mvptest.banner.view.widget.BannerView2
+        android:id="@+id/ab_bannerView2"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="5dp"/>
+    <com.hui.mvptest.banner.view.widget.BannerView
+        android:id="@+id/ab_bannerView"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="click1"
+            android:onClick="click1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="click2"
+            android:onClick="click2"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="click3"
+            android:onClick="click3"/>
+    </LinearLayout>
+
+
+</LinearLayout>

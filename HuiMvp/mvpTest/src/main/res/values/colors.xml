@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textBlack">#797979</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparentPress">#55000000</color>
+    <color name="line">#eaeaea</color>
+    <color name="holo_blue">#FF33E5B5</color>
+    <color name="color_ec407a">#ec407a</color>
+    <color name="color_71d9e7">#71d9e7</color>
+</resources>

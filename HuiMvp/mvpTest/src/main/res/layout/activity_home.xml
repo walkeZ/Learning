@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+    f父布局使用 android:paddingTop="23dp"
+    或者子布局ViewPager使用  android:layout_marginTop="23dp"
+    还是会导致状态栏全白，
+    -->
+    <!--<TextView
+        android:id="@+id/ah_status"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"/>-->
+
+    <RadioGroup
+        android:id="@+id/ah_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp">
+
+        <RadioButton
+            android:id="@+id/ah_rbFirst"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_first"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="@drawable/tab_text_color"
+            android:textSize="11sp" />
+
+        <RadioButton
+            android:id="@+id/ah_rbViews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_views"
+            android:gravity="center"
+            android:text="Views"
+            android:textColor="@drawable/tab_text_color"
+            android:textSize="11sp" />
+
+        <RadioButton
+            android:id="@+id/ah_rbNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_news"
+            android:gravity="center"
+            android:drawablePadding="2dp"
+            android:text="消息"
+            android:textColor="@drawable/tab_text_color"
+            android:textSize="11sp" />
+
+        <RadioButton
+            android:id="@+id/ah_rbMine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_mine"
+            android:gravity="center"
+            android:drawablePadding="2dp"
+            android:text="我"
+            android:textColor="@drawable/tab_text_color"
+            android:textSize="11sp" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/ah_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ah_radioGroup"/>
+
+    <ImageView
+        android:id="@+id/ah_launch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/launch" />
+
+
+</RelativeLayout>

@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 /**
  *
- * https://www.jianshu.com/p/67c2f4ae9a6e
- * https://www.jianshu.com/p/b373aec43c01
+ * https://www.jianshu.com/p/67c2f4ae9a6e  在Android Studio中进行单元测试和UI测试
+ * https://www.jianshu.com/p/b373aec43c01  写给Android开发者的UI自动化测试上手指南
  *
  */
 public class UITestActivity extends ActionBarActivity {

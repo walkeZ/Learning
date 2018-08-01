@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7dbde6"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="title"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginTop="22dp"/>
+
+    <com.hui.mvptest.refresh.webview.RefreshWebViewLinearLayout
+        android:id="@+id/arw_RefreshWebViewLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.hui.mvptest.refresh.webview.RefreshWebView
+            android:id="@+id/at_webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.hui.mvptest.refresh.webview.RefreshWebViewLinearLayout>
+
+
+
+
+</LinearLayout>
