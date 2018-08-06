@@ -13,6 +13,12 @@ from selenium.webdriver.common.by import By
 import time
 
 
+
+
+
+
+
+
 desired_caps = {}
 desired_caps['platformName'] = 'Android'
 desired_caps['platformVersion'] = '5.1'      # 模拟器 ，发现也可以运行在不同系统的模拟器中【4.4、6.0都可以】

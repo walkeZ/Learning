@@ -10,85 +10,72 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="android_test02.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android_test02.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="android_test03.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android_test03.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-384" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="android_test04.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/android_test04.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="android_test07_qq_login.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android_test07_qq_login.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="android_test01.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android_test01.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="android_test06.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android_test06.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="test_selenium.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_selenium.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="android_test05.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android_test05.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ggy_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ggy_test.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.9">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="android_test08_ggy.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/android_test08_ggy.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="556">
+                  <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="android_test06.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/android_test06.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="483">
+                  <caret line="26" column="40" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="40" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="android_test04.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/android_test04.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-307">
+                  <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="android_test03.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/android_test03.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-345" />
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>unittest</find>
+      <find>test_</find>
+      <find>tearDown</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/android_test07_qq_login.py" />
         <option value="$PROJECT_DIR$/android_test04.py" />
+        <option value="$PROJECT_DIR$/android_test07_qq_login.py" />
+        <option value="$PROJECT_DIR$/android_test06.py" />
+        <option value="$PROJECT_DIR$/android_test08_ggy.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="26" />
-    <option name="width" value="1623" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-44" />
+    <option name="y" value="-9" />
+    <option name="width" value="1940" />
     <option name="height" value="1023" />
   </component>
   <component name="ProjectView">
@@ -113,6 +100,11 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GIT\Learning\Python\AndroidTest" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -124,6 +116,44 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Python tests.Unittests for android_test08_ggy.Login">
+    <configuration name="Unittests for android_test08_ggy.Login" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="AndroidTest" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;android_test08_ggy.Login&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests in android_test08_ggy.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="AndroidTest" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/android_test08_ggy.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.Unittests in android_test08_ggy.py" />
+      <item itemvalue="Python tests.Unittests for android_test08_ggy.Login" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Unittests for android_test08_ggy.Login" />
+        <item itemvalue="Python tests.Unittests in android_test08_ggy.py" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -138,20 +168,52 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 18h 51m 18s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 18h 52m 16s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 02m 55s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 06m 41s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 14m 46s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 15m 21s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 15m 59s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 19m 50s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 21m 20s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_android_test08_ggy_Login - 2018.08.03 at 19h 24m 23s.xml">
+      <configuration name="Unittests for android_test08_ggy.Login" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="26" width="1623" height="1023" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2495333" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12592202" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.38478747" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -164,10 +226,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="5" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/android_test02.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/android_test01.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -330,18 +394,8 @@
     <entry file="file://C:/Program Files (x86)/Python36-32/Lib/unittest/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/android_test01.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ggy_test.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android_test05.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/Python36-32/Lib/unittest/main.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -350,31 +404,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android_test06.py">
+    <entry file="file://$PROJECT_DIR$/android_test02.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/test_selenium.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/android_test01.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/android_test07_qq_login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="506">
+          <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android_test02.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android_test03.py">
+    <entry file="file://$PROJECT_DIR$/android_test05.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-384" />
+        <state relative-caret-position="299">
+          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android_test06.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="40" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android_test04.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
+        <state relative-caret-position="-307">
           <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android_test03.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python36-32/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python36-32/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android_test08_ggy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
         </state>
       </provider>
     </entry>

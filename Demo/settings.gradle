@@ -1,1 +1,1 @@
-include ':app', ':testunit', ':testui', ':TestEspresso', ':TestUIAutomator', ':helloworld', ':javabase', ':jar_demo'
+include ':app', ':testunit', ':testui', ':TestEspresso', ':TestUIAutomator', ':helloworld', ':javabase', ':jar_demo', ':mianshi'
