@@ -14,6 +14,8 @@ adb push D:\work\terminalKey\zs\002\secret.key  /mnt/sdcard/
 
 adb push D:\secret.key  /mnt/sdcard/
 
+adb push D:\rgb.png  /mnt/sdcard/
+
 //文件夹
 
 //文件夹

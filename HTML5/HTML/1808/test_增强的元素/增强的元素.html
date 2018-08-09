@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 格式化代码本机:Ctrl+shift+H -->
+<head>
+    <title>增强的元素</title>
+</head>
+<body>
+	
+	<figure>
+	<img src="imgs/xigua.png">
+	<figcaption style="align-self: center;">灯塔</figcaption>
+	</figure>
+	
+	<script type="text/javascript">
+		function detail_click(){
+			var p=document.getElementById("p");
+			if (detail.open) {
+				p.style.visibility="hidden";
+			}else{
+				p.style.visibility="visible";
+			}
+		}
+	</script>
+
+	<details id="detail" onclick="detail_click"> 
+		<summary>yanglong</summary>
+		<p id="p" style="visibility: hidden;"><mark>示例</mark>示例</p>
+	</details>
+	<br>
+	<br>
+
+	<script type="text/javascript">
+		function btn(){
+			var i=0;
+			function thread_one(){
+				if (i<100) {
+					i++;
+					updateProgress(i);
+				}
+			}
+			setInterval(thread_one,200);
+		}
+
+		function updateProgress(newValue){
+			var progressBar=document.getElementById("progress");
+			progressBar.value=newValue;
+			progressBar.getElementsByTagName("span")[0].textContent =newValue;
+		}
+
+	</script>
+	<progress style="background-color: #269abc" id="progress" value="11" max="50" onchange="thread_one()"></progress>
+	<input type="button" value="加载" onclick="btn()" name="intp"/>
+	<br>
+	<br>
+	<meter value="40" min="0" max="100" low="10" high="90" optimum="80"></meter>
+
+
+</body>
+
+</html>

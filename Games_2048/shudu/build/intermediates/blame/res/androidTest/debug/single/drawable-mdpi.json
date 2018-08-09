@@ -2,5 +2,9 @@
     {
         "merged": "D:\\ASprojects\\AS2.3.3\\1801\\OpenSudoku\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi\\icon.png",
         "source": "D:\\ASprojects\\AS2.3.3\\1801\\OpenSudoku\\app\\src\\androidTest\\res\\drawable-mdpi\\icon.png"
+    },
+    {
+        "merged": "D:\\GIT\\Learning\\Games_2048\\shudu\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi\\icon.png",
+        "source": "D:\\GIT\\Learning\\Games_2048\\shudu\\src\\androidTest\\res\\drawable-mdpi\\icon.png"
     }
 ]
