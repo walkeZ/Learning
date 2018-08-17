@@ -6,6 +6,11 @@
   也在这两份代码中探索了一下单例模式(深入理解了一翻)，和练习了一下基础排序算法(暂时仅冒泡)，待完善
 3.AutoLayoutDemo改名为ViewDemo_AutoLayout，以后用于放置新的View(动画、新控件、自定义控件等)练习,默认app的model是AutoLayou
 
+4.添加了mianshi项目，主要用于复习基础
+
+5.20180806:对HuiMVP项目进行了优化修改，并对MVP模式有了自己的理解。
+
+
 
 
 

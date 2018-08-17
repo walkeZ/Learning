@@ -114,7 +114,7 @@ public class LoginActivityDemo extends BaseActivity_5<ILoginView_5,LoginPresente
         mLoginPresenter2.attachView(this);
         mLoginPresenter2.loggin(etName.getText().toString().trim(),etPassword.getText().toString().trim());
         //发现问题：一个类还好，如果多个类presenter，绑定、解绑都要反复定义？
-        //解决方案：将绑定解绑进行抽象(封装)->BasePresenter
+        //解决方案：将绑定解绑进行抽象(封装)->BasePresenter1
     }
 
     private void login4() {//第三步优化

@@ -2,6 +2,8 @@
 
 社保号： 3002958482
 
+ANT 敏捷看板： 志辉  123456
+
 
 0.终端后台地址(个人账号：walke 密码：147258)
 
@@ -74,8 +76,18 @@ C:\ProgramData\Oracle\Java\javapath
 
 
 
+静默安装遇到bug：安装不了在run中显示error信息如下：
+$ adb shell pm install -r "/data/local/tmp/com.example.slienceinstall"
+WARNING: linker: libdvm.so has text relocations. This is wasting memory and is a security risk. Please fix.
+	pkg: /data/local/tmp/com.example.slienceinstall
+Failure [INSTALL_FAILED_SHARED_USER_INCOMPATIBLE]
 
+Unknown failure (Failure)
+Error while Installing APK
 
+发现与aidl无关。
+
+原因：manifest文件中多了一个属性： android:sharedUserId="android.uid.system"
 
 
 

@@ -19,6 +19,7 @@
    SSLContext sc = SSLContext.getInstance("TLS");
    sc.init(null, null, null);
    client.setSslSocketFactory(new PicassoSslSocketFactory(sc.getSocketFactory()));
+   // client是
 
    或 FinalHttp框架。参考终端---浙江投标项目
    FinalHttp fh = new FinalHttp();
@@ -29,4 +30,7 @@
 
 
 4.Java基础之list
+
+
+
 
