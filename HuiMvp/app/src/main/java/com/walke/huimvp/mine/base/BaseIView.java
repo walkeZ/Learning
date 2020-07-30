@@ -19,7 +19,7 @@ package com.walke.huimvp.mine.base;
  *                【PS: presenter 翻译： 提出者；推荐者；赠送者；任命者；主持人】
  *
  * 主要逻辑思路：
- *      1.view层，根据设计图实现基本布局，然后根据业务变化而引起布局显示变化，则构思设计为IView接口(业务变化是回调给View层(Activity/Fragment))，
+ *      1.view层，根据设计图实现基本布局(Xml+自定义)，然后根据业务变化而引起布局显示变化，来构思设计对应的IView接口(业务变化是回调给View层(Activity/Fragment))，
  *        Activity/Fragment实现该接口，在对应回调(比如显示/隐藏进度条，(登录成功)界面切换)中做响应处理。
  *      2.数据模型层：即 JavaBean 的设计思路，①布局中动态改变的属性为必备[后台，移动端都具备]
  *        (常见的商品：name、price、total(库存)、discount、number(选择)，desc(描述)，time,browse(浏览记录);用户信息：name、age、sex、address、email等)，

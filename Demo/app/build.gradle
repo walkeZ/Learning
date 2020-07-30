@@ -34,4 +34,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     // recyclerView
     compile 'com.android.support:design:26.0.0-alpha1'
+    // 位置經緯度
+//    compile 'com.github.quentin7b:android-location-tracker:3.2'
 }

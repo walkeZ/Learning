@@ -12,8 +12,15 @@ import android.widget.Toast;
 
 import com.walke.demo.BaseMVPActivity;
 import com.walke.demo.R;
+import com.walke.demo.apk.PhoneMacUtil;
+import com.walke.demo.callback.TestInterface;
+import com.walke.demo.image.ImageActivity;
+import com.walke.demo.location_phone_system.GetLocationActivity;
+import com.walke.demo.location_phone_system.GetLocationActivity2;
+import com.walke.demo.location_phone_system.GetLocationActivity3;
 import com.walke.demo.main.MainAdapter;
 import com.walke.demo.main.presenter.MainPresenter;
+import com.walke.demo.myclick.SpannableStringClickActivity;
 import com.walke.demo.photo_album_3d.Photo3DActivity;
 
 import java.util.ArrayList;
@@ -38,16 +45,43 @@ public class MainActivity extends BaseMVPActivity<MainPresenter> implements Main
 
         initActivitys();
 
-         // 验证View中的context能否强转为Activity，发现地址一样(同一个东西)
+        //mac
+        String mac = PhoneMacUtil.getMac(this);
+//        ((TextView) findViewById(R.id.textView)).setText(mac+"");
+        Log.i("walke:   MainActivity", "   onCreate:---wifi----> mac: "+mac);
+        // onCreate:---wifi----> mac: B0:55:08:EC:D9:C8    //手机上系统设置控制
+        // onCreate:-------> mac: 58:02:03:04:05:06
+        // 验证View中的context能否强转为Activity，发现地址一样(同一个东西)
         Log.i("walke:   MainActivity", "   onCreate:-------> this；"+this);
         Context context = findViewById(R.id.textView).getContext();
         Log.i("walke:   MainActivity", "   onCreate:-------> context: "+context);
+        // onCreate:-------> this；com.walke.demo.main.views.MainActivity@d98d496
+        // onCreate:-------> context: com.walke.demo.main.views.MainActivity@d98d496
+
+        tt(new TestInterface() {
+            @Override
+            public int getSize() {
+                return 10;
+            }
+        });
+
 
     }
+
+    private void tt(TestInterface testInterface){
+        int size = testInterface.getSize();
+        Log.i("walke: ", " MainActivity:  tt:-------> size="+size);
+    }
+
 
     private void initActivitys() {
         mActivitys = new ArrayList<>();
         mActivitys.add(Photo3DActivity.class);
+        mActivitys.add(ImageActivity.class);
+        mActivitys.add(SpannableStringClickActivity.class);
+        mActivitys.add(GetLocationActivity.class);
+        mActivitys.add(GetLocationActivity2.class);
+        mActivitys.add(GetLocationActivity3.class);
 
     }
 
@@ -59,6 +93,11 @@ public class MainActivity extends BaseMVPActivity<MainPresenter> implements Main
         }
         List<String> list=new ArrayList<>();
         list.add("Photo3D");
+        list.add("Image");
+        list.add("富文本点击、超链接");
+        list.add("GetLocationActivity");
+        list.add("GetLocationActivity2");
+        list.add("GetLocationActivity3");
         mMainAdapter = new MainAdapter(list);
         mMainAdapter.setOnItemClickListener(this);
         mRecyclerView.setAdapter(mMainAdapter);

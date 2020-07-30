@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!--<com.walke.demo.image.CircleImageView-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@mipmap/p1"/>-->
+
+
+    <com.walke.demo.image.XmlRoundImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/p1"
+        android:layout_marginTop="6dp"
+        android:scaleType="centerCrop"
+        app:roundHeight="8dp"
+        app:roundWidth="4dp"/>
+    <com.walke.demo.image.XmlRoundImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/p1"
+        android:layout_marginTop="6dp"
+        android:scaleType="centerCrop"
+        app:roundHeight="6dp"
+        app:roundWidth="6dp"/>
+
+</LinearLayout>

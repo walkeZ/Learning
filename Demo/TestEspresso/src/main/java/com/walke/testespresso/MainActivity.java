@@ -41,9 +41,10 @@ import butterknife.OnClick;
  *
  *   发现：
  *   1.uiautomatorviewer.bat工具打开异常：弹出控制台，3秒内自动关闭，
- *   原因：可能是sdk版本(或者路径)不同，本机Android2.3.2的sdk中uiautomatorviewer.bat位于\tools\bin下，发送该异常
+ *   原因：可能是sdk版本(或者路径)不同，本机Android2.3.2的sdk中uiautomatorviewer.bat位于\tools\bin下，发现该异常
  *        另一个sdk中位于%ANDROID_SDK%\tools中，正常(弹出控制台后约3秒内启动目标界面UI Automator Viewer)
  *   2.uiautomatorviewer.bat工具查看布局元素需要root权限，一般来说就是找模拟器(将app安装到模拟器)的。
+ *
  *
  */
 public class MainActivity extends AppCompatActivity {

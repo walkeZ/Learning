@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.walke.demo">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <!-- 连接互联网Internet权限 -->
+       
+    <uses-permission android:name="android.permission.INTERNET"/>
+        <!-- GPS定位权限 -->
+       
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+       
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".main.views.MainActivity">
+        <!--<activity android:name=".custom_refresh.CustomRefreshActivity">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -17,6 +31,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".photo_album_3d.Photo3DActivity"/>
+        <activity android:name=".image.ImageActivity"/>
+        <activity android:name=".myclick.SpannableStringClickActivity"/>
+        <activity android:name=".location_phone_system.GetLocationActivity"/>
+        <activity android:name=".location_phone_system.GetLocationActivity2"/>
+        <activity android:name=".location_phone_system.GetLocationActivity3"/>
     </application>
 
 </manifest>

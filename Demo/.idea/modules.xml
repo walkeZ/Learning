@@ -6,10 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/TestEspresso/TestEspresso.iml" filepath="$PROJECT_DIR$/TestEspresso/TestEspresso.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestUIAutomator/TestUIAutomator.iml" filepath="$PROJECT_DIR$/TestUIAutomator/TestUIAutomator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coordinatorlayout_demo/coordinatorlayout_demo.iml" filepath="$PROJECT_DIR$/coordinatorlayout_demo/coordinatorlayout_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/helloworld/helloworld.iml" filepath="$PROJECT_DIR$/helloworld/helloworld.iml" />
       <module fileurl="file://$PROJECT_DIR$/jar_demo/jar_demo.iml" filepath="$PROJECT_DIR$/jar_demo/jar_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/javabase/javabase.iml" filepath="$PROJECT_DIR$/javabase/javabase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mianshi/mianshi.iml" filepath="$PROJECT_DIR$/mianshi/mianshi.iml" />
       <module fileurl="file://$PROJECT_DIR$/mianshi/mianshi.iml" filepath="$PROJECT_DIR$/mianshi/mianshi.iml" />
       <module fileurl="file://$PROJECT_DIR$/testui/testui.iml" filepath="$PROJECT_DIR$/testui/testui.iml" />
       <module fileurl="file://$PROJECT_DIR$/testunit/testunit.iml" filepath="$PROJECT_DIR$/testunit/testunit.iml" />

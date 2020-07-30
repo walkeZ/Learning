@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/acss_tvText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="我是文本加图片"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:id="@+id/acss_tvText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="我是文本加图片"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:id="@+id/acss_tvText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="我是文本加图片"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:id="@+id/acss_tvText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="我是文本加图片"
+        android:textSize="17sp"/>
+    <com.walke.demo.myclick.SubClickTextView
+        android:id="@+id/acss_tvText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="我是文本加图片"
+        android:textSize="20sp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        />
+
+</LinearLayout>

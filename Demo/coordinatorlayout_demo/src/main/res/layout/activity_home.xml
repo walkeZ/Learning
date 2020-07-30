@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!-- 协调者根布局 ,导入依赖：design26+-->
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 协调者头布局AppBarLayout是一个实现了很多材料设计特性的垂直的LinearLayout，它能响应滑动事件。
+            必须在它的子view上设置app:layout_scrollFlags属性或者是在代码中调用setScrollFlags()设置这个属性。
+            这个类的特性强烈依赖于它是否是一个CoordinatorLayout的直接子view，如果不是，那么它的很多特性不能
+            够使用。AppBarLayout需要一个具有滑动属性的兄弟节点view，并且在这个兄弟节点View中指定behavior属性
+            为AppBarLayout.ScrollingViewBehavior的类实例，可以使用一个内置的string表示这个默认的实例
+            @string/appbar_scrolling_view_behavior
+        AppBarLayout的子布局有5种滚动标识：【在子布局使用】
+            scroll：所有想滚动出屏幕的view都需要设置这个flag， 没有设置这个flag的view将被固定在屏幕顶部。
+            enterAlways：这个flag让任意向下的滚动都会导致该view变为可见，启用快速“返回模式”
+            enterAlwaysCollapsed：假设你定义了一个最小高度（minHeight）同时enterAlways也定义了，那么view将在
+                        到达这个最小高度的时候开始显示，并且从这个时候开始慢慢展开，当滚动到顶部的时候展开完。
+            exitUntilCollapsed：当你定义了一个minHeight，此布局将在滚动到达这个最小高度的时候折叠。
+            snap：当一个滚动事件结束，如果视图是部分可见的，那么它将被滚动到收缩或展开。
+                例如，如果视图只有底部25%显示，它将折叠。相反，如果它的底部75%可见，那么它将完全展开
+        -->
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- 折叠控件 -->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e8fa0328"
+                android:fitsSystemWindows="true"
+                android:minHeight="30dp"
+                app:collapsedTitleTextAppearance="@style/ToolBarTitleText"
+                app:contentScrim="#fe068263"
+                app:expandedTitleTextAppearance="@style/transparentText"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
+                >
+                <!--
+                app:expandedTitleMarginEnd="48dp"
+                app:expandedTitleMarginStart="48dp"
+                -->
+
+
+                <!-- 参与折叠的布局 -->
+                <include layout="@layout/find_header"
+                         app:layout_collapseMode="pin"
+                         app:layout_collapseParallaxMultiplier="0.7"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="#ff6a00"
+                    app:layout_collapseMode="pin"
+                    >
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_launcher"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="发现动态"
+                        android:textColor="#000"
+                        android:textSize="17sp"/>
+                </RelativeLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <!-- 停靠显示的title兰 -->
+            <!-- 不参与折叠的布局 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#ff0"
+                >
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="发现动态"
+                    android:textColor="#000"
+                    android:textSize="17sp"/>
+            </RelativeLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!-- 底部:重要属性；app:layout_behavior -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/find_RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

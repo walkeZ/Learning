@@ -32,14 +32,14 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         HomeHolder homeHolder = (HomeHolder) holder;
-        ViewDataBinding binding = homeHolder.getBinding();
+//        ViewDataBinding binding = homeHolder.getBinding();
         //参数一:包名.BR.布局variable的name
-        binding.setVariable(com.walke.mianshi.BR.title, datas[position]);
-        binding.executePendingBindings();
-        if (position % 2 == 0)
-            homeHolder.mImageView.setImageResource(R.mipmap.ic_launcher);
-        else
-            homeHolder.mImageView.setImageResource(R.mipmap.ic_launcher_round);
+//        binding.setVariable(com.walke.mianshi.BR.title, datas[position]);
+//        binding.executePendingBindings();
+//        if (position % 2 == 0)
+//            homeHolder.mImageView.setImageResource(R.mipmap.ic_launcher);
+//        else
+//            homeHolder.mImageView.setImageResource(R.mipmap.ic_launcher_round);
     }
 
     @Override
