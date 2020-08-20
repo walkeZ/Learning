@@ -3,6 +3,7 @@
     package="com.walke.ktpractice">
 
     <application
+        android:name=".base.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +17,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".with_flutter.Flutter01Activity"/>
+        <activity android:name=".with_flutter.Flutter02Activity"/>
+        <activity android:name=".with_flutter.Flutter03Activity"/>
+
+        <activity
+            android:name="io.flutter.embedding.android.FlutterActivity"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize"
+            />
+
     </application>
 
 </manifest>

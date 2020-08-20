@@ -1,6 +1,26 @@
+import 'dart:ui';
+
+import 'package:first_module/native/NativeConnect.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+// import 'NativeConnect.dart';
+
+//main() 既是Flutter项目的入口，也是Flutter作为module时原生接入的入口
+// void main() => runApp(NativeConnect01(data:window.defaultRouteName));
+
+// void main() =>runApp(MyApp());
+// void main() =>runApp(NativeConnect(nativeData: '88888888',));
+
+// 发现vscode 需要手动保存，另vscode的提示较慢，比如Center()中的child属性，不能立即chi(前缀)提示。要先点击到其他地方再点回来，才有前缀提示
+// 另外没保存时Mac中左上角的”x“显示一个小圆点”·“
+
+// void main() =>runApp(NativeConnect01(nativeData: window.defaultRouteName,));
+void main() => runApp(ConnectNative02(
+      route: window.defaultRouteName,
+    ));
+
+// 新版特性，自定义原生接入点方法，(推理)要在main.dart文件中。试验成功
+void myEntryPoint() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".with_flutter.Flutter01Activity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/flutter01_flContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A9FD3E3E"/>
+
+    <TextView
+        android:id="@+id/flutter01_tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Flutter01"
+        android:textSize="17sp"
+        android:gravity="center"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/flutter01_tvMeddle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Flutter01"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:layout_marginTop="90dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimaryDark"
+        tools:ignore="MissingConstraints" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,12 @@
 include ':demo_mvp1'
 rootProject.name='KtPractice'
 include ':app'
+
+setBinding(new Binding([gradle:this]))
+
+// 指明.android 的 .groovy文件，参数是路径，../当前项目目录的父目录
+evaluate(new File('../Flutter/Module/first_module/.android/include_flutter.groovy'))
+
+include(':first_module')
+
+project(':first_module').projectDir=new File('../Flutter/Module/first_module')

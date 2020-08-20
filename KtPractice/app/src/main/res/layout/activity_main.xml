@@ -6,6 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/main_tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Android 打开(接入)Flutter页面"
+            android:gravity="center"
+            android:onClick="onClick"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/main_btTF01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="FlutterFragment"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/main_btTF02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="toFlutter02"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/main_btTF03"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="FlutterActivity.cdi"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/main_btTF04"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="FlutterActivity.e.r.b"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/main_btTF05"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="FluAct02"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/main_btTF06"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="FluAct03"
+                android:textSize="12sp"
+
+                />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/main_frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CEB2F6F0" />
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,5 +114,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
