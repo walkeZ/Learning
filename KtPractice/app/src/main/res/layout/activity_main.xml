@@ -97,6 +97,44 @@
 
                 />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/main_btTF07"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="Flutter04Activity"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/main_btTF08"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="FluAct02"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/main_btTF09"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:text="FluAct03"
+                android:textSize="12sp"
+
+                />
+        </LinearLayout>
 
         <FrameLayout
             android:id="@+id/main_frameLayout"

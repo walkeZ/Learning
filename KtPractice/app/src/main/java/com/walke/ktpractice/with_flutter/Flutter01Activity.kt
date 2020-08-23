@@ -25,7 +25,7 @@ class Flutter01Activity : AppCompatActivity() {
     companion object {
         fun start(activity: AppCompatActivity, data: String) {
             var intent = Intent(activity, Flutter01Activity::class.java)
-            intent.putExtra(IntentTool.key_data, data)
+            intent.putExtra(IntentTool.KEY_DATA, data)
             activity.startActivityForResult(intent, 0)
         }
     }
@@ -42,7 +42,7 @@ class Flutter01Activity : AppCompatActivity() {
     }
 
     private fun initData() {
-        flutter01_tvTitle.text = intent.getStringExtra(IntentTool.key_data)
+        flutter01_tvTitle.text = intent.getStringExtra(IntentTool.KEY_DATA)
     }
 
     private fun initViewsMy() {

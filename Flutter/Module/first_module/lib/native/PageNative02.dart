@@ -1,6 +1,7 @@
 import 'package:first_module/config/cfChannel.dart';
 import 'package:flutter/material.dart';
 
+/// MethodChannel交互
 class PageNative02 extends StatefulWidget {
   String title = '默认标题';
   String _title = '私有标题'; // 以下划线"_"开头的代表私有访问权限即仅在当前文件/widget 内。
@@ -12,7 +13,7 @@ class PageNative02 extends StatefulWidget {
 /**
    * 以下划线开头的代表私有访问权限即仅在当前文件/widget 内。
    */
-///
+/// MethodChannel 交互
 class _PageNativeState02 extends State<PageNative02> {
   String _nativeData = '--';
   String _addFriendResult = '--';
@@ -69,8 +70,9 @@ class _PageNativeState02 extends State<PageNative02> {
   }
 
   /**
-       * Flutter 调原生事例1不带参。
-       */
+   * Flutter 调原生事例1不带参。
+   */
+  ///
   Future<void> _getActivityResult() async {
     String result;
     try {

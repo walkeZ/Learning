@@ -37,8 +37,8 @@ class Flutter03Activity : AppCompatActivity() {
 
         fun start(activity: AppCompatActivity, title: String) {
             var intent = Intent(activity, Flutter03Activity::class.java)
-            intent.putExtra(IntentTool.key_title, title)
-            activity.startActivityForResult(intent, 0)
+            intent.putExtra(IntentTool.KEY_TITLE, title)
+            activity.startActivityForResult(intent, IntentTool.REQUEST_CODE_DEFAULT)
             activity.overridePendingTransition(R.anim.intent_enter, 0)// 该方法应在start、finish后
         }
     }
@@ -54,7 +54,7 @@ class Flutter03Activity : AppCompatActivity() {
 
 
     private fun initContent() {
-        flutter03_tvTitle.text = intent.getStringExtra(IntentTool.key_title)
+        flutter03_tvTitle.text = intent.getStringExtra(IntentTool.KEY_TITLE)
         var withCachedEngine = FlutterFragment.withCachedEngine(key_flutter_engine2)
             .transparencyMode(TransparencyMode.transparent) // transparent上层的底部按钮(addFlutterCount)不显示,opaque显示
             .shouldAttachEngineToActivity(false) // 不影响MethodChannel交互

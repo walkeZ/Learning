@@ -5,6 +5,7 @@ import 'package:first_module/page/DefaultPage.dart';
 import 'package:flutter/material.dart';
 
 import 'PageNative02.dart';
+import 'PageNative03.dart';
 
 ///
 ///
@@ -67,6 +68,7 @@ class ConnectNativeState02 extends State<ConnectNative02> {
         '/': (context) => DefaultPage(),
         'page01': (context) => PageNative01(),
         'page02': (context) => PageNative02(),
+        'page03': (context) => PageNative03(),
       },
     );
   }

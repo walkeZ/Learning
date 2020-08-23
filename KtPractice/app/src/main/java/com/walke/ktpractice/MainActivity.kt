@@ -8,6 +8,7 @@ import com.walke.ktpractice.constant.toast
 import com.walke.ktpractice.with_flutter.Flutter01Activity
 import com.walke.ktpractice.with_flutter.Flutter02Activity
 import com.walke.ktpractice.with_flutter.Flutter03Activity
+import com.walke.ktpractice.with_flutter.Flutter04Activity
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragment
 
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                 Flutter03Activity.start(this, "Flutter03 MethodChannel")
 
             }
+            R.id.main_btTF07->Flutter04Activity.start(this,"Flutter04Activity EventChannel")
 
 
         }

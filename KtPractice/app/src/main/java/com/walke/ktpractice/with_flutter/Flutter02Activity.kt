@@ -30,7 +30,7 @@ class Flutter02Activity : AppCompatActivity() {
          */
         fun start(activity: AppCompatActivity, title: String) {
             var intent = Intent(activity, Flutter02Activity::class.java)
-            intent.putExtra(IntentTool.key_title, title)
+            intent.putExtra(IntentTool.KEY_TITLE, title)
             activity.startActivity(intent)
 //            activity.overridePendingTransition() // 切换动画
         }
