@@ -21,6 +21,7 @@
         <activity android:name=".with_flutter.Flutter02Activity"/>
         <activity android:name=".with_flutter.Flutter03Activity"/>
         <activity android:name=".with_flutter.Flutter04Activity"/>
+        <activity android:name=".with_flutter.Flutter05Activity"/>
 
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"

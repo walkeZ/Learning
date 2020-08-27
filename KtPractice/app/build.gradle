@@ -44,4 +44,6 @@ dependencies {
 
     // 这是flutter的library引入方式
     implementation project(':flutter')
+    // androidx 使用Floating...Button ; https://blog.csdn.net/u011046452/article/details/103604718
+    implementation 'com.google.android.material:material:1.0.0'
 }

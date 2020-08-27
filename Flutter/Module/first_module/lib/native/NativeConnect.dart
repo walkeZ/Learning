@@ -1,9 +1,8 @@
-import 'dart:developer';
-
-import 'package:first_module/native/PageNative01.dart';
 import 'package:first_module/page/DefaultPage.dart';
 import 'package:flutter/material.dart';
 
+import 'PageNative00.dart';
+import 'PageNative01.dart';
 import 'PageNative02.dart';
 import 'PageNative03.dart';
 
@@ -66,6 +65,7 @@ class ConnectNativeState02 extends State<ConnectNative02> {
       initialRoute: route, // 初始化路由【页面指引/映射】
       routes: {
         '/': (context) => DefaultPage(),
+        'page00': (context) => PageNative00(),
         'page01': (context) => PageNative01(),
         'page02': (context) => PageNative02(),
         'page03': (context) => PageNative03(),

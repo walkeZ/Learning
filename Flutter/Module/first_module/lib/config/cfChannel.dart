@@ -10,8 +10,14 @@ import 'package:flutter/services.dart';
  * EventChannel提供外界的方法较为单一，可依据实际情况选用这个三个Channel
  */
 /// walke_mac_first_module_channel：与原生交互的互通标识，两端一样。
-const myMethodChannel =
-    const MethodChannel("walke_mac_first_module_methodchannel");
+const String channel_id_method = 'walke_mac_first_module_methodchannel';
+const myMethodChannel = const MethodChannel(channel_id_method);
 
-// 
-const myEventChannel = EventChannel("walke_first_module_event_channel");
+//
+const String channel_id_event = 'walke_first_module_event_channel';
+
+const myEventChannel = EventChannel(channel_id_event);
+
+const String channel_id_basic = 'walke_first_module_basic_msg_channel';
+// 指定编码类型就会将两端互传的数据解析为对应类型，如此处的String。
+const myBasMsgChennel = BasicMessageChannel(channel_id_basic, StringCodec());

@@ -1,44 +1,45 @@
+import 'dart:async';
+
 import 'package:first_module/config/cfChannel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
-/// MethodChannel交互
+/// eventChannel 交互:
+/// 参考：https://www.cnblogs.com/nesger/p/10580750.html
+///       https://www.jianshu.com/p/b23174d06cf3
+///
 class PageNative02 extends StatefulWidget {
-  String title = '默认标题';
-  String _title = '私有标题'; // 以下划线"_"开头的代表私有访问权限即仅在当前文件/widget 内。
-
   @override
   State<StatefulWidget> createState() => _PageNativeState02();
 }
 
-/**
-   * 以下划线开头的代表私有访问权限即仅在当前文件/widget 内。
-   */
-/// MethodChannel 交互
 class _PageNativeState02 extends State<PageNative02> {
-  String _nativeData = '--';
-  String _addFriendResult = '--';
+  String _data = '--';
+  String _shareResult = '--';
 
-  String paramsNativeCtrl = '--';
-  int countNativeCtrl = 0;
+  int _count = -1;
 
+  String _dataWithCount = '--';
+
+  StreamSubscription _subscription;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    initNativeChannelListener();
-  }
-
-  /// 初始化原生channel监听
-  void initNativeChannelListener() {
-    // ignore: missing_return
-    myMethodChannel.setMethodCallHandler((call) {
+    myEventChannel.binaryMessenger
+        // ignore: missing_return
+        // 对照MethodChannel查看源码参考源码方式实现监听。
+        .setMessageHandler(channel_id_event, (message) {
+      MethodCall call = StandardMethodCodec().decodeMethodCall(message);
       print(
-          'initNativeChannelListener -----> name: ${call.method}   params: ${call.arguments}');
-      if ("flutterAddCount" == call.method) {
-        countNativeCtrl++;
-        paramsNativeCtrl = call.arguments;
+          'initState  setMessageHandler -----> name: ${call.method}   params: ${call.arguments}');
+      if ("addFlutterCount" == call.method) {
+        setState(() {
+          _count++;
+          _dataWithCount = call.arguments;
+        });
       }
-      setState(() {});
     });
   }
 
@@ -46,59 +47,81 @@ class _PageNativeState02 extends State<PageNative02> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget._title),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            RaisedButton(
-              onPressed: _getActivityResult,
-              child: Text('get data from Native'),
-            ),
-            Text(_nativeData),
-            RaisedButton(
-              onPressed: _addFriend,
-              child: Text('to Native  addFriend'),
-            ),
-            Text(_addFriendResult),
-            Text('$paramsNativeCtrl : $countNativeCtrl')
-          ],
-        ),
+      appBar: PreferredSize(
+          child: AppBar(
+            title: Text('EventChannel 交互'),
+            centerTitle: true,
+          ),
+          preferredSize: Size.fromHeight(40)),
+      body: Column(
+        children: <Widget>[
+          MaterialButton(
+            onPressed: _getDataFromNative,
+            child: Text("getDateFromNative"),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Text(_data),
+          SizedBox(
+            height: 20,
+          ),
+          InkWell(
+            child: Text("toNativeShare"),
+            onTap: _toNativeShare,
+          ),
+          Text(_shareResult),
+          SizedBox(height: 50.0),
+          Text("count: $_count  <> $_dataWithCount"),
+        ],
       ),
     );
   }
 
-  /**
-   * Flutter 调原生事例1不带参。
-   */
-  ///
-  Future<void> _getActivityResult() async {
-    String result;
-    try {
-      final Map<dynamic, dynamic> map = await myMethodChannel
-          .invokeMethod('getActivityResult'); // 反馈在原生的setMethodCallHandler
-      result = 'getActivityResult  :  ${map["title"]}';
-      print('------------> _getActivityResult  : $result');
-    } catch (e) {
-      result = 'Failed to get data form natvie';
+  /// 交互都是异步的，相当于局域网络请求。或者说互为客户端服务器。
+  /// 直接获取原生数据，不带参数 . 类似广播的通讯方式。
+  Future<void> _getDataFromNative() async {
+    if (_subscription != null) {
+      _subscription.cancel();
+      _subscription = null;
     }
-    print('------------> _getActivityResult  end : $result');
-    setState(() {
-      _nativeData = result;
+    // 进入方法查看可知里面使用的是MethodChannel,且已设默认方法名为listen。
+    // 所以相当于自己另行定义一些MethodChannel方式中的arguments规律，两端对应协议处理即可
+    _subscription = myEventChannel.receiveBroadcastStream([
+      {'method': 'getDateFromNative'}
+    ]).listen((event) {
+      print("_getDataFromNative()----------> event :$event");
+      setState(() {
+        _data = event;
+      });
     });
   }
 
-  /// Flutter调原生事例2带参数，json，即可任意数据了
-  Future<Null> _addFriend() async {
-    try {
-      _addFriendResult = await myMethodChannel
-          .invokeMethod("addFriends", {'name': 'walke', 'age': 28});
-      print("_addFriend -------> $_addFriendResult");
-    } catch (e) {
-      _addFriendResult = 'failed: addFriend from Native';
+  // 调原生分享，传数据过去即带参数
+  Future<void> _toNativeShare() async {
+    if (_subscription != null) {
+      _subscription.cancel();
+      _subscription = null;
     }
-    print("_addFriend -------> end:  $_addFriendResult");
-    setState(() {});
+    _subscription = myEventChannel.receiveBroadcastStream([
+      {
+        'method': 'nativeShare',
+        'params': {'title': '标题', 'content': '内容'}
+      }
+    ]).listen((event) {
+      print("_toNativeShare()----------> event :$event");
+      setState(() {
+        _shareResult = event;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    if (_subscription != null) {
+      _subscription.cancel();
+    }
   }
 }

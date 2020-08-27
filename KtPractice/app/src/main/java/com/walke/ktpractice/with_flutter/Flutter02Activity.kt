@@ -63,7 +63,7 @@ class Flutter02Activity : AppCompatActivity() {
 //            flutterFragment = FlutterFragment.withCachedEngine(key_flutter_engine).build()
             // CacheEngine 不能动态设置路由，只能一开始时设置初始路由.如 MyApp 中
 //            var withCachedEngine = FlutterFragment.withCachedEngine(key_flutter_engine)
-            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page01").build()
+            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page00").build()
             supportFragmentManager.beginTransaction()
                 .add(R.id.flutter02_flContent,flutterFragment!!, TAG_FRAGMENT)
                 .commit()
@@ -79,7 +79,7 @@ class Flutter02Activity : AppCompatActivity() {
 //            flutterFragment = FlutterFragment.withCachedEngine(key_flutter_engine).build()
             // CacheEngine 不能动态设置路由，只能一开始时设置初始路由.如 MyApp 中
 //            var withCachedEngine = FlutterFragment.withCachedEngine(key_flutter_engine)
-//            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page01").build()
+//            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page00").build()
             flutterFragment = FlutterFragment.withNewEngine().dartEntrypoint("myEntryPoint").build()// 试验成功
             supportFragmentManager.beginTransaction()
                 .add(R.id.flutter02_flContent,flutterFragment!!, TAG_FRAGMENT)
@@ -101,7 +101,7 @@ class Flutter02Activity : AppCompatActivity() {
 //            flutterFragment = FlutterFragment.withCachedEngine(key_flutter_engine).build()
             // CacheEngine 不能动态设置路由，只能一开始时设置初始路由.如 MyApp 中
 //            var withCachedEngine = FlutterFragment.withCachedEngine(key_flutter_engine)
-//            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page01").build()
+//            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page00").build()
             var withNewEngine = FlutterFragment.withNewEngine()
             flutterFragment = withNewEngine
                 .renderMode(RenderMode.surface).build() // surface 可以，但是 texture 报错，估计SDK版本有关，是SDK漏洞。
@@ -118,7 +118,7 @@ class Flutter02Activity : AppCompatActivity() {
 //            flutterFragment = FlutterFragment.withCachedEngine(key_flutter_engine).build()
             // CacheEngine 不能动态设置路由，只能一开始时设置初始路由.如 MyApp 中
 //            var withCachedEngine = FlutterFragment.withCachedEngine(key_flutter_engine)
-//            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page01").build()
+//            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page00").build()
             var withNewEngine = FlutterFragment.withNewEngine()
             flutterFragment = withNewEngine
                 .transparencyMode(TransparencyMode.transparent) // // 我目前的SDK版本已经不需要设置了。没有不同。

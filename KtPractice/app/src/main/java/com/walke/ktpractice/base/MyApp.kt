@@ -3,6 +3,7 @@ package com.walke.ktpractice.base
 import android.app.Application
 import com.walke.ktpractice.constant.key_flutter_engine
 import com.walke.ktpractice.constant.key_flutter_engine2
+import com.walke.ktpractice.constant.key_flutter_engine3
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
@@ -38,13 +39,23 @@ class MyApp : Application() {
 
         var flutterEngine2 = FlutterEngine(this)
         // + 配置一个初始路由：
-        flutterEngine2.navigationChannel.setInitialRoute("page02")
+        flutterEngine2.navigationChannel.setInitialRoute("page01")
 
         // Start executing Dart code in the FlutterEngine.
         flutterEngine2.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
         )
         FlutterEngineCache.getInstance().put(key_flutter_engine2,flutterEngine2)
+
+        var flutterEngine3 = FlutterEngine(this)
+        // + 配置一个初始路由：
+        flutterEngine3.navigationChannel.setInitialRoute("page03")
+
+        // Start executing Dart code in the FlutterEngine.
+        flutterEngine3.dartExecutor.executeDartEntrypoint(
+            DartExecutor.DartEntrypoint.createDefault()
+        )
+        FlutterEngineCache.getInstance().put(key_flutter_engine3,flutterEngine3)
 
     }
 

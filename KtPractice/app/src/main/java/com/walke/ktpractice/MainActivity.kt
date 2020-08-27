@@ -5,10 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.walke.ktpractice.constant.toast
-import com.walke.ktpractice.with_flutter.Flutter01Activity
-import com.walke.ktpractice.with_flutter.Flutter02Activity
-import com.walke.ktpractice.with_flutter.Flutter03Activity
-import com.walke.ktpractice.with_flutter.Flutter04Activity
+import com.walke.ktpractice.with_flutter.*
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragment
 
@@ -84,6 +81,7 @@ class MainActivity : AppCompatActivity() {
 
             }
             R.id.main_btTF07->Flutter04Activity.start(this,"Flutter04Activity EventChannel")
+            R.id.main_btTF08-> Flutter05Activity.start(this,"Flutter05Activity basicMsgChannel")
 
 
         }

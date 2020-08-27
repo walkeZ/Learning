@@ -18,7 +18,7 @@ import java.nio.ByteBuffer
 import kotlin.collections.MutableMap as MutableMap
 
 /**
- * 与flutter交互方式2：EventChannel。
+ * 与flutter交互方式 2：EventChannel。
  * 参考：https://www.jianshu.com/p/b23174d06cf3
  */
 class Flutter04Activity :AppCompatActivity() {
@@ -50,7 +50,7 @@ class Flutter04Activity :AppCompatActivity() {
     private fun initContent() {
         flutter04_tvTitle.text=intent.getStringExtra(IntentTool.KEY_TITLE)
         var newEngineFragmentBuilder = FlutterFragment.withNewEngine()
-        flutterFragment = newEngineFragmentBuilder.initialRoute("page03").build<FlutterFragment>()
+        flutterFragment = newEngineFragmentBuilder.initialRoute("page02").build<FlutterFragment>()
         supportFragmentManager.beginTransaction()
             .add(R.id.flutter04_flContent,flutterFragment, FLUTTER_TAG)
             .commit()
@@ -136,6 +136,7 @@ class Flutter04Activity :AppCompatActivity() {
         when(view.id){
             R.id.flutter04_btAddFlutterCount->{
                 var methodCodec= StandardMethodCodec.INSTANCE as MethodCodec
+                // 参考MethodChannel的源码实现。
                 dartExecutor?.binaryMessenger?.send(
                     Flutter_EventChannel,
                     methodCodec.encodeMethodCall(MethodCall("addFlutterCount","你好我是原生")),
