@@ -128,6 +128,7 @@ class Flutter03Activity : AppCompatActivity() {
                     }
                 })
             }
+            R.id.flutter03_btToFlutter05Act->Flutter05Activity.start(this,"Flutter05Act BasicMessageChannel")
             else->{
 
             }
@@ -138,37 +139,37 @@ class Flutter03Activity : AppCompatActivity() {
         super.onPostResume()
         flutterFragment?.onPostResume()
     }
-
+//
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         if (intent != null)
             flutterFragment?.onNewIntent(intent)
 
     }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        flutterFragment?.onRequestPermissionsResult(requestCode,permissions,grantResults)
-    }
-
+//
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int,
+//        permissions: Array<out String>,
+//        grantResults: IntArray
+//    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        flutterFragment?.onRequestPermissionsResult(requestCode,permissions,grantResults)
+//    }
+//
     override fun onBackPressed() {
         super.onBackPressed()
-        flutterFragment?.onBackPressed()
+        flutterFragment?.onBackPressed() // 这个看源码直接响应到Flutter的C语言层，估计类似Flutter执行Navigator.pop
     }
-
-    override fun onUserLeaveHint() {
-        super.onUserLeaveHint()
-        flutterFragment?.onUserLeaveHint()
-    }
-
-    override fun onTrimMemory(level: Int) {
-        super.onTrimMemory(level)
-        flutterFragment?.onTrimMemory(level)
-    }
+//
+//    override fun onUserLeaveHint() {
+//        super.onUserLeaveHint()
+//        flutterFragment?.onUserLeaveHint()
+//    }
+//
+//    override fun onTrimMemory(level: Int) {
+//        super.onTrimMemory(level)
+//        flutterFragment?.onTrimMemory(level)
+//    }
 
     override fun finish() {
         super.finish()

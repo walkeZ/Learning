@@ -1,5 +1,11 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:first_module/config/cfChannel.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 /// MethodChannel交互
 class PageNative01 extends StatefulWidget {
@@ -14,7 +20,8 @@ class PageNative01 extends StatefulWidget {
    * 以下划线开头的代表私有访问权限即仅在当前文件/widget 内。
    */
 /// MethodChannel 交互
-class _PageNativeState01 extends State<PageNative01> {
+class _PageNativeState01 extends State<PageNative01>
+    with WidgetsBindingObserver {
   String _nativeData = '--';
   String _addFriendResult = '--';
 
@@ -26,6 +33,47 @@ class _PageNativeState01 extends State<PageNative01> {
     // TODO: implement initState
     super.initState();
     initNativeChannelListener();
+
+    /// 响应
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  Future<bool> didPopRoute() {
+    // TODO: implement didPopRoute
+    return super.didPopRoute();
+    print("flutter----->didPopRoute");
+  }
+
+///2020-08-28 01:09:19.258 18848-18946/com.walke.ktpractice I/flutter: flutter------> didChangeAppLifecycleState state AppLifecycleState.resumed
+//2020-08-28 01:09:19.258 18848-18946/com.walke.ktpractice I/flutter: flutter------> resumed
+//2020-08-28 01:09:19.258 18848-18946/com.walke.ktpractice I/flutter: flutter-----> nativeResume
+//2020-08-28 01:09:22.278 18848-18946/com.walke.ktpractice I/flutter: flutter------> didChangeAppLifecycleState state AppLifecycleState.inactive
+//2020-08-28 01:09:22.278 18848-18946/com.walke.ktpractice I/flutter: flutter------> inactive
+//2020-08-28 01:09:22.705 18848-18946/com.walke.ktpractice I/flutter: flutter------> didChangeAppLifecycleState state AppLifecycleState.paused
+//2020-08-28 01:09:22.705 18848-18946/com.walke.ktpractice I/flutter: flutter------> paused
+  // 原生没有flutterFragment?.onPostResume()也能回调。
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    super.didChangeAppLifecycleState(state);
+    print("flutter------> didChangeAppLifecycleState state $state");
+    switch (state) {
+      case AppLifecycleState.resumed: // 与原生基本一致
+        print("flutter------> resumed");
+        nativeResume();
+        break;
+      case AppLifecycleState.paused:
+        print("flutter------> paused");
+        break;
+      case AppLifecycleState.detached:
+        print("flutter------> detached");
+        break;
+      case AppLifecycleState.inactive: // 跳转、息屏、finish。执行顺序：inactive->pause->detached【finish时】
+        print("flutter------> inactive");
+        break;
+      default:
+    }
   }
 
   /// 初始化原生channel监听
@@ -41,6 +89,10 @@ class _PageNativeState01 extends State<PageNative01> {
       }
       setState(() {});
     });
+
+    myMethodChannel.setMockMethodCallHandler((call) {});
+    var isAndroid = Platform.isAndroid;
+    if (isAndroid) {}
   }
 
   @override
@@ -49,6 +101,10 @@ class _PageNativeState01 extends State<PageNative01> {
     return Scaffold(
       appBar: AppBar(
         title: Text("${widget._title} methodChannel"),
+        leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: (){
+//          Navigator.of(context).pop();
+        SystemNavigator.pop();
+        }),
       ),
       body: Center(
         child: Column(
@@ -71,8 +127,8 @@ class _PageNativeState01 extends State<PageNative01> {
   }
 
   /**
-   * Flutter 调原生事例1不带参。
-   */
+           * Flutter 调原生事例1不带参。
+           */
   ///
   Future<void> _getActivityResult() async {
     String result;
@@ -101,5 +157,9 @@ class _PageNativeState01 extends State<PageNative01> {
     }
     print("_addFriend -------> end:  $_addFriendResult");
     setState(() {});
+  }
+
+  void nativeResume() {
+    print("flutter-----> nativeResume");
   }
 }

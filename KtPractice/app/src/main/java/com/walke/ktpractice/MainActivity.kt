@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.main_btTF02 -> {
-                Toast.makeText(this, "tf02", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Flutter01Act", Toast.LENGTH_SHORT).show()
                 //todo 以flutterView 形式。https://www.jianshu.com/p/17abdf8e17ce
-                Flutter01Activity.start(this, "Flutter01Act")
+                Flutter01Activity.start(this, "Flutter01Activity FlutterView")
 //                var flutterView = FlutterView(this)
 //                var layoutParams = FrameLayout.LayoutParams(
 //                    ViewGroup.LayoutParams.MATCH_PARENT,

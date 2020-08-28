@@ -42,7 +42,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onClick"
-                android:text="toFlutter02"
+                android:text="Flutter01Act"
                 android:textAllCaps="false"
                 android:textSize="12sp"
                 />

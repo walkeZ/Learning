@@ -51,8 +51,8 @@ class Flutter01Activity : AppCompatActivity() {
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
-        flutterView.setBackgroundResource(R.color.bg_default)
-        flutter01_flContent.addView(flutterView, layoutParams)
+        flutterView.setBackgroundResource(android.R.color.holo_blue_dark)
+
         var flutterEngine = FlutterEngine(this)
 //        flutterEngine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
         flutterEngine.dartExecutor.executeDartEntrypoint( DartEntrypoint(
@@ -61,6 +61,9 @@ class Flutter01Activity : AppCompatActivity() {
         ))
         flutterEngine.navigationChannel.setInitialRoute("/")
         flutterView.attachToFlutterEngine(flutterEngine)
+
+        flutterView.invalidate()
+        flutter01_flContent.addView(flutterView, layoutParams)
 
 
     }
