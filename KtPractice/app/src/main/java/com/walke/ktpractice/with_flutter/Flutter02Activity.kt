@@ -119,8 +119,8 @@ class Flutter02Activity : AppCompatActivity() {
             // CacheEngine 不能动态设置路由，只能一开始时设置初始路由.如 MyApp 中
 //            var withCachedEngine = FlutterFragment.withCachedEngine(key_flutter_engine)
 //            flutterFragment = FlutterFragment.withNewEngine().initialRoute("page00").build()
-            var withNewEngine = FlutterFragment.withNewEngine()
-            flutterFragment = withNewEngine
+            flutterFragment = FlutterFragment.withNewEngine()
+                    // opaque 会根据布局的层叠次序，但是Flutter内容的透明无效。transparent 不安层叠次序，Flutter透明有效。
                 .transparencyMode(TransparencyMode.transparent) // // 我目前的SDK版本已经不需要设置了。没有不同。
                 .shouldAttachEngineToActivity(false)
                 // 是否把引擎绑定到宿主Activity，即通过引擎是否可以交互，默认是true。如何交互，继续学习
@@ -134,11 +134,14 @@ class Flutter02Activity : AppCompatActivity() {
 
     /**
      * 默认方式，直接打开flutter module中的main的runapp()且默认路由"/"
+     * flutterFragment 全局变量，R.id.flutter02_flContent布局中承载fragment的FrameLayout
      */
     private fun waysDefault() {
         flutterFragment =
             supportFragmentManager.findFragmentByTag(TAG_FRAGMENT) as FlutterFragment?  // 没有？会报空奔溃
         if (flutterFragment == null) {
+            // 默认方式，直接打开flutter module中的main的runapp()且默认路由"/"
+            // flutterFragment 全局变量，R.id.flutter02_flContent布局中承载fragment的FrameLayout
             flutterFragment = FlutterFragment.createDefault()
             supportFragmentManager.beginTransaction()
                 .add(R.id.flutter02_flContent, flutterFragment!!, TAG_FRAGMENT)
