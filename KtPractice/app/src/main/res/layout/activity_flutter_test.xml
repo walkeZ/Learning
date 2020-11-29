@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".with_flutter.FlutterTestActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/main_tvTitle"
+            android:id="@+id/aft_tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Android 打开(接入)Flutter页面"
@@ -26,7 +26,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/main_btTF01"
+                android:id="@+id/aft_btTF01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -37,7 +37,7 @@
                 />
 
             <Button
-                android:id="@+id/main_btTF02"
+                android:id="@+id/aft_btTF02"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -48,7 +48,7 @@
                 />
 
             <Button
-                android:id="@+id/main_btTF03"
+                android:id="@+id/aft_btTF03"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -65,7 +65,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/main_btTF04"
+                android:id="@+id/aft_btTF04"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -76,7 +76,7 @@
                 />
 
             <Button
-                android:id="@+id/main_btTF05"
+                android:id="@+id/aft_btTF05"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -87,7 +87,7 @@
                 />
 
             <Button
-                android:id="@+id/main_btTF06"
+                android:id="@+id/aft_btTF06"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -103,7 +103,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/main_btTF07"
+                android:id="@+id/aft_btTF07"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -114,7 +114,7 @@
                 />
 
             <Button
-                android:id="@+id/main_btTF08"
+                android:id="@+id/aft_btTF08"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -125,7 +125,7 @@
                 />
 
             <Button
-                android:id="@+id/main_btTF09"
+                android:id="@+id/aft_btTF09"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -137,7 +137,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/main_frameLayout"
+            android:id="@+id/aft_frameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#CEB2F6F0" />
