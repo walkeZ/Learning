@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        // 修改默认选中需要延时，这是迂回的方法，正式慎用。会有闪现
+        navView.postDelayed({navView.selectedItemId=navView.menu.getItem(2).itemId},100)
 
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
