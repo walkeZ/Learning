@@ -1,4 +1,4 @@
-package com.walke.asproject.ui.dashboard
+package com.walke.ktpractice.main.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

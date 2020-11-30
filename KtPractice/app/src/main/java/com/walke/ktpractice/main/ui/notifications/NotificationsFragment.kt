@@ -1,4 +1,4 @@
-package com.walke.asproject.ui.notifications
+package com.walke.ktpractice.main.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
