@@ -25,7 +25,7 @@ class TabFragment private constructor() : BaseTabFragment() {
     override fun layoutId() = R.layout.fragment_tab
     override fun bundleData() {
         mTitle = arguments?.getString("title")
-        printlnLog("------------------->  $mTitle")
+        printlnLog("-------------------> 创建了： $mTitle")
     }
 
     override fun initView() {
@@ -38,6 +38,23 @@ class TabFragment private constructor() : BaseTabFragment() {
 
     override fun printlnLog(msg: String) {
         super.printlnLog("$msg   ---  $mTitle")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        printlnLog("onDestroyView ---> 即销毁了")
+    }
+
+    /**
+     * 打出日志可知：其实在Fragment的切换中onDestroy方法是没有走的。根据生命周期
+     * onAttach > onCreate > onCreateView【root布局，布局中子控件不一定也实例了，参考TabFragment】 >
+     * onActivityCreate【布局中子控件的】 > onStart > onResume > 【前台可见】>
+     * onPause【休眠，如home键、打电话】> onStop > onDestroyView > onDestroy > onDetach 【完】
+     * 所以当滑到FragM 5、6时FragM1这个实例是没有被完全会受到。所以部分全局变量的的值是不变的。切换Fragment主要是回收View这些较占内存资源的实例。
+     */
+    override fun onDestroy() {
+        super.onDestroy()
+        printlnLog("onDestroy ---> 即销毁了")
     }
 
 }

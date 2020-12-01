@@ -25,6 +25,7 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         initView()
+        Log.i("Hui", "Main2Activitytt.onCreate: ----->  $this")
     }
 
     private fun initView() {
@@ -33,13 +34,13 @@ class Main2Activity : AppCompatActivity() {
             tabFragments.add(TabFragment.getInstance("FragM $i"))
         }
 
-//        main2_viewPager.adapter=MyFragmentPagerAdapter(supportFragmentManager, tabTitles,tabFragments)
-//        main2_tabLayout.setupWithViewPager(main2_viewPager)
-
+        main2_viewPager.adapter=MyFragmentPagerAdapter(supportFragmentManager, tabTitles,tabFragments)
+        main2_tabLayout.setupWithViewPager(main2_viewPager)
+        var offset = intent.getIntExtra("offset", 1)
+        main2_viewPager.offscreenPageLimit=offset // 左右两边各缓存多少个
     }
 
     fun printlnLog(msg: String) {
-        Log.i("Hui", "Main2Activity.printlnLog: ----->  $msg")
         main2_llLog.addView(TextView(this).apply { text = msg })
     }
 
@@ -54,13 +55,18 @@ class Main2Activity : AppCompatActivity() {
             main2_btCleanLog -> main2_llLog.removeAllViews()
             main2_btOffset2 -> {
                 // 重新打开自己，默认启动模式所以都会新建
-                startActivity(Intent(this, Main2Activity::class.java))
+                startActivity(Intent(this, Main2Activity::class.java).apply { putExtra("offset",2) })
                 finish()
             }
             else -> {
                 toast("other click")
             }
         }
+    }
+
+    override fun onDestroy() {
+        Log.i("Hui", "Main2Activitytt.onDestroy: ----->  $this")
+        super.onDestroy()
     }
 }
 

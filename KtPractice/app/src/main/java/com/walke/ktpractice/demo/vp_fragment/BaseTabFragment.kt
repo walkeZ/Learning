@@ -34,7 +34,7 @@ abstract class BaseTabFragment:Fragment(){
 
 //        initView() // 这里initVIew会报错，主要原因是：子类中kt布局的控件(ft_text)还没完成实例化。换句话说，kt中不是在这方法实例化布局控件的
         bundleData()
-        printlnLog("onCreateView ---> 即创建了")
+//        printlnLog("onCreateView ---> 即创建了")
         return rootView
     }
 
@@ -42,8 +42,8 @@ abstract class BaseTabFragment:Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView() //
-        printlnLog("onViewCreated ---> 初始化View")
+//        initView() // 这时kt将布局中的控件完成实例化了
+//        printlnLog("onViewCreated ---> 初始化View")
     }
 
     /**
@@ -51,8 +51,8 @@ abstract class BaseTabFragment:Fragment(){
      */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        initView()
-        printlnLog("onActivityCreated ---> 初始化View2")
+        initView() // 还是放到这里吧，这onActivityCreate方法列入了常规生命周期。
+//        printlnLog("onActivityCreated ---> 初始化View2")
     }
 
     /**
@@ -63,13 +63,13 @@ abstract class BaseTabFragment:Fragment(){
      */
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        printlnLog("setUserVisibleHint ---> $isVisibleToUser")
+//        printlnLog("setUserVisibleHint ---> $isVisibleToUser")
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        printlnLog("onDestroy ---> 即销毁了")
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+////        printlnLog("onDestroy ---> 即销毁了")
+//    }
 
     abstract fun layoutId(): Int
     open fun bundleData(){}
@@ -79,8 +79,12 @@ abstract class BaseTabFragment:Fragment(){
 
 
     open fun printlnLog(msg:String){
-        Log.i("Hui", "BaseTabFragment.printLog: ----->  $msg")
-//        (activity as Main2Activity).printlnLog(msg)
+        Log.i("Hui", "BTF.printLog: ----->  $msg")
+        try {
+            (activity as Main2Activity).printlnLog(msg)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 
