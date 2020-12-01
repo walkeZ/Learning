@@ -1,6 +1,7 @@
 package com.walke.ktpractice.demo.vp_fragment
 
 import android.os.Bundle
+import android.os.UserHandle
 import android.util.Log
 import com.walke.ktpractice.R
 import kotlinx.android.synthetic.main.fragment_tab.*
@@ -29,11 +30,12 @@ class TabFragment private constructor() : BaseTabFragment() {
     }
 
     override fun initView() {
+//        printlnLog("initView-------------------> ： $userVisibleHint") // 首次进来FragM 1焦点item为true
         ft_text.text = mTitle ?: ""
     }
 
     override fun loadData() {
-        printlnLog("")
+        printlnLog("loadData ---- > 下载数据")
     }
 
     override fun printlnLog(msg: String) {

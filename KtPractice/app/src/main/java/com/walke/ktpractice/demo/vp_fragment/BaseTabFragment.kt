@@ -23,14 +23,28 @@ import androidx.fragment.app.Fragment
  *
  *
  */
-abstract class BaseTabFragment:Fragment(){
+abstract class BaseTabFragment : Fragment() {
 
-    private var rootView:View?=null
+    private var rootView: View? = null
 
+    /**
+     * View是否准备好即：执行了onActivityCreate
+     */
+    private var isViewReady = false
+
+    /**
+     * 是否对用户可见，或者换句话讲是否是焦点Item
+     */
+    private var isFocusItem = false
+
+    /**
+     * 是否下载过
+     */
+    private var isLoaded = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (rootView==null)
-            rootView=inflater.inflate(layoutId(),null)
+        if (rootView == null)
+            rootView = inflater.inflate(layoutId(), null)
 
 //        initView() // 这里initVIew会报错，主要原因是：子类中kt布局的控件(ft_text)还没完成实例化。换句话说，kt中不是在这方法实例化布局控件的
         bundleData()
@@ -39,11 +53,11 @@ abstract class BaseTabFragment:Fragment(){
     }
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        initView() // 这时kt将布局中的控件完成实例化了
 //        printlnLog("onViewCreated ---> 初始化View")
+
     }
 
     /**
@@ -53,18 +67,50 @@ abstract class BaseTabFragment:Fragment(){
         super.onActivityCreated(savedInstanceState)
         initView() // 还是放到这里吧，这onActivityCreate方法列入了常规生命周期。
 //        printlnLog("onActivityCreated ---> 初始化View2")
+
+
+//        loadData()// 直接放到这里，就会在addFragment的时候随着生命周期把，adapter中左右缓存的页面也一起执行了，这是耗费不必要资源不科学。
+        isViewReady = true
+        lazyLoad()
+
     }
 
     /**
      * 点击查看源码发现主要在FragmentPagerAdapter和FragmentPagerStateAdapter中调用。
      * 在instantiateItem、setPrimaryItem中设置为false
-     * 在setPrimaryItem中设置为true
+     * 在setPrimaryItem【设置主item，即焦点item】中设置为true，
      * 所以这个的生命周期是不严谨的。当然需要懒加载的情况通常也是因为使用了多个Fragment常切换。
      */
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
 //        printlnLog("setUserVisibleHint ---> $isVisibleToUser")
+
+//        printlnLog("首次进来---》 $isVisibleToUser")// 首次进来没有日志
+//        if (isVisibleToUser) loadData() // 直接放到这里，看日志可以发现，
+        // 有两个问题：①首次进入的FragM 1没有加载，查看adapter代码，并断点发现，首次进入没有执行setPrimaryItem方法。
+        // ② 切换后切回如【FragM 1 > 2 > 1】FragM 1切回时再次执行了loadData。
+        // 基于以上两个情况，结合onActivityCreated中的情况，定义一个lazyLoad（）
+//         isFocusItem = isVisibleToUser
+        if (isVisibleToUser) lazyLoad()
+
     }
+
+    /**
+     * 当首次进来时
+     */
+    fun lazyLoad() {
+        if (isViewReady && userVisibleHint && !isLoaded) {
+            loadData()
+            isLoaded = true
+        }
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isLoaded = false // 不在缓存的要重新下载了
+    }
+
 
 //    override fun onDestroy() {
 //        super.onDestroy()
@@ -72,13 +118,16 @@ abstract class BaseTabFragment:Fragment(){
 //    }
 
     abstract fun layoutId(): Int
-    open fun bundleData(){}
+    open fun bundleData() {}
     abstract fun initView()
 
+    /** 参考：https://www.cnblogs.com/kma-3/p/7096057.html
+     * 其实这种封装是设计模式中的：模板方法模式。
+     */
     abstract fun loadData()
 
 
-    open fun printlnLog(msg:String){
+    open fun printlnLog(msg: String) {
         Log.i("Hui", "BTF.printLog: ----->  $msg")
         try {
             (activity as Main2Activity).printlnLog(msg)
@@ -86,7 +135,6 @@ abstract class BaseTabFragment:Fragment(){
             e.printStackTrace()
         }
     }
-
 
 
 }
