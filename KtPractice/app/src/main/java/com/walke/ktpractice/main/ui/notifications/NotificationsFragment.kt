@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.walke.ktpractice.R
+import com.walke.ktpractice.demo.vp_fragment.Main2Activity
 import com.walke.ktpractice.with_flutter.FlutterTestActivity
 import kotlinx.android.synthetic.main.fragment_notifications.*
 
@@ -47,7 +48,7 @@ class NotificationsFragment : Fragment() {
 
     private fun initData() {
         acts.add(FlutterTestActivity::class.java)
-        acts.add(FlutterTestActivity::class.java)
+        acts.add(Main2Activity::class.java)
         acts.add(String::class.java)
 
     }
