@@ -8,6 +8,7 @@ import com.walke.ktpractice.R
 import com.walke.ktpractice.constant.toast
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragment
+import kotlinx.android.synthetic.main.activity_flutter_test.*
 
 /** Mac 中 AS 快捷键：
  * 格式化代码 <-->  alt + cmd +L
@@ -20,6 +21,17 @@ class FlutterTestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flutter_test)
+        // 传入lambda表达式函数 结构：{参数n：类型,参数n：类型 -> 方法体}
+        // command + P查看可用方法。((v:View!)->Boolean)? 。问号表示事件可能为null
+        aft_btTF01.setOnLongClickListener({ v -> false }) // ②
+        aft_btTF01.setOnLongClickListener { v -> false }  // ③
+        aft_btTF01.setOnLongClickListener(object : View.OnLongClickListener {  // ①  事件进化
+            override fun onLongClick(v: View?): Boolean {
+//                TODO("Not yet implemented")
+                return false
+            }
+        })
+
     }
 
     fun onClick(view: View) {
@@ -80,8 +92,8 @@ class FlutterTestActivity : AppCompatActivity() {
                 Flutter03Activity.start(this, "Flutter03 MethodChannel")
 
             }
-            R.id.aft_btTF07 ->Flutter04Activity.start(this,"Flutter04Activity EventChannel")
-            R.id.aft_btTF08 -> Flutter05Activity.start(this,"Flutter05Activity basicMsgChannel")
+            R.id.aft_btTF07 -> Flutter04Activity.start(this, "Flutter04Activity EventChannel")
+            R.id.aft_btTF08 -> Flutter05Activity.start(this, "Flutter05Activity basicMsgChannel")
 
 
         }
