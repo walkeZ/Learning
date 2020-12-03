@@ -55,5 +55,9 @@ class ByTest {
 }
 
 fun main(vararg msg:String) {
-    ByTest().test()
+//    ByTest().test()
+//    InlineTest().test2()
+    InlineTest().test3()
+
+
 }
