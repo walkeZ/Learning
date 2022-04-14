@@ -1,2 +1,3 @@
 rootProject.name = "Demo_AS422"
 include ':app'
+include ':ble_gbdata'
