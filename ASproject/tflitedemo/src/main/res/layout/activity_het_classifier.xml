@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#50FFFFFF"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <Button
+        android:id="@+id/het_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:background="#6A77B3F4"
+        android:text="Test" />
+
+    <Button
+        android:id="@+id/het_test0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="#6A77B3F4"
+        android:text="test0" />
+
+    <Button
+        android:id="@+id/het_test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="#6A77B3F4"
+        android:text="test1" />
+
+    <Button
+        android:id="@+id/het_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="#6A77B3F4"
+        android:text="test2" />
+
+    <Button
+        android:id="@+id/het_test3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="#6A77B3F4"
+        android:text="test3" />
+
+    <Button
+        android:id="@+id/het_test4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="#6A77B3F4"
+        android:text="test4" />
+
+    <Button
+        android:id="@+id/het_test5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="#6A77B3F4"
+        android:text="test5" />
+
+    <Button
+        android:id="@+id/het_testHex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="#6A77B3F4"
+        android:text="testHex"
+        android:textAllCaps="false" />
+
+</LinearLayout>
