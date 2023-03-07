@@ -35,6 +35,10 @@ android {
         enabled = true
     }
 
+    // * What went wrong:
+    //Execution failed for task ':tflitedemo:stripDebugDebugSymbols'.
+    //> No version of NDK matched the requested version 21.0.6113669. Versions available locally: 21.4.7075529
+    ndkVersion '21.4.7075529' // mac
 }
 
 dependencies {
