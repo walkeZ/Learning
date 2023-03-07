@@ -1,4 +1,4 @@
-include ':demo_mvp1'
+
 rootProject.name='KtPractice'
 include ':app'
 

@@ -1,5 +1,8 @@
 package com.walke.ktpractice.kotlin_test
 
+import com.walke.ktpractice.kotlin_test.base.digui
+import com.walke.ktpractice.kotlin_test.base.forTest1
+import com.walke.ktpractice.kotlin_test.base.for_while
 import kotlin.concurrent.thread
 
 //fun main(args: Array<String>) {
@@ -80,20 +83,24 @@ fun isTwiceClick(event: String, tagTime: Long): Boolean {
 }
 
 fun main(args: Array<String>) {
-    println("111111 ${isTwiceClick("111",1000)}")
-    Thread {
-        Thread.sleep(2500)
-        println("222222 ${isTwiceClick("222",500)}")
+//    println("111111 ${isTwiceClick("111",1000)}")
+//    Thread {
+//        Thread.sleep(2500)
+//        println("222222 ${isTwiceClick("222",500)}")
+//
+//    }.start()
+//    Thread {
+//        Thread.sleep(500)
+//        println("111111-3 ${isTwiceClick("333",500)}")
+//
+//        Thread.sleep(3500)
+//        println("444444 ${isTwiceClick("444",500)}")
+//    }.start()
 
-    }.start()
-    Thread {
-        Thread.sleep(500)
-        println("111111-3 ${isTwiceClick("333",500)}")
-
-        Thread.sleep(3500)
-        println("444444 ${isTwiceClick("444",500)}")
-    }.start()
-
+    forTest1()
+    for_while()
+    println("\n\n**************\n\n")
+    digui()
 
 
 }

@@ -1,157 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:paddingTop="?attr/actionBarSize">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/main_tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Android 打开(接入)Flutter页面"
-            android:gravity="center"
-            android:onClick="onClick"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/main_btTF01"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="FlutterFragment"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                />
-
-            <Button
-                android:id="@+id/main_btTF02"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="Flutter01Act"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                />
-
-            <Button
-                android:id="@+id/main_btTF03"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="FlutterActivity.cdi"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/main_btTF04"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="FlutterActivity.e.r.b"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                />
-
-            <Button
-                android:id="@+id/main_btTF05"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="FluAct02"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                />
-
-            <Button
-                android:id="@+id/main_btTF06"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="FluAct03"
-                android:textSize="12sp"
-
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/main_btTF07"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="Flutter04Activity"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                />
-
-            <Button
-                android:id="@+id/main_btTF08"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="Flutter05Activity"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                />
-
-            <Button
-                android:id="@+id/main_btTF09"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="onClick"
-                android:text="FluAct03"
-                android:textSize="12sp"
-
-                />
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/main_frameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#CEB2F6F0" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World! KtPractice"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu="@menu/bottom_nav_menu" />
 
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

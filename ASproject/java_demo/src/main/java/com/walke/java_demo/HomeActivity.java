@@ -2,6 +2,8 @@ package com.walke.java_demo;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -26,19 +28,19 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-
         phoneCompany();
-
-
+        new TextView(this).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false;
+            }
+        });
     }
 
     private void phoneCompany() {
         String model = Build.MODEL;
         // 就是java中的 model.trim().length()<1然后判断长度
         model = model.trim().length() < 1 ? "" : model;
-
     }
-
 
 }
