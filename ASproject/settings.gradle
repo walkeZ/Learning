@@ -2,3 +2,5 @@ include ':java_demo'
 include ':app'
 rootProject.name = "ASproject"
 include ':tflitedemo'
+include ':game_2048'
+include ':game_shudu'
