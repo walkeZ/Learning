@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LedActivity"
+    android:paddingVertical="50dp">
+
+    <TextView
+        android:id="@+id/tvCmdStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开关指令状态"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="12sp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingHorizontal="100dp">
+<!--     android:layout_marginTop="155dp"     -->
+        <TextView
+            android:id="@+id/tvLight1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="补光灯"
+            android:textSize="38sp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:background="@drawable/shape_light_off"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_margin="100dp"/>
+
+        <TextView
+            android:id="@+id/tvLight2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="氛围灯"
+            android:textSize="38sp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:layout_marginStart="300dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginVertical="100dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/shape_light_off"/>
+    </LinearLayout>
+
+</LinearLayout>
