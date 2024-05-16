@@ -44,7 +44,7 @@ public class Binding1Activity extends AppCompatActivity {
     }
 
     public String getSexText() {
-        return user.sex == 0 ? "男":"女";
+        return user.sex == 0 ? "男" : "女";
     }
 
 
@@ -56,7 +56,7 @@ public class Binding1Activity extends AppCompatActivity {
     public class MyClick {
         public void innerClick() {
             Toast.makeText(Binding1Activity.this, "innerClick " + user.getName(), Toast.LENGTH_LONG).show();
-            user.setName(user.getUserInput() + " -321");
+            user.setName("姓名" + user.getUserInput() + " -321，");
 //            viewDataBinding.setMyUser(user);//更新数据 不调用不更新数据
         }
     }
