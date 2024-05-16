@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MvvmLearn"
         tools:targetApi="31">
         <activity
+            android:name=".demo2.Binding2Activity"
+            android:exported="false" />
+        <activity
             android:name=".demo1.Binding1Activity"
             android:exported="false" />
         <activity

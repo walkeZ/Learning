@@ -34,7 +34,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
-            android:text="demo1"
+            android:text="toDemo2"
+            android:onClick="toDemo2"
             style="@style/Widget.AppCompat.Button.Small"
             />
         <Button

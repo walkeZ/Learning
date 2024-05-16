@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+    在原来的根布局中(鼠标移动到root布局)：双击鼠标会有提示——提示中，选 show context action。
+    对应回有快捷方式：(或者快捷键：Mac：option+回车 ；window：Alt + 回车)
+    ⭐️会提示 ：covert to dataBinding layout。
+    ⭐️然后自动生成 ActivityBinding1Binding 对象（命名与xml名称有关 activity_binding1）
+     和以下结构：
+    <layout>
+
+       <data>
+          这些事databinding的声明区域
+           <variable
+           name="user" // 别名(对象名)，会给ActivityBinding1Binding自动生成set方法
+           type="com.walker.mvvmlearn.demo1.User" // 实体类(里面有属性(通常用于绑定数据与UI现实)，方法(通常是绑定UI事件，如Binding1Activity.myClick、click.innerClick【注意事件要带view】))
+            />
+       </data>
+
+       <LinearLayout... >
+       ...原布局内容，在原布局中用data的别名(对象名)，将UI与实体类(对象)
+        </LinearLayout>
+
+    </layout>
+     -->
+
+    <data>
+
+        <!--
+      该标签下是此布局中使用的属性。用占位符(先理解成占位符，特殊语法)： @{}、 @={}、 @{()->}
+
+      // 属性/成员myUser.name(也可以是方法myActivity.myClick)绑定。类型要与UI属性对应 【android:checked="@{myUser.sex == 0}"】
+      @{}：单向绑定，数据变化视图内容更新
+          还可以方法使用 @{()} 如 android:text="@{(myUser.name + myActivity.getAge())}"
+
+      @={}：双向绑定，视图内容变化，数据也会变化，多用于输入框
+
+      // 方法绑定。
+      @{()->}：双向绑定，视图内容变化，数据也会变化，多用于输入框
+
+      UI属性只能完全由占位符替换，如报错： android:text="@{(myUser.name + myActivity.getAge())} 那你"
+
+      -->
+        <!-- 数据实体 -->
+        <variable
+            name="viewModel2"
+            type="com.walker.mvvmlearn.demo2.MvvmViewModel2" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".demo2.Binding2Activity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:context=".demo1.Binding1Activity">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel2.result}"
+                android:textSize="16sp" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@={viewModel2.userInput}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:onClick="@{()->viewModel2.getNetData()}"
+                android:text="替换" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
