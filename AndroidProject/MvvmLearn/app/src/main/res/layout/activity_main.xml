@@ -41,7 +41,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
-            android:text="demo1"
+            android:text="Login"
+            android:onClick="toLogin"
             style="@style/Widget.AppCompat.Button"
             />
         <Button

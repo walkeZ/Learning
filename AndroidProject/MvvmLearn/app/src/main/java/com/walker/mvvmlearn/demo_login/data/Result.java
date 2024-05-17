@@ -2,6 +2,7 @@ package com.walker.mvvmlearn.demo_login.data;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.
+ * 一个泛型类，它保存一个带有数据或错误异常的结果成功。用于登录结果返回
  */
 public class Result<T> {
     // hide the private constructor to limit subclass types (Success, Error)

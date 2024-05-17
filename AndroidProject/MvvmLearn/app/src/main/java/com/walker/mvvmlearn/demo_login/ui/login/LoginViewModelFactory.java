@@ -10,6 +10,8 @@ import com.walker.mvvmlearn.demo_login.data.LoginRepository;
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
  * Required given LoginViewModel has a non-empty constructor
+ * ViewModel提供程序工厂以实例化LoginViewModel。
+ * 必需，给定LoginViewModel具有非空构造函数
  */
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
 

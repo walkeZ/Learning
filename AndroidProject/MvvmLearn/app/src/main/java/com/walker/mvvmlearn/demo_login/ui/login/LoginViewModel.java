@@ -9,10 +9,15 @@ import android.util.Patterns;
 import com.walker.mvvmlearn.demo_login.data.LoginRepository;
 import com.walker.mvvmlearn.demo_login.data.Result;
 import com.walker.mvvmlearn.demo_login.data.model.LoggedInUser;
-import com.walker.mvvmlearn.demo_login.R;
+import com.walker.mvvmlearn.R;
 
+/**
+ * 登录的视图模型，
+ * 用于条数据与UI的交互
+ */
 public class LoginViewModel extends ViewModel {
 
+    // MutableLiveData（可变生存数据）给数据关联生命周期，内置修改值(set)和观察者observe(life_owner,callback)
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
     private LoginRepository loginRepository;

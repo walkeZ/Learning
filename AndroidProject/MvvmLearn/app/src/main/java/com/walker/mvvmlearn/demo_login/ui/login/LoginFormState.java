@@ -4,13 +4,15 @@ import androidx.annotation.Nullable;
 
 /**
  * Data validation state of the login form.
+ *
+ * 登录表单的数据验证状态。即用户输入界面的条件判断
  */
 class LoginFormState {
     @Nullable
-    private Integer usernameError;
+    private Integer usernameError; // 用户名有误
     @Nullable
-    private Integer passwordError;
-    private boolean isDataValid;
+    private Integer passwordError; // 密码有误
+    private boolean isDataValid; // 数据是否可用
 
     LoginFormState(@Nullable Integer usernameError, @Nullable Integer passwordError) {
         this.usernameError = usernameError;
