@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".demo_login2.Login2Activity">
 
+    <TextView
+        android:id="@+id/login2_tvLeanLiveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LeanLiveData"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

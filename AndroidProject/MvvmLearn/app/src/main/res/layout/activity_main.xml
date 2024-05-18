@@ -48,7 +48,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
-            android:text="demo1"
+            android:text="Login2"
+            android:onClick="toLogin2"
             style="@style/Widget.MaterialComponents.Button"
             />
     </LinearLayout>

@@ -1,8 +1,12 @@
 package com.walker.mvvmlearn.demo_login2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.walker.mvvmlearn.R;
 
@@ -34,10 +38,46 @@ import com.walker.mvvmlearn.R;
  * >> MVVM  1.UI经常性改变(如直播、社区)视图画面更新频繁的(如点赞、收藏、评论等待多)的
  */
 public class Login2Activity extends AppCompatActivity {
+    private static String TAG_LOGIN2 = "TAG_LOGIN2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+
+        learningLiveData();
+    }
+
+    private void learningLiveData() {
+
+        TextView tvLiveData = findViewById(R.id.login2_tvLeanLiveData);
+        // liveData重点，①观察数据变化-更新UI。②按业务场景更新数据。有点与生命周期绑定，不可见是不会回调不会触发监听，即不可见时不会刷UI
+
+        //LiveData 能够检测 Activity、Fragment生命周期的状态，如果Activity被关闭了，LiveData不会做事
+        // 可追逐性很强
+        // 只做一件事，观察/监听 数据变化
+        LearningLiveData.getInstance().getInfo().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Log.i(TAG_LOGIN2, "onChanged: " + s);
+                // 把观察到的数据，设置给textView
+                tvLiveData.setText(s);
+            }
+        });
+        // 触发
+        new Thread(() -> {
+            try {
+                Thread.sleep(5000);
+                LearningLiveData.getInstance().getInfo().setValue("线程5s后的数据");
+                // java.lang.IllegalStateException: Cannot invoke setValue on a background thread
+                // 所以也要注意子线程不能修改UI
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
+
+        tvLiveData.postDelayed(()->{
+            LearningLiveData.getInstance().getInfo().setValue("线程2.5s后的Hello");
+        },2500);
     }
 }
