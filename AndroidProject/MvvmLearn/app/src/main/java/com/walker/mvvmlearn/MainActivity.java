@@ -11,8 +11,11 @@ import com.walker.mvvmlearn.demo2.Binding2Activity;
 import com.walker.mvvmlearn.demo_login.ui.login.LoginActivity;
 import com.walker.mvvmlearn.demo_login2.Login2Activity;
 
+
 /**
- * Mvvm架构学习，
+ * @author walker
+ * @date 2024/5/15
+ * @description Mvvm架构学习
  */
 public class MainActivity extends AppCompatActivity {
 
