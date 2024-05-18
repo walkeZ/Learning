@@ -1,14 +1,18 @@
 package com.walker.mvvmlearn.demo_login2;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.walker.mvvmlearn.BaseActivity;
 import com.walker.mvvmlearn.R;
+import com.walker.mvvmlearn.databinding.ActivityLogin21Binding;
 
 /**
  * 源于：https://www.bilibili.com/video/BV13Y4y1H7FG/?p=4&vd_source=412650ca810562b4df78e0e3fa9484f6
@@ -37,20 +41,50 @@ import com.walker.mvvmlearn.R;
  * >> MVP  1.大型项目 意味着业务多->接口多(接口地狱)->需要人多。2.业务重-P层重的
  * >> MVVM  1.UI经常性改变(如直播、社区)视图画面更新频繁的(如点赞、收藏、评论等待多)的
  */
-public class Login2Activity extends AppCompatActivity {
-    private static String TAG_LOGIN2 = "TAG_LOGIN2";
+public class Login21Activity extends BaseActivity {
+    private static String TAG_LOGIN2 = "TAG_LOGIN21";
+    private ActivityLogin21Binding binding;
+    private Login21ViewModel vm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login2);
+//        setContentView(R.layout.activity_login2);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login21);
+
+        // 布局丢给了DataBinding，建立DataBinding的绑定
+        binding.setLm(new Login21Model());
+         // new LoginViewModel()
+        vm = new ViewModelProvider(this).get(Login21ViewModel.class);
+        binding.setVm(vm);
+        binding.setMyClick(new MyClick());
+        binding.setLifecycleOwner(this);
+        //
+
+        binding.getVm().password.observe(this, (text)->{
+            Log.i(TAG_LOGIN2, "onCreate: " + vm.isInputNotEmpty());
+            vm.isInputPassword.setValue(!TextUtils.isEmpty(text));
+        });
 
         learningLiveData();
     }
 
+
+    public class MyClick {
+        public void click() {
+            Log.i(TAG_LOGIN2, "click: vm.username " + vm.username + ", " + vm.password.getValue());
+            Login21Activity.this.toast("MyClick");
+        }
+        public void setting() {
+            vm.username = "李四";
+            vm.password.setValue("666");
+            Login21Activity.this.toast("setting");
+        }
+    }
+
     private void learningLiveData() {
 
-        TextView tvLiveData = findViewById(R.id.login2_tvLeanLiveData);
+        TextView tvLiveData = findViewById(R.id.login21_tvLeanLiveData);
         tvLiveData.setOnClickListener(v-> startActivity(new Intent(this, ViewModel2Activity.class)));
 
         // liveData重点，①观察数据变化-更新UI。②按业务场景更新数据。有点与生命周期绑定，不可见是不会回调不会触发监听，即不可见时不会刷UI

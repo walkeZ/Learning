@@ -9,7 +9,7 @@ import android.view.View;
 import com.walker.mvvmlearn.demo1.Binding1Activity;
 import com.walker.mvvmlearn.demo2.Binding2Activity;
 import com.walker.mvvmlearn.demo_login.ui.login.LoginActivity;
-import com.walker.mvvmlearn.demo_login2.Login2Activity;
+import com.walker.mvvmlearn.demo_login2.Login21Activity;
 
 
 /**
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toDemo() {
-        startActivity(new Intent(this, Login2Activity.class));
+        startActivity(new Intent(this, Login21Activity.class));
     }
 
     public void toDemo1(View view) {
@@ -81,6 +81,6 @@ public class MainActivity extends AppCompatActivity {
          * ——— 原文链接：https://blog.csdn.net/c19344881x/article/details/120135958
          * 首页，
          */
-        startActivity(new Intent(this, Login2Activity.class));
+        startActivity(new Intent(this, Login21Activity.class));
     }
 }

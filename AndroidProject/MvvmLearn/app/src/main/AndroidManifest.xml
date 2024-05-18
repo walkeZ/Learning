@@ -12,7 +12,7 @@
         android:theme="@style/Theme.MvvmLearn"
         tools:targetApi="31">
         <activity
-            android:name=".demo_login2.Login2Activity"
+            android:name=".demo_login2.Login21Activity"
             android:exported="false" />
         <activity
             android:name=".demo_login2.ViewModel2Activity"
