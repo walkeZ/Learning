@@ -48,6 +48,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
+            android:text="Login21"
+            android:onClick="toLogin21"
+            style="@style/Widget.MaterialComponents.Button"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
             android:text="Login2"
             android:onClick="toLogin2"
             style="@style/Widget.MaterialComponents.Button"

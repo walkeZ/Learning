@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--     View.VISIBLE 的使用要先导包   -->
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.walker.mvvmlearn.demo_login2.demo.vm.Login2ViewModel" />
+
+        <variable
+            name="myClick"
+            type="com.walker.mvvmlearn.demo_login2.demo.Login2Activity.MyClick" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".demo_login2.demo.Login2Activity">
+
+        <!--    登录状态的，登陆成功、失败的各种状态显示文本 @{vm.loginState} 单向绑定   -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@{vm.loginState}"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@={vm.userName}"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{@string/username}"
+                android:text="@={vm.userName}" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:onClick="@{myClick.clearUaeName}"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:visibility="@{vm.userName.length() > 2 ? View.VISIBLE : View.GONE}" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="密码"
+                android:text="@={vm.userPwd}" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:onClick="@{()->vm.clearUserPsw()}"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:visibility="@{vm.userPwd.length() > 1 ? View.VISIBLE : View.GONE}" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@{vm.userPwd}"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:background="@{vm.userPwd.length() > 3 ? @color/blue : @color/gray}"
+            android:onClick="@{()->myClick.login()}"
+            android:text="Login" />
+
+    </LinearLayout>
+
+
+</layout>
