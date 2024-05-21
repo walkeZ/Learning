@@ -5,14 +5,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
 import com.walker.mvvmlearn.BaseActivity;
 import com.walker.mvvmlearn.R;
 import com.walker.mvvmlearn.databinding.ActivityNetRetrofitBinding;
-import com.walker.mvvmlearn.demo_login2.demo.data.repository.HttpRequestManager;
 import com.walker.mvvmlearn.net.vm.NRViewModel;
 
 /**
@@ -60,8 +58,9 @@ public class NetRetrofitActivity extends BaseActivity {
             RetrofitManager1.getInstance().normalRequest(nrViewModel);
         }
 
-        public void get(View v) {
+        public void simpleBean(View v) {
             toast("get");
+            RetrofitManager1.getInstance().normalRequestBean(nrViewModel);
         }
 
         public void getBean(View v) {
