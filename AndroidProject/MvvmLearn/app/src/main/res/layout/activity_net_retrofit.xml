@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="nrvm"
+            type="com.walker.mvvmlearn.net.vm.NRViewModel" />
+
+        <variable
+            name="myClick"
+            type="com.walker.mvvmlearn.net.NetRetrofitActivity.MyClick" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".net.NetRetrofitActivity">
+
+        <RelativeLayout
+            android:id="@+id/nr_part1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#FAD7BC"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{nrvm.response.content}" />
+            <!--    @{nrvm.response.content} -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#65BFBDBD"
+                android:onClick="@{()->myClick.simpleUse()}"
+                android:text="simpleUse" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/nr_part2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#C3E6F6"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintTop_toBottomOf="@id/nr_part1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/teal_200"
+                android:text="@{nrvm.responseStr}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#65BFBDBD"
+                android:onClick="@{myClick.get}"
+                android:text="get" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/nr_part3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#FAD7BC"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintTop_toBottomOf="@id/nr_part2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{nrvm.response.content}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#65BFBDBD"
+                android:onClick="@{myClick.getBean}"
+                android:text="getBean" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/nr_part4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintTop_toBottomOf="@id/nr_part3">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#65BFBDBD"
+                android:onClick="@{myClick.post}"
+                android:text="post" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

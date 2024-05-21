@@ -59,6 +59,13 @@
             android:onClick="toLogin2"
             style="@style/Widget.MaterialComponents.Button"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:text="Net_Retrofit"
+            android:onClick="toNetRetrofit"
+            style="@style/Widget.MaterialComponents.Button"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
