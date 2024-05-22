@@ -24,6 +24,7 @@ import retrofit2.http.POST;
 public interface APIService2 {
     /**
      * 获取Banner数据
+     *
      * @return
      */
     @GET("banner/json")
@@ -35,8 +36,10 @@ public interface APIService2 {
     @POST("user/login")
     @FormUrlEncoded
     Observable<BaseBean<LoginBean>> postLogin(@FieldMap Map<String, String> map);
+
     /**
      * 获取Banner数据返回bean
+     *
      * @return
      */
     @GET("banner/json")
@@ -44,8 +47,17 @@ public interface APIService2 {
 
     /**
      * 获取Banner数据
+     *
      * @return
      */
     @GET("banner/json")
     Observable<VoBase<List<BannerBean>>> getMyBanner();
+
+    /**
+     * 获取Banner数据
+     *
+     * @return
+     */
+    @GET("banner/json")
+    Flowable<Object> getBannerObject();
 }

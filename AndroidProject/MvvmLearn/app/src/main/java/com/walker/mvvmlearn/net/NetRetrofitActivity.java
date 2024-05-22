@@ -116,6 +116,14 @@ public class NetRetrofitActivity extends BaseActivity {
 
         public void post(View v) {
             toast("post");
+            nrViewModel.getMyBannerObject().observe(NetRetrofitActivity.this, new Observer<Object>() {
+                @Override
+                public void onChanged(Object o) {
+                    Log.i(TAG, "getMyBannerObject onChanged: " + o);
+                }
+            });
+
+
         }
     }
 }

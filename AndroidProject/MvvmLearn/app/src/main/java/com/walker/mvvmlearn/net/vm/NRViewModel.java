@@ -8,6 +8,7 @@ import com.walker.mvvmlearn.net.model.bean.BannerBean;
 import com.walker.mvvmlearn.net.model.bean.BaseBean;
 import com.walker.mvvmlearn.net.retrofit2.NetRequest;
 import com.walker.mvvmlearn.net.retrofit2.base.BaseHttpObserver;
+import com.walker.mvvmlearn.net.retrofit2.base.BaseHttpSubscriber2;
 import com.walker.mvvmlearn.net.retrofit2.base.vo.VoBase;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class NRViewModel extends ViewModel {
         return new BannerRepository().getBanner();
     }
 
+    // DataBinding下，在xml中使用后会自动调用一次，直接在xml中使用方法名(对象成员)会导致调用多次
     public MutableLiveData<VoBase<List<BannerBean>>> myBanner = getMyBanner();
 
     private MutableLiveData<VoBase<List<BannerBean>>> getMyBanner() {
@@ -37,5 +39,19 @@ public class NRViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread()) // Android main线程订阅
                 .subscribe(voBaseBaseHttpObserver);
         return voBaseBaseHttpObserver.getData();
+    }
+
+    public MutableLiveData<Object> myBannerObject2 = getMyBannerObject();
+
+    //
+    public MutableLiveData<Object> getMyBannerObject() {
+        //  Flowable return type must be parameterized as Flowable<Foo> or Flowable<? extends Foo>
+        // Flowable return type must be parameterized as Flowable<Foo> or Flowable<? extends Foo>   原因是接口定义是没有
+        BaseHttpSubscriber2<Object> voBaseBaseHttpObserver = new BaseHttpSubscriber2<>();
+        NetRequest.createApi().getBannerObject()
+                .subscribeOn(Schedulers.io()) // io线程提交
+                .observeOn(AndroidSchedulers.mainThread()) // Android main线程订阅
+                .subscribe(voBaseBaseHttpObserver);
+        return voBaseBaseHttpObserver.get();
     }
 }

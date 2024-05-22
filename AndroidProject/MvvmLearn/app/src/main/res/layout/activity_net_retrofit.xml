@@ -96,8 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@{nrvm.bannerData.isSuccess()? nrvm.bannerData.data[0].toString() : nrvm.bannerData.errorMsg}" />
-<!--    @{nrvm.banner.data[0].toString()} 一进入页面就不停请求了        -->
-<!--   nrvm.banner.isSuccess()? nrvm.banner.data[0].toString() : nrvm.banner.errorMsg 加了这会一直循环请求        -->
+            <!--    @{nrvm.banner.data[0].toString()} 一进入页面就不停请求了        -->
+            <!--   nrvm.banner.isSuccess()? nrvm.banner.data[0].toString() : nrvm.banner.errorMsg 加了这会一直循环请求        -->
 
             <Button
                 android:layout_width="wrap_content"
@@ -119,6 +119,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@{nrvm.myBanner.errorCode == 0 ? nrvm.myBanner.data[0].toString() : nrvm.myBanner.errorMsg}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#65BFBDBD"
+                android:onClick="@{myClick.post}"
+                android:text="post" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{nrvm.myBannerObject2.toString()}" />
 
             <Button
                 android:layout_width="wrap_content"
