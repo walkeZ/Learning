@@ -2,8 +2,6 @@ package com.walker.mvvmlearn.net.retrofit;
 
 import android.util.Log;
 
-import com.walker.mvvmlearn.net.constants.Constants;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -67,7 +65,7 @@ public class RequestInterceptor implements Interceptor {
         Log.e("TAG","出参JSON=" + responseBody.string());
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
-        Log.e("TAG","----------" + Constants.requestName + "耗时:" + duration + "毫秒----------");
+        Log.e("TAG","---" + request.url() + ", 耗时:" + duration + "毫秒----------");
         return response;
     }
 }

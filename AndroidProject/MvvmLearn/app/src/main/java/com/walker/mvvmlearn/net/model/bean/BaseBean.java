@@ -1,5 +1,8 @@
 package com.walker.mvvmlearn.net.model.bean;
 
+import com.walker.mvvmlearn.net.retrofit2.IModel;
+import com.walker.mvvmlearn.net.retrofit2.NetConfig;
+
 import java.io.Serializable;
 
 /**
@@ -7,8 +10,8 @@ import java.io.Serializable;
  *
  * @author Gong Youqiang
  */
-public class BaseBean<T> implements Serializable {
-    private static int SUCCESS_CODE = 0;//接口访问成功的errorCode
+public class BaseBean<T> implements Serializable, IModel {
+
     private int errorCode;
     private String errorMsg;
     private T data;
@@ -16,7 +19,7 @@ public class BaseBean<T> implements Serializable {
      * 是否成功获取到数据
      */
     public boolean isSuccess() {
-        return getErrorCode() == SUCCESS_CODE;
+        return getErrorCode() == NetConfig.SUCCESS_CODE;
     }
 
     public int getErrorCode() {

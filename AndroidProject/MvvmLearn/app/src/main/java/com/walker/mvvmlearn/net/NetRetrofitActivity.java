@@ -11,7 +11,20 @@ import android.view.View;
 import com.walker.mvvmlearn.BaseActivity;
 import com.walker.mvvmlearn.R;
 import com.walker.mvvmlearn.databinding.ActivityNetRetrofitBinding;
+import com.walker.mvvmlearn.net.model.bean.BannerBean;
+import com.walker.mvvmlearn.net.model.bean.BaseBean;
+import com.walker.mvvmlearn.net.retrofit2.NetRequest;
+import com.walker.mvvmlearn.net.retrofit2.callback.CallBackObserver;
+import com.walker.mvvmlearn.net.retrofit2.callback.IResponseCallBack;
+import com.walker.mvvmlearn.net.retrofit2.exception.OkHttpException;
 import com.walker.mvvmlearn.net.vm.NRViewModel;
+
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * @author walker
@@ -64,8 +77,36 @@ public class NetRetrofitActivity extends BaseActivity {
         }
 
         public void getBean(View v) {
+//            ApiSubscriber<BaseBean<List<BannerBean>>> apiSubscriber =
+//                    new ApiSubscriber<BaseBean<List<BannerBean>>>(NetRetrofitActivity.this, true) {
+//                        @Override
+//                        public void onSubscribe(Disposable d) {
+//                        }
+//                        @Override
+//                        public void onSuccess(BaseBean<List<BannerBean>> listBaseBean) {
+//                        }
+//                    };
+
             toast("getBean ");
-            nrViewModel.responseStr.setValue("getBean");
+            NetRequest.createApi().getBanner()
+                    .subscribeOn(Schedulers.io())//指定Observable自身在io线程中执行
+                    .observeOn(AndroidSchedulers.mainThread())//指定一个观察者在主线程中国观察这个Observable
+                    .subscribe(new CallBackObserver<>(NetRetrofitActivity.this,new IResponseCallBack<BaseBean<List<BannerBean>>>() {
+                        @Override
+                        public void onSuccess(BaseBean<List<BannerBean>> data) {
+                            toast(" getBean onSuccess");
+                            nrViewModel.bannerBean.setValue(data);
+                        }
+
+                        @Override
+                        public void onFail(OkHttpException failure) {
+                            toast(" getBean onFail");
+                            BaseBean<List<BannerBean>> baseBean = new BaseBean<>();
+                            baseBean.setErrorCode(-1);
+                            baseBean.setErrorMsg(failure.getEmsg());
+                            nrViewModel.bannerBean.setValue(baseBean);
+                        }
+                    }));//订阅
         }
 
         public void post(View v) {
