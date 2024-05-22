@@ -4,6 +4,7 @@ package com.walker.mvvmlearn.net.retrofit2.api;
 import com.walker.mvvmlearn.net.model.bean.BannerBean;
 import com.walker.mvvmlearn.net.model.bean.BaseBean;
 import com.walker.mvvmlearn.net.model.bean.LoginBean;
+import com.walker.mvvmlearn.net.retrofit2.base.vo.VoBase;
 
 import java.util.List;
 import java.util.Map;
@@ -40,4 +41,11 @@ public interface APIService2 {
      */
     @GET("banner/json")
     Flowable<BaseBean<List<BannerBean>>> getBannerData();
+
+    /**
+     * 获取Banner数据
+     * @return
+     */
+    @GET("banner/json")
+    Observable<VoBase<List<BannerBean>>> getMyBanner();
 }
