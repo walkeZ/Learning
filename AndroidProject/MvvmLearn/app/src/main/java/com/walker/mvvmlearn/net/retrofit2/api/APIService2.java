@@ -59,5 +59,5 @@ public interface APIService2 {
      * @return
      */
     @GET("banner/json")
-    Flowable<String> getBannerObject();
+    Flowable<Object> getBannerObject(); // Object接口的泛型要记得改
 }

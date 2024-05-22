@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="com.walker.mvvmlearn.net.retrofit2.GsonUtil"/>
+
         <variable
             name="nrvm"
             type="com.walker.mvvmlearn.net.vm.NRViewModel" />
@@ -137,7 +139,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="333" />
+                android:text="@{GsonUtil.toStr(nrvm.myBannerObject2)}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#41D7F6B6"
+                android:padding="10dp"
+                android:text="@{nrvm.myBannerObject2.toString()}" />
 
             <Button
                 android:layout_width="wrap_content"

@@ -43,13 +43,13 @@ public class NRViewModel extends ViewModel {
 
     // 返回的数据是json格式是对象，不能转成String
     // reading: https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0#error-handling | java.lang.ClassCastException: java.lang.Object cannot be cast to java.lang.String
-    public MutableLiveData<String> myBannerObject2 = getMyBannerObject();
+    public MutableLiveData<Object> myBannerObject2 = getMyBannerObject();
 
     //
-    public MutableLiveData<String> getMyBannerObject() {
+    public MutableLiveData<Object> getMyBannerObject() {
         //  Flowable return type must be parameterized as Flowable<Foo> or Flowable<? extends Foo>
         // Flowable return type must be parameterized as Flowable<Foo> or Flowable<? extends Foo>   原因是接口定义是没有
-        BaseHttpSubscriber2<String> voBaseBaseHttpObserver = new BaseHttpSubscriber2<>();
+        BaseHttpSubscriber2<Object> voBaseBaseHttpObserver = new BaseHttpSubscriber2<>();
         NetRequest.createApi().getBannerObject()
                 .subscribeOn(Schedulers.io()) // io线程提交
                 .observeOn(AndroidSchedulers.mainThread()) // Android main线程订阅

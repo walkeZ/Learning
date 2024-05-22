@@ -13,6 +13,7 @@ import com.walker.mvvmlearn.R;
 import com.walker.mvvmlearn.databinding.ActivityNetRetrofitBinding;
 import com.walker.mvvmlearn.net.model.bean.BannerBean;
 import com.walker.mvvmlearn.net.model.bean.BaseBean;
+import com.walker.mvvmlearn.net.retrofit2.GsonUtil;
 import com.walker.mvvmlearn.net.retrofit2.NetRequest;
 import com.walker.mvvmlearn.net.retrofit2.callback.CallBackObserver;
 import com.walker.mvvmlearn.net.retrofit2.callback.IResponseCallBack;
@@ -125,10 +126,10 @@ public class NetRetrofitActivity extends BaseActivity {
         }
         public void str(View v) {
             toast("post");
-            nrViewModel.getMyBannerObject().observe(NetRetrofitActivity.this, new Observer<String>() {
+            nrViewModel.getMyBannerObject().observe(NetRetrofitActivity.this, new Observer<Object>() {
                 @Override
-                public void onChanged(String o) {
-                    Log.i(TAG, "getMyBannerObject onChanged: " + o);
+                public void onChanged(Object o) {
+                    Log.i(TAG, "getMyBannerObject onChanged: " + GsonUtil.toStr(o));
                 }
             });
         }
