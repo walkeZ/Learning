@@ -95,7 +95,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@{nrvm.bannerData.isSuccess()? nrvm.bannerData.data[0].toString() : nrvm.bannerData.errorMsg}" />
+                android:text="@{nrvm.banner.isSuccess()? nrvm.banner.data[0].toString() : nrvm.banner.errorMsg}" />
 <!--    @{nrvm.banner.data[0].toString()} 一进入页面就不停请求了        -->
 <!--   nrvm.banner.isSuccess()? nrvm.banner.data[0].toString() : nrvm.banner.errorMsg 加了这会一直循环请求        -->
 
