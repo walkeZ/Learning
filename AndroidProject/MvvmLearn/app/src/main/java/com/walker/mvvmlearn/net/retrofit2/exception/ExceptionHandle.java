@@ -74,4 +74,41 @@ public class ExceptionHandle {
             return ex;
         }
     }
+
+    public static OkHttpException handleException(Throwable e) {
+        OkHttpException ex = null;
+        if (e instanceof HttpException) {
+            ResponseBody body = ((HttpException) e).response().errorBody();
+            try {
+                Gson gson = new GsonBuilder().serializeNulls().create();
+                String jsonStr = body.string();
+                BaseBean baseBean = gson.fromJson(jsonStr, BaseBean.class);
+
+                /**
+                 * token失效 重新登录
+                 */
+                if (baseBean.getErrorCode() == TOKENLOGIN) {
+                } else {
+                    ex = new OkHttpException(baseBean.getErrorCode(), baseBean.getErrorMsg());
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            return ex;
+        } else if (e instanceof java.net.SocketTimeoutException) {
+            ex = new OkHttpException(TIMEOUT_ERROR, TIMEOUTMSG);
+            return ex;
+        } else if (e instanceof JsonParseException
+                || e instanceof JSONException
+                || e instanceof ParseException) {
+            ex = new OkHttpException(JSON_ERROR, JSONMSG);
+            return ex;
+        } else if (e instanceof ConnectException) {
+            ex = new OkHttpException(NETWORK_ERROR, NETWORKMSG);
+            return ex;
+        } else {
+            ex = new OkHttpException(OTHER_ERROR, OTHERMSG);
+            return ex;
+        }
+    }
 }

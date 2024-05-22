@@ -22,8 +22,6 @@ import com.walker.mvvmlearn.net.vm.NRViewModel;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -40,13 +38,9 @@ public class NetRetrofitActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         nrViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) new ViewModelProvider.NewInstanceFactory())
                 .get(NRViewModel.class);
-
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_net_retrofit);
-
         viewDataBinding.setNrvm(nrViewModel);
         viewDataBinding.setMyClick(new MyClick());
         viewDataBinding.setLifecycleOwner(this); // UI不刷新是因为这个没设置
@@ -107,6 +101,17 @@ public class NetRetrofitActivity extends BaseActivity {
                             nrViewModel.bannerBean.setValue(baseBean);
                         }
                     }));//订阅
+        }
+
+        public void vmBean() {
+            toast("vmBean");
+//            nrViewModel.getBanner().observe(NetRetrofitActivity.this, new Observer<BaseBean<List<BannerBean>>>() {
+//                @Override
+//                public void onChanged(BaseBean<List<BannerBean>> listBaseBean) {
+//                    Log.w(TAG, " vmBean onChanged : " + listBaseBean.getData().get(0).toString());
+////                    toast(" vmBean onChanged " + listBaseBean.getErrorCode());
+//                }
+//            });
         }
 
         public void post(View v) {

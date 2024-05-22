@@ -8,6 +8,7 @@ import com.walker.mvvmlearn.net.model.bean.LoginBean;
 import java.util.List;
 import java.util.Map;
 
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -19,7 +20,7 @@ import retrofit2.http.POST;
  *
  * @author Gong Youqiang
  */
-public interface APIService {
+public interface APIService2 {
     /**
      * 获取Banner数据
      * @return
@@ -33,5 +34,10 @@ public interface APIService {
     @POST("user/login")
     @FormUrlEncoded
     Observable<BaseBean<LoginBean>> postLogin(@FieldMap Map<String, String> map);
-
+    /**
+     * 获取Banner数据返回bean
+     * @return
+     */
+    @GET("banner/json")
+    Flowable<BaseBean<List<BannerBean>>> getBannerData();
 }

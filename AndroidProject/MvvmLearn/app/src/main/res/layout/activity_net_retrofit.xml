@@ -26,9 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#FAD7BC"
-            app:layout_constraintHeight_percent="0.25"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="#FAD7BC">
 
             <TextView
                 android:layout_width="match_parent"
@@ -50,9 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#C3E6F6"
-            app:layout_constraintHeight_percent="0.25"
-            app:layout_constraintTop_toBottomOf="@id/nr_part1">
+            android:background="#C3E6F6">
 
             <TextView
                 android:layout_width="match_parent"
@@ -74,9 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#FAD7BC"
-            app:layout_constraintHeight_percent="0.25"
-            app:layout_constraintTop_toBottomOf="@id/nr_part2">
+            android:background="#FAD7BC">
 
             <TextView
                 android:layout_width="match_parent"
@@ -93,12 +87,33 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/nr_part4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:layout_constraintHeight_percent="0.25"
-            app:layout_constraintTop_toBottomOf="@id/nr_part3">
+            android:background="#C8D6FA">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{nrvm.bannerData.isSuccess()? nrvm.bannerData.data[0].toString() : nrvm.bannerData.errorMsg}" />
+<!--    @{nrvm.banner.data[0].toString()} 一进入页面就不停请求了        -->
+<!--   nrvm.banner.isSuccess()? nrvm.banner.data[0].toString() : nrvm.banner.errorMsg 加了这会一直循环请求        -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#65BFBDBD"
+                android:onClick="@{()->myClick.vmBean()}"
+                android:text="vm Bean" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/nr_part4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <Button
                 android:layout_width="wrap_content"

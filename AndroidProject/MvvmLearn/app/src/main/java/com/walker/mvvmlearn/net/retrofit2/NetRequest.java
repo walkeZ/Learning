@@ -2,7 +2,7 @@ package com.walker.mvvmlearn.net.retrofit2;
 
 import android.os.Environment;
 
-import com.walker.mvvmlearn.net.retrofit2.api.APIService;
+import com.walker.mvvmlearn.net.retrofit2.api.APIService2;
 import com.walker.mvvmlearn.net.retrofit2.callback.IResponseByteCallBack;
 
 import java.io.File;
@@ -45,8 +45,8 @@ public class NetRequest {
     /**
      * 所有请求都放在一个接口中
      */
-    public static APIService createApi() {
-        return mRetrofit.create(APIService.class);
+    public static APIService2 createApi() {
+        return mRetrofit.create(APIService2.class);
     }
 
     /**
