@@ -137,14 +137,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@{nrvm.myBannerObject2.toString()}" />
+                android:text="333" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:backgroundTint="#65BFBDBD"
-                android:onClick="@{myClick.post}"
+                android:onClick="@{myClick.str}"
                 android:text="post" />
         </RelativeLayout>
 

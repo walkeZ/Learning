@@ -59,5 +59,5 @@ public interface APIService2 {
      * @return
      */
     @GET("banner/json")
-    Flowable<Object> getBannerObject();
+    Flowable<String> getBannerObject();
 }
