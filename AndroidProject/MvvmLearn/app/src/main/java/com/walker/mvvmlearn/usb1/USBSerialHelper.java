@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- *
+ * 仅做参考对比
  *
  * https://blog.csdn.net/x995630736/article/details/130772261
  * https://github.com/mik3y/usb-serial-for-android

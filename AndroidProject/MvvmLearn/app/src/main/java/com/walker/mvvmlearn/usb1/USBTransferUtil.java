@@ -8,7 +8,6 @@ import android.content.IntentFilter;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Build;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
@@ -16,6 +15,8 @@ import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;
 import com.hoho.android.usbserial.util.SerialInputOutputManager;
 import com.walker.mvvmlearn.BuildConfig;
+import com.walker.mvvmlearn.utils.DataUtil;
+import com.walker.mvvmlearn.utils.LogUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -23,7 +24,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-// usb 数据传输工具
+/**
+ * usb 数据传输工具
+ * https://blog.csdn.net/lxt1292352578/article/details/131976810
+ */
 public class USBTransferUtil {
 
     private String TAG = "USBTransferUtil";
@@ -91,7 +95,7 @@ public class USBTransferUtil {
         usbReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.e(TAG, "onReceive: " + intent.getAction());
+                LogUtil.e("onReceive: " + intent.getAction());
                 if (INTENT_ACTION_GRANT_USB.equals(intent.getAction())) {
                     // 授权操作完成，连接
 //                    boolean granted = intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false);  // 不知为何获取到的永远都是 false 因此无法判断授权还是拒绝
@@ -106,7 +110,7 @@ public class USBTransferUtil {
     public void refreshDevice() {
         availableDrivers.clear();
         availableDrivers = UsbSerialProber.getDefaultProber().findAllDrivers(manager);
-        Log.e(TAG, "当前可用 usb 设备数量: " + availableDrivers.size());
+        LogUtil.e("当前可用 usb 设备数量: " + availableDrivers.size());
         // 有设备可以连接
         if (availableDrivers.size() != 0) {
             // 当时开发用的是定制平板电脑有 2 个usb口，所以搜索到两个
@@ -114,7 +118,7 @@ public class USBTransferUtil {
                 for (int i = 0; i < availableDrivers.size(); i++) {
                     UsbSerialDriver availableDriver = availableDrivers.get(i);
                     String productName = availableDriver.getDevice().getProductName();
-                    Log.e(TAG, "productName: " + productName);
+                    LogUtil.e("productName: " + productName);
                     // 我是通过 ProductName 这个参数来识别我要连接的设备
                     if (productName.equals(IDENTIFICATION)) {
                         usbSerialDriver = availableDriver;
@@ -175,26 +179,38 @@ public class USBTransferUtil {
         inputOutputManager = new SerialInputOutputManager(usbSerialPort, new SerialInputOutputManager.Listener() {
             @Override
             public void onNewData(byte[] data) {
-                // 在这里处理接收到的 usb 数据 -------------------------------
-                // 按照结尾标识符处理
-                baos.write(data, 0, data.length);
-                readBuffer = baos.toByteArray();
-                if (readBuffer.length >= 2 && readBuffer[readBuffer.length - 2] == (byte) '\r' && readBuffer[readBuffer.length - 1] == (byte) '\n') {
-                    String data_str = bytes2string(readBuffer);
-                    Log.w(TAG, "收到 usb 数据: " + data_str);
-                    if (onUSBDateReceive != null) {
-                        onUSBDateReceive.onReceive(data_str);
-                    }
-                    baos.reset();  // 重置
+
+                // 直接处理
+                String dataHex = DataUtil.bytesToHexString(data);
+                LogUtil.w("收到 usb dataHex: " + dataHex); // 数据按业务与下位机的上报是一致的。
+                // 2024-05-23 17:10:07.414 22783-22861 USBTransferUtil   com.walker.mvvmlearn  W  收到 usb dataHex: A5026B0000040009000006001900201200C7
+                // 可以看出是子线程的
+                if (onUSBDateReceive != null) {
+                    onUSBDateReceive.onReceive(dataHex);
                 }
+//                // 在这里处理接收到的 usb 数据 -------------------------------
+//                // 按照结尾标识符处理
+//                baos.write(data, 0, data.length);
+//                readBuffer = baos.toByteArray();
+////                String data_str0 = bytes2string(readBuffer);
+////                LogUtil.w("收到 usb data_str0: " + data_str0);
+//                //. 调试后发现baos是一直堆积的，所以要已换行符去切断重置
+//                if (readBuffer.length >= 2 && readBuffer[readBuffer.length - 2] == (byte) '\r' && readBuffer[readBuffer.length - 1] == (byte) '\n') {
+//                    String data_str = bytes2string(readBuffer);
+//                    LogUtil.w( "收到 usb 数据: " + data_str);
+//                    if (onUSBDateReceive != null) {
+//                        onUSBDateReceive.onReceive(data_str);
+//                    }
+//                    baos.reset();  // 重置
+//                }
                 // 直接处理
 //                String data_str = bytes2string(data);
-//                Log.i(TAG, "收到 usb 数据: " + data_str);
+//                LogUtil.i("收到 usb 数据: " + data_str);
             }
 
             @Override
             public void onRunError(Exception e) {
-                Log.e(TAG, "usb 断开了");
+                LogUtil.e("usb 断开了");
                 disconnect();
                 e.printStackTrace();
             }
@@ -208,19 +224,19 @@ public class USBTransferUtil {
     public void write(String data_hex) {
 //        data_hex += "0D0A"; // 0D0A ：加了之后公司的调试期间又返回了。
         if (usbSerialPort != null) {
-            Log.w(TAG, "write 当前usb状态: isOpen-" + usbSerialPort.isOpen());
+            LogUtil.w("write 当前usb状态: isOpen-" + usbSerialPort.isOpen());
             // 当串口打开时再下发
             if (usbSerialPort.isOpen()) {
                 byte[] data_bytes = hex2bytes(data_hex);  // 将字符数据转化为 byte[]
                 if (data_bytes == null || data_bytes.length == 0) return;
                 try {
                     usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
-                    Log.w(TAG, "write-" + data_hex);
+                    LogUtil.w("write-" + data_hex);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             } else {
-                Log.e(TAG, "write: usb 未连接");
+                LogUtil.e("write: usb 未连接");
             }
         }
     }
@@ -257,7 +273,7 @@ public class USBTransferUtil {
             if (isConnectUSB) {
                 isConnectUSB = false;  // 修改标识
             }
-            Log.e(TAG, "断开连接");
+            LogUtil.e("断开连接");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -29,7 +29,7 @@ public class Use1Activity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        viewBinding.receive.append("receive: " + data_str + "--");
+                        viewBinding.receive.append("receive: " + data_str + "\r\n");
                     }
                 });
             }
@@ -48,7 +48,7 @@ public class Use1Activity extends AppCompatActivity {
                 String content_str = viewBinding.content.getText().toString();
                 if (!content_str.equals("")) {
                     USB.write(USBTransferUtil.string2Hex(content_str));
-                    viewBinding.receive.append("send: " + content_str + "--");
+                    viewBinding.receive.append("send: " + content_str + "\r\n");
                 }
             }
         });
@@ -70,7 +70,7 @@ public class Use1Activity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (USBTransferUtil3.isConnectUSB) {
+        if (USBTransferUtil.isConnectUSB) {
             USB.disconnect();
         }
         super.onDestroy();

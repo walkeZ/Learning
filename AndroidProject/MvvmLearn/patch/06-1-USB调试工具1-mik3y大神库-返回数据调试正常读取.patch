@@ -1,0 +1,56 @@
+Index: AndroidProject/MvvmLearn/app/src/main/java/com/walker/mvvmlearn/usb1/USBTransferUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/AndroidProject/MvvmLearn/app/src/main/java/com/walker/mvvmlearn/usb1/USBTransferUtil.java b/AndroidProject/MvvmLearn/app/src/main/java/com/walker/mvvmlearn/usb1/USBTransferUtil.java
+--- a/AndroidProject/MvvmLearn/app/src/main/java/com/walker/mvvmlearn/usb1/USBTransferUtil.java	(revision bce7f05559dba329372a96f70a0b379f3a65cde4)
++++ b/AndroidProject/MvvmLearn/app/src/main/java/com/walker/mvvmlearn/usb1/USBTransferUtil.java	(revision 01db581dca75627291ef3035c51fe94e08137be6)
+@@ -16,6 +16,7 @@
+ import com.hoho.android.usbserial.driver.UsbSerialProber;
+ import com.hoho.android.usbserial.util.SerialInputOutputManager;
+ import com.walker.mvvmlearn.BuildConfig;
++import com.walker.mvvmlearn.utils.DataUtil;
+ 
+ import java.io.ByteArrayOutputStream;
+ import java.io.IOException;
+@@ -175,18 +176,28 @@
+         inputOutputManager = new SerialInputOutputManager(usbSerialPort, new SerialInputOutputManager.Listener() {
+             @Override
+             public void onNewData(byte[] data) {
+-                // 在这里处理接收到的 usb 数据 -------------------------------
+-                // 按照结尾标识符处理
+-                baos.write(data, 0, data.length);
+-                readBuffer = baos.toByteArray();
+-                if (readBuffer.length >= 2 && readBuffer[readBuffer.length - 2] == (byte) '\r' && readBuffer[readBuffer.length - 1] == (byte) '\n') {
+-                    String data_str = bytes2string(readBuffer);
+-                    Log.w(TAG, "收到 usb 数据: " + data_str);
+-                    if (onUSBDateReceive != null) {
+-                        onUSBDateReceive.onReceive(data_str);
+-                    }
+-                    baos.reset();  // 重置
++
++                // 直接处理
++                String dataHex = DataUtil.bytesToHexString(data);
++                Log.w(TAG, "收到 usb dataHex: " + dataHex); // 数据按业务与下位机的上报是一直的。
++                if (onUSBDateReceive != null) {
++                    onUSBDateReceive.onReceive(dataHex);
+                 }
++//                // 在这里处理接收到的 usb 数据 -------------------------------
++//                // 按照结尾标识符处理
++//                baos.write(data, 0, data.length);
++//                readBuffer = baos.toByteArray();
++////                String data_str0 = bytes2string(readBuffer);
++////                Log.w(TAG, "收到 usb data_str0: " + data_str0);
++//                //. 调试后发现baos是一直堆积的，所以要已换行符去切断重置
++//                if (readBuffer.length >= 2 && readBuffer[readBuffer.length - 2] == (byte) '\r' && readBuffer[readBuffer.length - 1] == (byte) '\n') {
++//                    String data_str = bytes2string(readBuffer);
++//                    Log.w(TAG, "收到 usb 数据: " + data_str);
++//                    if (onUSBDateReceive != null) {
++//                        onUSBDateReceive.onReceive(data_str);
++//                    }
++//                    baos.reset();  // 重置
++//                }
+                 // 直接处理
+ //                String data_str = bytes2string(data);
+ //                Log.i(TAG, "收到 usb 数据: " + data_str);
