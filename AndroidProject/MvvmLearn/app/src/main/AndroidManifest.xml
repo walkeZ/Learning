@@ -13,6 +13,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 从SDCard读取数据权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!--  usb权限  -->
+    <uses-permission android:name="android.permission.USB_PERMISSION" />
+
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -23,6 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MvvmLearn"
         tools:targetApi="31">
+        <activity
+            android:name=".usb1.Use1Activity"
+            android:exported="false" />
         <activity
             android:name=".net.NetRetrofitActivity"
             android:exported="false" />

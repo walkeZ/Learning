@@ -2,6 +2,7 @@ package com.walker.mvvmlearn;
 
 import android.app.Application;
 import android.content.Context;
+import android.widget.Toast;
 
 import com.walker.mvvmlearn.net.retrofit.HttpsUtils;
 import com.walker.mvvmlearn.net.retrofit.RequestInterceptor;
@@ -30,9 +31,16 @@ public class MyApp extends Application {
      */
     private static final int TIME_OUT = 30;
 
+    private static MyApp myApp;
+
+    public static MyApp getInstance() {
+        return myApp;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        myApp = this;
         context = getApplicationContext();
         initOkHttp();
     }
@@ -69,6 +77,10 @@ public class MyApp extends Application {
 
         mOkHttpClient = okHttpBuilder.build();
 
+    }
+
+    public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
 }

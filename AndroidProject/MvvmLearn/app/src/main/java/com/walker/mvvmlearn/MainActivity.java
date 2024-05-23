@@ -12,6 +12,7 @@ import com.walker.mvvmlearn.demo_login.ui.login.LoginActivity;
 import com.walker.mvvmlearn.demo_login2.Login21Activity;
 import com.walker.mvvmlearn.demo_login2.demo.Login2Activity;
 import com.walker.mvvmlearn.net.NetRetrofitActivity;
+import com.walker.mvvmlearn.usb1.Use1Activity;
 
 
 /**
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toDemo() {
-        startActivity(new Intent(this, NetRetrofitActivity.class));
+        startActivity(new Intent(this, Use1Activity.class));
     }
 
     public void toDemo1(View view) {
@@ -90,5 +91,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void toNetRetrofit(View view) {
         startActivity(new Intent(this, NetRetrofitActivity.class));
+    }
+
+    public void toUsb(View view) {
+        startActivity(new Intent(this, Use1Activity.class));
     }
 }
