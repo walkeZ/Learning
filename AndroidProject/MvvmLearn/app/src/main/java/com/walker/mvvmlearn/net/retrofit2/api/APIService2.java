@@ -20,6 +20,8 @@ import retrofit2.http.POST;
  * Created on 2021/12/28 14:17
  *
  * @author Gong Youqiang
+ *
+ * retrofit 封装参考博客： https://blog.51cto.com/u_12865/6482735
  */
 public interface APIService2 {
     /**
