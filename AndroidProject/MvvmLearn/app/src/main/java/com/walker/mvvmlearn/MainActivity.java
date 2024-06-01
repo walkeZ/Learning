@@ -11,6 +11,7 @@ import com.walker.mvvmlearn.demo2.Binding2Activity;
 import com.walker.mvvmlearn.demo_login.ui.login.LoginActivity;
 import com.walker.mvvmlearn.demo_login2.Login21Activity;
 import com.walker.mvvmlearn.demo_login2.demo.Login2Activity;
+import com.walker.mvvmlearn.manager.JavaManger;
 import com.walker.mvvmlearn.net.NetRetrofitActivity;
 import com.walker.mvvmlearn.usb1.Use1Activity;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toDemo();
+        JavaManger.instance().testListAddAll();
     }
 
     public void toDemo() {
