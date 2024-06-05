@@ -405,8 +405,6 @@ public class EChartWebActivity extends AppCompatActivity {
 
 //        viewDataBinding.aewWvEChart.getSettings().setJavaScriptEnabled(true);
 //        viewDataBinding.aewWvEChart.getSettings().setAllowFileAccess(true);
-
-
     }
 
     @Override
@@ -414,7 +412,7 @@ public class EChartWebActivity extends AppCompatActivity {
         super.onResume();
         viewDataBinding.aewWvEChart.setData(demoOption);
         viewDataBinding.aewWvEChart2.setData(optionDemo2);
-        viewDataBinding.aewWvEChart3.setData(demoOption);
+        viewDataBinding.aewWvEChart3.setData(optionDemo3);
         viewDataBinding.aewWvEChart4.setData(optionDemo4);
     }
 }
