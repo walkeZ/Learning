@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.walker.mvvmlearn.chart.echart.web.EChartWebActivity;
 import com.walker.mvvmlearn.demo1.Binding1Activity;
 import com.walker.mvvmlearn.demo2.Binding2Activity;
 import com.walker.mvvmlearn.demo_login.ui.login.LoginActivity;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toDemo() {
-        startActivity(new Intent(this, Use1Activity.class));
+        startActivity(new Intent(this, EChartWebActivity.class));
     }
 
     public void toDemo1(View view) {

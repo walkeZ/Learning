@@ -28,6 +28,9 @@
         android:theme="@style/Theme.MvvmLearn"
         tools:targetApi="31">
         <activity
+            android:name=".chart.echart.web.EChartWebActivity"
+            android:exported="false" />
+        <activity
             android:name=".usb1.Use1Activity"
             android:exported="false" />
         <activity

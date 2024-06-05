@@ -74,6 +74,13 @@
             android:onClick="toUsb"
             style="@style/Widget.MaterialComponents.Button"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:text="web EChart"
+            android:onClick="toUsb"
+            style="@style/Widget.MaterialComponents.Button"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
