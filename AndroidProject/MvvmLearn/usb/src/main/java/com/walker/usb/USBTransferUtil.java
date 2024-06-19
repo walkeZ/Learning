@@ -161,6 +161,49 @@ public class USBTransferUtil {
 
     // 连接设备
     public void connectDevice() {
+        // (USBTransferUtil.java:146)  usb getSerialNumber error User has not given 10304/com.walker.mvvmlearn permission to access device /dev/bus/usb/002/004
+        //2024-06-19 15:07:48.808  9153-9153  het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:190) 请先授予权限再连接
+        //2024-06-19 15:07:50.748  9153-9153  het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:100) onReceive: com.walker.usb.INTENT_ACTION_GRANT_USB
+        //2024-06-19 15:07:50.751  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:112) interfaces:
+        //2024-06-19 15:07:50.752  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:114) UsbInterface[mId=2,mAlternateSetting=0,mName=null,mClass=8,mSubclass=6,mProtocol=80,mEndpoints=[
+        //                                                                                                    UsbEndpoint[mAddress=129,mAttributes=2,mMaxPacketSize=64,mInterval=0]
+        //                                                                                                    UsbEndpoint[mAddress=2,mAttributes=2,mMaxPacketSize=64,mInterval=0]]
+        //2024-06-19 15:07:50.753  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:114) UsbInterface[mId=0,mAlternateSetting=0,mName=null,mClass=2,mSubclass=2,mProtocol=1,mEndpoints=[
+        //                                                                                                    UsbEndpoint[mAddress=131,mAttributes=3,mMaxPacketSize=8,mInterval=10]]
+        //2024-06-19 15:07:50.754  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:114) UsbInterface[mId=1,mAlternateSetting=0,mName=null,mClass=10,mSubclass=0,mProtocol=0,mEndpoints=[
+        //                                                                                                    UsbEndpoint[mAddress=1,mAttributes=2,mMaxPacketSize=64,mInterval=0]
+        //                                                                                                    UsbEndpoint[mAddress=130,mAttributes=2,mMaxPacketSize=64,mInterval=0]]
+        //2024-06-19 15:07:50.755  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:120) trying default interface logic
+        //2024-06-19 15:07:50.756  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:225) USB descriptor:
+        //2024-06-19 15:07:50.758  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 12 01 00 02 00 00 00 40 E9 28 8B 02 00 01 01 02 03 01
+        //2024-06-19 15:07:50.759  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 09 02 6A 00 03 01 00 80 32
+        //2024-06-19 15:07:50.760  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 08 0B 02 01 08 06 50 00
+        //2024-06-19 15:07:50.761  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 09 04 02 00 02 08 06 50 00
+        //2024-06-19 15:07:50.761  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 07 05 81 02 40 00 00
+        //2024-06-19 15:07:50.762  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 07 05 02 02 40 00 00
+        //2024-06-19 15:07:50.763  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 08 0B 00 02 02 02 01 00
+        //2024-06-19 15:07:50.764  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 09 04 00 00 01 02 02 01 00
+        //2024-06-19 15:07:50.764  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 05 24 00 10 01
+        //2024-06-19 15:07:50.765  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 05 24 01 00 03
+        //2024-06-19 15:07:50.766  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 04 24 02 02
+        //2024-06-19 15:07:50.767  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 05 24 06 02 03
+        //2024-06-19 15:07:50.767  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 07 05 83 03 08 00 0A
+        //2024-06-19 15:07:50.768  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 09 04 01 00 02 0A 00 00 00
+        //2024-06-19 15:07:50.768  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 07 05 01 02 40 00 00
+        //2024-06-19 15:07:50.769  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:227) 07 05 82 02 40 00 00
+        //2024-06-19 15:07:50.770  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:155) interface count=3, IAD=-1
+        //2024-06-19 15:07:50.770  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:172) no IAD fallback
+        //2024-06-19 15:07:50.771  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:197) Control interface id 0
+        //2024-06-19 15:07:50.772  9153-9153  het_1.0.0               com.walker.mvvmlearn                 D  (CdcAcmSerialDriver.java:210) data interface id 1
+        //2024-06-19 15:07:50.774  9153-9153  het_1.0.0               com.walker.mvvmlearn                 W  (USBTransferUtil.java:225) mSerialNumber: 60645CE01633, productName: GD32-DUAL_CDC, ManufacturerName = GigaDevice, DeviceName /dev/bus/usb/002/004, DeviceId 2004, Version 1.00
+        //2024-06-19 15:07:50.775  9153-9153  het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:233) 60645CE01633 连接成功 com.walker.mvvmlearn.usbSdk.UsbSdkActivity$1@b8e0518
+        //2024-06-19 15:07:50.777  9153-10608 het_1.0.0               com.walker.mvvmlearn                 I  (SerialInputOutputManager.java:193) Running ...
+        //2024-06-19 15:07:50.779  9153-10608 het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:208) 收到 usb 数据 ------------------< a502820000040009000006000011010103eb， ��??????	????????�， com.walker.mvvmlearn.usbSdk.UsbSdkActivity$2@995ab71
+        //2024-06-19 15:07:50.782  9153-9153  het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:100) onReceive: com.walker.usb.INTENT_ACTION_GRANT_USB
+        //2024-06-19 15:07:50.783  9153-9153  het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:168) usbSerialDriver == null || inputOutputManager != null
+        //2024-06-19 15:07:50.920  9153-10608 het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:208) 收到 usb 数据 ------------------< a5028300000400090000060000110101036b， ��??????	????????k， com.walker.mvvmlearn.usbSdk.UsbSdkActivity$2@995ab71
+        //2024-06-19 15:07:51.477  9153-10608 het_1.0.0               com.walker.mvvmlearn                 E  (USBTransferUtil.java:208) 收到 usb 数据 ------------------< a502840000040009000006000011010103c0， ��??????	????????�， com.walker.mvvmlearn.usbSdk.UsbSdkActivity$2@995ab71
+        if (isConnectUSB) return; //  通过日志可知。授权后继续走startReceiveData();  // 开启数据监听。不一定需要在广播中再次调用。
         if (mOnUsbConnectedListener != null) {
             mOnUsbConnectedListener.onStartConnect();
         }
@@ -200,9 +243,6 @@ public class USBTransferUtil {
         if (usbSerialPort == null || !usbSerialPort.isOpen()) {
             return;
         }
-        ThreadUtil.runOnMain(() -> {
-            if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onConnected(mSerialNumber);
-        });
         inputOutputManager = new SerialInputOutputManager(usbSerialPort, new SerialInputOutputManager.Listener() {
             @Override
             public void onNewData(byte[] data) {
@@ -220,6 +260,17 @@ public class USBTransferUtil {
                 disconnect();
                 e.printStackTrace();
             }
+        });
+
+        UsbDevice device = usbSerialDriver.getDevice();
+        try {
+            mSerialNumber = device.getSerialNumber();
+        } catch (Exception e) {
+            LogUtil.e(" 连接成功 usb getSerialNumber error " + e.getMessage());
+        }
+        LogUtil.e(mSerialNumber + " 连接成功 " + mOnUsbConnectedListener);
+        ThreadUtil.runOnMain(() -> {
+            if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onConnected(mSerialNumber);
         });
         inputOutputManager.start();
         isConnectUSB = true;  // 修改连接标识
