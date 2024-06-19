@@ -4,14 +4,31 @@ plugins {
 
 android {
     namespace 'com.walker.usb'
-    compileSdk 33
+    compileSdk 30
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
+        targetSdk 30
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+
+        // 如外部版本(名) -- 内部版本(号)；  App版本管理平台【选择apk文件后还需要“上传附件”】
+        // 1.0.44  即为 10044。
+        // 1.1.0   即为 1 01 00
+        // 1.0.4   即为 10004。
+        // 10.0.4  即为 100004.
+        /* 版本命名规范软件版本号由三部分组成，例如：v1.2.3
+        1 为主版本号
+        2 为子版本号
+        3 为开发阶段版本号，开发阶段该版本号自增，对外发布时该版本号置为0，子版本号加1*/
+
+        versionCode 10000
+        versionName "1.0.0"
+
+        // 在自动生成的BuildConfig没有VERSION_CODE，这里主动生成一个字段
+        buildConfigField("int", "VERSION_CODE", "${versionCode}")
     }
 
     buildTypes {
@@ -24,6 +41,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -33,4 +53,24 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // 解析
+    implementation 'com.google.code.gson:gson:2.11.0'
 }
+
+// 导出jar, 右侧Gradle-intelligent - Tasks - other - makeJar
+task clearJar(type: Delete) {
+    delete 'Jar/hetibbg.jar'// 这行表示如果你已经打过一次包了，再进行打包则把原来的包删掉
+}
+task makeJar(type: Copy) {
+    //这行表示要打包的文件的路径，根据下面的内容，其实是该路径下的classes.jar （注：这里的路径不同AS版本各有不同，需要自己去找对应目录下的classes.jar）
+    from('build/intermediates/aar_main_jar/release/')
+    //这行表示打包完毕后包的生成路径，也就是生成的包存在哪
+    into('Jar/')
+    //看到这行，如果你对分包有了解的话，你就可以看出来这行它只是将一些类打包了
+    include('classes.jar')
+    rename('classes.jar', 'com.walker.usb' + android.defaultConfig.versionName + '.jar')
+    //exclude('test/', 'BuildConfig.class', 'R.class')//去掉不需要打包的目录和文件
+    //exclude{it.name.startsWith('R');}//去掉R开头的文件
+}
+makeJar.dependsOn(clearJar, build)
