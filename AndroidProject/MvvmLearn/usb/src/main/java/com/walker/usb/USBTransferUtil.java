@@ -350,7 +350,6 @@ public class USBTransferUtil {
         }
     }
 
-
     // 断开连接
     public void disconnect() {
         try {
