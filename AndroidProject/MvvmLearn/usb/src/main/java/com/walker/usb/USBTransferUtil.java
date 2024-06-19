@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.walker.usb.USBSerial.driver.UsbSerialDriver;
 import com.walker.usb.USBSerial.driver.UsbSerialPort;
 import com.walker.usb.USBSerial.driver.UsbSerialProber;
-import com.walker.usb.USBSerial.util.GsonUtils;
 import com.walker.usb.USBSerial.util.SerialInputOutputManager;
 import com.walker.usb.USBSerial.util.LogUtil;
 import com.walker.usb.USBSerial.util.ThreadUtil;
@@ -122,8 +121,7 @@ public class USBTransferUtil {
                     UsbSerialDriver availableDriver = availableDrivers.get(i);
                     UsbDevice device = availableDriver.getDevice();
                     String productName = device.getProductName();
-                    LogUtil.e("productName: " + productName + ", ManufacturerName = " + device.getManufacturerName()
-                            + ",sn " + device.getSerialNumber() + ", " + GsonUtils.toJson(device) + ",\n " + GsonUtils.toJson(availableDriver));
+                    LogUtil.e("productName: " + productName + ", ManufacturerName = " + device.getManufacturerName());
                     // 我是通过 ProductName 这个参数来识别我要连接的设备
                     if (productName.startsWith(IDENTIFICATION)) {
                         usbSerialDriver = availableDriver;
@@ -143,8 +141,7 @@ public class USBTransferUtil {
                         + ", ManufacturerName = " + device.getManufacturerName()
                         + ", DeviceName " + device.getDeviceName()
                         + ", DeviceId " + device.getDeviceId()
-                        + ", Version " + device.getVersion()
-                        + ",\n " + GsonUtils.toJson(device) + ",\n " + GsonUtils.toJson(usbSerialDriver));
+                        + ", Version " + device.getVersion());
             } catch (Exception e) {
                 LogUtil.e(" usb getSerialNumber error " + e.getMessage());
             }

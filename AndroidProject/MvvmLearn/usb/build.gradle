@@ -55,7 +55,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // 解析
-    implementation 'com.google.code.gson:gson:2.11.0'
+//    implementation 'com.google.code.gson:gson:2.11.0'
 }
 
 // 导出jar, 右侧Gradle-intelligent - Tasks - other - makeJar
