@@ -15,6 +15,7 @@ import com.walker.mvvmlearn.demo_login2.demo.Login2Activity;
 import com.walker.mvvmlearn.manager.JavaManger;
 import com.walker.mvvmlearn.net.NetRetrofitActivity;
 import com.walker.mvvmlearn.usb1.Use1Activity;
+import com.walker.mvvmlearn.usbSdk.UsbSdkActivity;
 
 
 /**
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toDemo() {
-        startActivity(new Intent(this, EChartWebActivity.class));
+        startActivity(new Intent(this, UsbSdkActivity.class));
     }
 
     public void toDemo1(View view) {
@@ -98,5 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void toUsb(View view) {
         startActivity(new Intent(this, Use1Activity.class));
+    }
+
+    public void toWebChart(View view) {
+        startActivity(new Intent(this, EChartWebActivity.class));
+    }
+
+    public void toUsbSdk(View view) {
+        startActivity(new Intent(this, UsbSdkActivity.class));
     }
 }

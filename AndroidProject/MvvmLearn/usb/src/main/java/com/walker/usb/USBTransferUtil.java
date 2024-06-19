@@ -39,7 +39,7 @@ public class USBTransferUtil {
 
     private BroadcastReceiver usbReceiver;  // 广播监听：判断usb设备授权操作
     private static final String INTENT_ACTION_GRANT_USB = "com.walker.usb.INTENT_ACTION_GRANT_USB";  // usb权限请求标识
-    private final String IDENTIFICATION = " USB-Serial Controller D";  // 目标设备标识
+    private final String IDENTIFICATION = "GD32";  // 目标设备标识
 
     // 顺序： manager - availableDrivers（所有可用设备） - UsbSerialDriver（目标设备对象） - UsbDeviceConnection（设备连接对象） - UsbSerialPort（设备的端口，一般只有1个）
     private List<UsbSerialDriver> availableDrivers = new ArrayList<>();  // 所有可用设备
@@ -125,7 +125,7 @@ public class USBTransferUtil {
                     LogUtil.e("productName: " + productName + ", ManufacturerName = " + device.getManufacturerName()
                             + ",sn " + device.getSerialNumber() + ", " + GsonUtils.toJson(device) + ",\n " + GsonUtils.toJson(availableDriver));
                     // 我是通过 ProductName 这个参数来识别我要连接的设备
-                    if (productName.equals(IDENTIFICATION)) {
+                    if (productName.startsWith(IDENTIFICATION)) {
                         usbSerialDriver = availableDriver;
                     }
                 }
@@ -133,17 +133,27 @@ public class USBTransferUtil {
                 // 通常手机只有充电口 1 个
                 usbSerialDriver = availableDrivers.get(0);
             }
+            UsbDevice device = usbSerialDriver.getDevice();
             try {
-                mSerialNumber = usbSerialDriver.getDevice().getSerialNumber();
+                mSerialNumber = device.getSerialNumber();
+                // 华为nova9，Android 12 可以获取。以 productName 来来识别体感衣。GD32就连接
+                // mSerialNumber: 60645CE01633, {"mInterfaces":[{},{},{}]},{"mDevice":{"mInterfaces":[{},{},{}]},"mPorts":[{"mControlEndpoint":null,"mControlIndex":0,"mControlInterface":null,"mDataInterface":null,"mDtr":false,"mRts":false,"mConnection":null,"mDevice":{"mInterfaces":[{},{},{}]},"mPortNumber":0,"mReadEndpoint":null,"mUsbRequest":null,"mWriteBuffer":null,"mWriteBufferLock":{},"mWriteEndpoint":null}]}
+                // mSerialNumber: 60645CE01633, productName: GD32-DUAL_CDC, ManufacturerName = GigaDevice, DeviceName /dev/bus/usb/002/004, DeviceId 2004, Version 1.00, {"mInterfaces":[{},{},{}]}, {"mDevice":{"mInterfaces":[{},{},{}]},"mPorts":[{"mControlEndpoint":null,"mControlIndex":0,"mControlInterface":null,"mDataInterface":null,"mDtr":false,"mRts":false,"mConnection":null,"mDevice":{"mInterfaces":[{},{},{}]},"mPortNumber":0,"mReadEndpoint":null,"mUsbRequest":null,"mWriteBuffer":null,"mWriteBufferLock":{},"mWriteEndpoint":null}]}
+                LogUtil.w("mSerialNumber: " + mSerialNumber + ", productName: " + device.getProductName()
+                        + ", ManufacturerName = " + device.getManufacturerName()
+                        + ", DeviceName " + device.getDeviceName()
+                        + ", DeviceId " + device.getDeviceId()
+                        + ", Version " + device.getVersion()
+                        + ",\n " + GsonUtils.toJson(device) + ",\n " + GsonUtils.toJson(usbSerialDriver));
             } catch (Exception e) {
                 LogUtil.e(" usb getSerialNumber error " + e.getMessage());
             }
             usbSerialPort = usbSerialDriver.getPorts().get(0);  // 一般设备的端口都只有一个，具体要参考设备的说明文档
             // 同时申请设备权限
-            if (!manager.hasPermission(usbSerialDriver.getDevice())) {
+            if (!manager.hasPermission(device)) {
                 int flags = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0;
                 PendingIntent usbPermissionIntent = PendingIntent.getBroadcast(my_context, 0, new Intent(INTENT_ACTION_GRANT_USB), flags);
-                manager.requestPermission(usbSerialDriver.getDevice(), usbPermissionIntent);
+                manager.requestPermission(device, usbPermissionIntent);
             }
         }
         // 没有设备
@@ -200,7 +210,7 @@ public class USBTransferUtil {
             @Override
             public void onNewData(byte[] data) {
                 // 在这里处理接收到的 usb 数据 -------------------------------
-                String data_str = bytes2string(data);
+                String data_str = bytes2Hex(data);
                 LogUtil.e("收到 usb 数据 ------------------< " + data_str + "， " + new String(data) + "， " + mOnUsbDateCallback);
                 ThreadUtil.runOnMain(() -> {
                     if (mOnUsbDateCallback != null) mOnUsbDateCallback.onReceive(data_str);

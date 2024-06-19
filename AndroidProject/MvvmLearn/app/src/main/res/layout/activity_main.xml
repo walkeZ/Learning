@@ -78,7 +78,15 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
             android:text="web EChart"
-            android:onClick="toUsb"
+            android:onClick="toWebChart"
+            style="@style/Widget.MaterialComponents.Button"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:text="usb SDK Demo"
+            android:onClick="toUsbSdk"
             style="@style/Widget.MaterialComponents.Button"
             />
     </LinearLayout>
