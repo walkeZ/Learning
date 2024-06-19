@@ -2,6 +2,8 @@ package com.walker.usb.USBSerial.util;
 
 import android.util.Log;
 
+import com.walker.usb.BuildConfig;
+
 import java.util.Locale;
 
 /**
@@ -10,7 +12,7 @@ import java.util.Locale;
  * @description 日志工具类
  */
 public class LogUtil {
-    public static final String TAG = "het_1.0.0";
+    public static final String TAG = "het_" + BuildConfig.VERSION_NAME;
     public static final int VERBOSE = 0;
     public static final int DEBUG = 1;
     public static final int INFO = 2;

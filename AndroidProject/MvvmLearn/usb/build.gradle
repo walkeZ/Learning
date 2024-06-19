@@ -29,6 +29,7 @@ android {
 
         // 在自动生成的BuildConfig没有VERSION_CODE，这里主动生成一个字段
         buildConfigField("int", "VERSION_CODE", "${versionCode}")
+        buildConfigField("String", "VERSION_NAME", "\"${versionName}\"")
     }
 
     buildTypes {
