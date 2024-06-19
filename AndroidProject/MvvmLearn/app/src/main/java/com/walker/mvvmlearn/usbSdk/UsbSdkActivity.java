@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import com.walker.mvvmlearn.BaseActivity;
 import com.walker.mvvmlearn.R;
 import com.walker.mvvmlearn.databinding.ActivityUsbSdkBinding;
-import com.walker.mvvmlearn.utils.LogUtil;
+import com.walker.usb.USBSerial.util.LogUtil;
 import com.walker.usb.USBTransferUtil;
 import com.walker.usb.callback.OnUsbConnectedListener;
 import com.walker.usb.callback.OnUsbDateCallback;
@@ -23,6 +23,7 @@ public class UsbSdkActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LogUtil.e("----->" + SystemUtil.getPhoneInfo(this));
         USBTransferUtil.getInstance().init(this);
 
         viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_usb_sdk);
@@ -34,9 +35,9 @@ public class UsbSdkActivity extends BaseActivity {
         // 断开
         viewBinding.ausBtnDisconnect.setOnClickListener(view -> USBTransferUtil.getInstance().disconnect());
         // 下发数据
-        viewBinding.ausSendHex.setOnClickListener(view -> {
+        viewBinding.ausBtnSend.setOnClickListener(view -> {
             String cmd = viewBinding.ausEt0.getText().toString();
-            USBTransferUtil.getInstance().writeStr(cmd, "UTF-8", new OnUsbWriteCallback() {
+            USBTransferUtil.getInstance().writeStr(cmd + "\r\n", "UTF-8", new OnUsbWriteCallback() {
                 @Override
                 public void onWriteSuccess(String content) {
                     viewBinding.ausTvWr.append("\n" + ">>: " + content);
