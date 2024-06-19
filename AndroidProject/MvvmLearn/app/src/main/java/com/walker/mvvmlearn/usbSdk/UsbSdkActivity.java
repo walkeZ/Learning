@@ -13,6 +13,7 @@ import com.walker.mvvmlearn.utils.LogUtil;
 import com.walker.usb.USBTransferUtil;
 import com.walker.usb.callback.OnUsbConnectedListener;
 import com.walker.usb.callback.OnUsbDateCallback;
+import com.walker.usb.callback.OnUsbWriteCallback;
 
 public class UsbSdkActivity extends BaseActivity {
 
@@ -35,12 +36,32 @@ public class UsbSdkActivity extends BaseActivity {
         // 下发数据
         viewBinding.ausSendHex.setOnClickListener(view -> {
             String cmd = viewBinding.ausEt0.getText().toString();
-            USBTransferUtil.getInstance().writeStr(cmd, "UTF-8");
+            USBTransferUtil.getInstance().writeStr(cmd, "UTF-8", new OnUsbWriteCallback() {
+                @Override
+                public void onWriteSuccess(String content) {
+                    viewBinding.ausTvWr.append("\n" + ">>: " + content);
+                }
+
+                @Override
+                public void onFail(String write, String msg) {
+                    viewBinding.ausTvWr.append("\n" + ">>:(fail) " + write);
+                }
+            });
         });
         // 下发数据
         viewBinding.ausSendHex.setOnClickListener(view -> {
             String cmd = viewBinding.ausEt1.getText().toString();
-            USBTransferUtil.getInstance().writeHex(cmd);
+            USBTransferUtil.getInstance().writeHex(cmd, new OnUsbWriteCallback() {
+                @Override
+                public void onWriteSuccess(String content) {
+                    viewBinding.ausTvWr.append("\n" + ">>: " + content);
+                }
+
+                @Override
+                public void onFail(String write, String msg) {
+                    viewBinding.ausTvWr.append("\n" + ">>:(fail) " + write);
+                }
+            });
         });
         USBTransferUtil.getInstance().setOnUsbConnectedListener(new OnUsbConnectedListener() {
             @Override
@@ -64,10 +85,6 @@ public class UsbSdkActivity extends BaseActivity {
             }
         });
         USBTransferUtil.getInstance().setOnUsbDateCallback(new OnUsbDateCallback() {
-            @Override
-            public void onWrite(String hex) {
-                viewBinding.ausTvWr.append("\n" + ">>: " + hex);
-            }
 
             @Override
             public void onReceive(String hex) {

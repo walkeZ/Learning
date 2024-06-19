@@ -19,6 +19,7 @@ import com.walker.usb.USBSerial.util.LogUtil;
 import com.walker.usb.USBSerial.util.ThreadUtil;
 import com.walker.usb.callback.OnUsbConnectedListener;
 import com.walker.usb.callback.OnUsbDateCallback;
+import com.walker.usb.callback.OnUsbWriteCallback;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -278,26 +279,37 @@ public class USBTransferUtil {
     }
 
     // 下发数据：建议使用线程池
-    public void writeHex(String data_hex) {
+    public void writeHex(String data_hex, OnUsbWriteCallback onUsbWriteCallback) {
         if (usbSerialPort != null) {
             LogUtil.e("当前usb状态: isOpen-" + usbSerialPort.isOpen());
             // 当串口打开时再下发
             if (usbSerialPort.isOpen()) {
                 byte[] data_bytes = hex2bytes(data_hex);  // 将字符数据转化为 byte[]
                 if (data_bytes == null || data_bytes.length == 0) return;
-                ThreadUtil.runOnMain(() -> {
-                    if (mOnUsbDateCallback != null) mOnUsbDateCallback.onWrite(data_hex);
-                });
                 try {
                     LogUtil.e("write----------> " + data_hex);
                     usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null) onUsbWriteCallback.onWriteSuccess(data_hex);
+                    });
                 } catch (IOException e) {
+                    LogUtil.e("write----------> error " + data_hex);
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null)
+                            onUsbWriteCallback.onFail(data_hex, "usb 发送失败，" + e.getMessage());
+                    });
                     e.printStackTrace();
-                    LogUtil.e("write: IOException");
                 }
             } else {
+                ThreadUtil.runOnMain(() -> {
+                    if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(data_hex, "usb 未连接");
+                });
                 LogUtil.e("write: usb 未连接");
             }
+        } else {
+            ThreadUtil.runOnMain(() -> {
+                if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(data_hex, "usb串口未找到");
+            });
         }
     }
 
@@ -305,25 +317,36 @@ public class USBTransferUtil {
      * @param str
      * @param charType UTF-8 GBK 等
      */
-    public void writeStr(String str, String charType) {
+    public void writeStr(String str, String charType, OnUsbWriteCallback onUsbWriteCallback) {
         if (usbSerialPort != null) {
             LogUtil.e("当前usb状态: isOpen-" + usbSerialPort.isOpen());
             // 当串口打开时再下发
             if (usbSerialPort.isOpen()) {
                 byte[] data_bytes = string2bytes(str, charType);  // 将字符数据转化为 byte[]
                 if (data_bytes == null || data_bytes.length == 0) return;
-                ThreadUtil.runOnMain(() -> {
-                    if (mOnUsbDateCallback != null) mOnUsbDateCallback.onWrite(str);
-                });
                 try {
                     LogUtil.e("write----------> " + str + ", " + charType);
                     usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null) onUsbWriteCallback.onWriteSuccess(str);
+                    });
                 } catch (IOException e) {
+                    LogUtil.e("write----------> error " + str + ", " + charType);
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(str, "usb 发送失败，" + e.getMessage());
+                    });
                     e.printStackTrace();
                 }
             } else {
                 LogUtil.e("write: usb 未连接");
+                ThreadUtil.runOnMain(() -> {
+                    if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(str, "usb 未连接");
+                });
             }
+        } else {
+            ThreadUtil.runOnMain(() -> {
+                if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(str, "usb串口未找到");
+            });
         }
     }
 

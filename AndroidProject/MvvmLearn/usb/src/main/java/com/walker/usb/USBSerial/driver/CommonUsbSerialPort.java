@@ -282,7 +282,7 @@ public abstract class CommonUsbSerialPort implements UsbSerialPort {
                     actualLength = mConnection.bulkTransfer(mWriteEndpoint, writeBuffer, requestLength, requestTimeout);
                 }
             }
-            LogUtil.e("Wrote " + actualLength + "/" + requestLength + " offset " + offset + "/" + length + " timeout " + requestTimeout);
+            LogUtil.w("Wrote " + actualLength + "/" + requestLength + " offset " + offset + "/" + length + " timeout " + requestTimeout);
             if (actualLength <= 0) {
                 if (timeout != 0 && MonotonicClock.millis() >= endTime) {
                     SerialTimeoutException ex = new SerialTimeoutException("Error writing " + requestLength + " bytes at offset " + offset + " of total " + src.length + ", rc=" + actualLength);

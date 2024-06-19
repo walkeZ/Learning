@@ -22,7 +22,7 @@ public class Test : MonoBehaviour
         HetIBSDK.GetInstance().StartMotorByMode(300, 299);
     }
 
-    public void CallTargetMotor()
+    public void CallAuth()
     {
         HetIBSDK.GetInstance().StartTargetMotor("[{\"duty\":5,\"frequency\":50,\"index\":1},{\"duty\":5,\"frequency\":50,\"index\":2},{\"duty\":5,\"frequency\":50,\"index\":3}]");
     }
