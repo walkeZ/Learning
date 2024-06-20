@@ -14,8 +14,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:onClick="exit"
+                android:padding="4dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel" />
 
             <TextView
                 android:id="@+id/aus_tvMac"
@@ -61,35 +69,35 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="发送内容"
-                    android:text="AT"
                     android:inputType="textCapCharacters"
+                    android:text="AT"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/aus_btn_send"
                     style="@style/button"
-                    android:text="发Str"/>
+                    android:text="发Str" />
 
                 <TextView
                     style="@style/button"
-                    android:text="AR"
-                    android:onClick="atRestore"/>
+                    android:onClick="atRestore"
+                    android:text="AR" />
 
                 <TextView
                     style="@style/button"
-                    android:text="AU"
-                    android:onClick="atUuId"/>
+                    android:onClick="atUuId"
+                    android:text="AU" />
 
                 <TextView
                     style="@style/button"
-                    android:text="AS"
-                    android:onClick="atScan"/>
+                    android:onClick="atScan"
+                    android:text="AS" />
 
-<!--                <TextView-->
-<!--                    style="@style/button"-->
-<!--                    android:text="AC"-->
-<!--                    android:onClick="atConn"/>-->
+                <!--                <TextView-->
+                <!--                    style="@style/button"-->
+                <!--                    android:text="AC"-->
+                <!--                    android:onClick="atConn"/>-->
             </LinearLayout>
 
             <LinearLayout
@@ -109,14 +117,33 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/aus_sendHex"
-                    android:layout_width="wrap_content"
+                    style="@style/button"
+                    android:text="发Hex" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/aus_et2"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:gravity="center"
-                    android:text="发Hex"
-                    android:textAllCaps="false" />
+                    android:layout_weight="1"
+                    android:digits="0123456789ABCDEF"
+                    android:hint="hex命令"
+                    android:inputType="textCapCharacters"
+                    android:text="A50201000004000300000075"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    style="@style/button"
+                    android:onClick="sendBytes"
+                    android:text="发BS" />
             </LinearLayout>
 
             <ScrollView
@@ -154,7 +181,6 @@
                             android:padding="4dp"
                             android:src="@android:drawable/ic_menu_close_clear_cancel" />
                     </LinearLayout>
-
 
                 </RelativeLayout>
             </ScrollView>

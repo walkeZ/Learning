@@ -1,5 +1,6 @@
 package com.walker.mvvmlearn.usbSdk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,10 +16,12 @@ import com.walker.usb.callback.OnUsbConnectedListener;
 import com.walker.usb.callback.OnUsbDateCallback;
 import com.walker.usb.callback.OnUsbWriteCallback;
 
+import java.util.Arrays;
+
 public class UsbSdkActivity extends BaseActivity {
 
     ActivityUsbSdkBinding viewBinding;
-//    USBTransferUtil USB;
+    private byte[] bsCmd = USBTransferUtil.hex2bytes("A50201000004000300000075");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,11 @@ public class UsbSdkActivity extends BaseActivity {
                 }
 
                 @Override
+                public void onWriteByteSuccess(byte[] content) {
+
+                }
+
+                @Override
                 public void onFail(String write, String msg) {
                     viewBinding.ausTvWr.append("\n" + ">>:(fail) " + write);
                 }
@@ -61,6 +69,11 @@ public class UsbSdkActivity extends BaseActivity {
                 @Override
                 public void onWriteSuccess(String content) {
                     viewBinding.ausTvWr.append("\n" + ">>: " + content);
+                }
+
+                @Override
+                public void onWriteByteSuccess(byte[] content) {
+                    viewBinding.ausTvWr.append("\n" + ">>: " + Arrays.toString(content));
                 }
 
                 @Override
@@ -100,8 +113,13 @@ public class UsbSdkActivity extends BaseActivity {
                     viewBinding.ausEt0.append("-" + hex);
                 }
             }
-        });
 
+            @Override
+            public void onDeviceBack(byte[] bytes) {
+                viewBinding.ausTvNotify.append("\n" + "<<: " + Arrays.toString(bytes));
+            }
+        });
+        viewBinding.ausEt2.setText(Arrays.toString(bsCmd));
 //        viewBinding.ausBtnDisconnect.setOnClickListener(view -> viewBinding.ausTvReceive.setText(""));
         viewBinding.ausSv1.getViewTreeObserver().addOnGlobalLayoutListener(() -> viewBinding.ausSv1.post(() -> viewBinding.ausSv1.fullScroll(View.FOCUS_DOWN)));
 //        viewBinding.ausBtnDisconnect.setOnClickListener(view -> viewBinding.ausTvReceive.setText(""));
@@ -161,5 +179,32 @@ public class UsbSdkActivity extends BaseActivity {
 
     public void atConn(View view) {
         viewBinding.ausEt0.setText("AT+UUID=FF12,FF03,FF01");
+    }
+
+    public void sendBytes(View view) {
+        USBTransferUtil.getInstance().writeBytes(bsCmd, new OnUsbWriteCallback() {
+            @Override
+            public void onWriteSuccess(String content) {
+                viewBinding.ausTvWr.append("\n" + ">>: " + content);
+            }
+
+            @Override
+            public void onWriteByteSuccess(byte[] content) {
+                viewBinding.ausTvWr.append("\n" + ">>: " + Arrays.toString(content));
+            }
+
+            @Override
+            public void onFail(String write, String msg) {
+                viewBinding.ausTvWr.append("\n" + ">>:(fail) " + write);
+            }
+        });
+    }
+
+    public void exit(View view) {
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        System.exit(0);
     }
 }

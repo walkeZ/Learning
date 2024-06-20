@@ -24,6 +24,7 @@ import com.walker.usb.callback.OnUsbWriteCallback;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -256,12 +257,15 @@ public class USBTransferUtil {
                 String data_str = bytes2Hex(data);
                 LogUtil.e("收到 usb 数据 ------------------< " + data_str + "， " + new String(data) + "， " + mOnUsbDateCallback);
                 count ++;
-                if (count < 20 && isATData(data_str)) {
+                if (count < 30 && isATData(data_str)) {
                     data_str = new String(data);
                 }
                 String finalData_str = data_str;
                 ThreadUtil.runOnMain(() -> {
-                    if (mOnUsbDateCallback != null) mOnUsbDateCallback.onReceive(finalData_str);
+                    if (mOnUsbDateCallback != null) {
+                        mOnUsbDateCallback.onReceive(finalData_str);
+                        mOnUsbDateCallback.onDeviceBack(data);
+                    }
                 });
             }
 
@@ -297,19 +301,18 @@ public class USBTransferUtil {
     // 下发数据：建议使用线程池
     public void writeHex(String data_hex, OnUsbWriteCallback onUsbWriteCallback) {
         if (usbSerialPort != null) {
-            LogUtil.e("当前usb状态: isOpen-" + usbSerialPort.isOpen());
             // 当串口打开时再下发
             if (usbSerialPort.isOpen()) {
                 byte[] data_bytes = hex2bytes(data_hex);  // 将字符数据转化为 byte[]
                 if (data_bytes == null || data_bytes.length == 0) return;
                 try {
-                    LogUtil.e("write----------> " + data_hex);
+                    LogUtil.e("writeHex----------> " + data_hex);
                     usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
                     ThreadUtil.runOnMain(() -> {
                         if (onUsbWriteCallback != null) onUsbWriteCallback.onWriteSuccess(data_hex);
                     });
                 } catch (IOException e) {
-                    LogUtil.e("write----------> error " + data_hex);
+                    LogUtil.e("writeHex----------> error " + data_hex);
                     ThreadUtil.runOnMain(() -> {
                         if (onUsbWriteCallback != null)
                             onUsbWriteCallback.onFail(data_hex, "usb 发送失败，" + e.getMessage());
@@ -320,11 +323,43 @@ public class USBTransferUtil {
                 ThreadUtil.runOnMain(() -> {
                     if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(data_hex, "usb 未连接");
                 });
-                LogUtil.e("write: usb 未连接");
+                LogUtil.e("writeHex: usb 未连接");
             }
         } else {
             ThreadUtil.runOnMain(() -> {
                 if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(data_hex, "usb串口未找到");
+            });
+        }
+    }
+
+    public void writeBytes(byte[] data_bytes, OnUsbWriteCallback onUsbWriteCallback) {
+        if (usbSerialPort != null) {
+            // 当串口打开时再下发
+            if (usbSerialPort.isOpen()) {
+                if (data_bytes == null || data_bytes.length == 0) return;
+                try {
+                    LogUtil.e("writeBytes----------> " + bytes2Hex(data_bytes));
+                    usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null) onUsbWriteCallback.onWriteByteSuccess(data_bytes);
+                    });
+                } catch (IOException e) {
+                    LogUtil.e("writeBytes----------> error " + Arrays.toString(data_bytes));
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null)
+                            onUsbWriteCallback.onFail(bytes2Hex(data_bytes), "usb 发送失败，" + e.getMessage());
+                    });
+                    e.printStackTrace();
+                }
+            } else {
+                ThreadUtil.runOnMain(() -> {
+                    if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(bytes2Hex(data_bytes), "usb 未连接");
+                });
+                LogUtil.e("writeBytes: usb 未连接");
+            }
+        } else {
+            ThreadUtil.runOnMain(() -> {
+                if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(bytes2Hex(data_bytes), "usb串口未找到");
             });
         }
     }
@@ -335,26 +370,25 @@ public class USBTransferUtil {
      */
     public void writeStr(String str, String charType, OnUsbWriteCallback onUsbWriteCallback) {
         if (usbSerialPort != null) {
-            LogUtil.e("当前usb状态: isOpen-" + usbSerialPort.isOpen());
             // 当串口打开时再下发
             if (usbSerialPort.isOpen()) {
                 byte[] data_bytes = string2bytes(str, charType);  // 将字符数据转化为 byte[]
                 if (data_bytes == null || data_bytes.length == 0) return;
                 try {
-                    LogUtil.e("write----------> " + str + ", " + charType);
+                    LogUtil.e("writeStr----------> " + str + ", " + charType);
                     usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
                     ThreadUtil.runOnMain(() -> {
                         if (onUsbWriteCallback != null) onUsbWriteCallback.onWriteSuccess(str);
                     });
                 } catch (IOException e) {
-                    LogUtil.e("write----------> error " + str + ", " + charType);
+                    LogUtil.e("writeStr----------> error " + str + ", " + charType);
                     ThreadUtil.runOnMain(() -> {
                         if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(str, "usb 发送失败，" + e.getMessage());
                     });
                     e.printStackTrace();
                 }
             } else {
-                LogUtil.e("write: usb 未连接");
+                LogUtil.e("writeStr: usb 未连接");
                 ThreadUtil.runOnMain(() -> {
                     if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(str, "usb 未连接");
                 });
@@ -461,15 +495,19 @@ public class USBTransferUtil {
     }
 
     public static String bytes2Hex(byte[] bytes) {
-        String hex = "";
-        for (int i = 0; i < bytes.length; i++) {
-            int value = bytes[i] & 0xff;
-            String hexVaule = Integer.toHexString(value);
-            if (hexVaule.length() < 2) {
-                hexVaule = "0" + hexVaule;
+        try {
+            String hex = "";
+            for (int i = 0; i < bytes.length; i++) {
+                int value = bytes[i] & 0xff;
+                String hexVaule = Integer.toHexString(value);
+                if (hexVaule.length() < 2) {
+                    hexVaule = "0" + hexVaule;
+                }
+                hex += hexVaule;
             }
-            hex += hexVaule;
+            return hex;
+        } catch (Exception e) {
+            return "bytes2Hex";
         }
-        return hex;
     }
 }
