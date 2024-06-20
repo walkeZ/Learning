@@ -58,7 +58,7 @@ public class HetIbUsbSDK : MonoBehaviour
     {
         //参数一：Android方法名，参数二+：Android方法的参数
         _mAdplatormSDK.Call("setOnUsbConnectedListener", new UsbConnectListener());
-        _mAdplatormSDK.Call("setOnUsbDateCallback", new UsbConnectListener());
+        _mAdplatormSDK.Call("setOnUsbDateCallback", new UsbDateCallback());
     }
 
     // 连接usb。直接连接。一般来说，建议连接前先设置监听
@@ -67,18 +67,25 @@ public class HetIbUsbSDK : MonoBehaviour
         _mAdplatormSDK.Call("connect");
     }
 
-    // 连接usb。直接连接。一般来说，建议连接前先设置监听
+    // 发送16进制
     public void SendHex(string hex)
     {
        //参数一：Android方法名，参数二+：Android方法的参数
         _mAdplatormSDK.Call("writeHex", hex, new UsbWriteCallback());
     }
 
-    // 连接usb。直接连接。一般来说，建议连接前先设置监听
+     // 发送字符串
     public void SendStr(string str)
     {
        //参数一：Android方法名，参数二+：Android方法的参数
         _mAdplatormSDK.Call("writeStr", str, new UsbWriteCallback());
+    }
+
+    // 发送byte[]
+    public void SendBytes(byte[] bytes)
+    {
+       //参数一：Android方法名，参数二+：Android方法的参数
+        _mAdplatormSDK.Call("writeBytes", bytes, new UsbWriteCallback());
     }
 }
 
@@ -121,6 +128,14 @@ public class UsbDateCallback : AndroidJavaProxy
     {
 
     }
+
+    /**
+     * 设备device>app的数据。
+     */
+    public void onDeviceBack(byte[] bytes)
+    {
+
+    }
 }
 
 
@@ -132,6 +147,14 @@ public class UsbWriteCallback : AndroidJavaProxy
      * 设备写入成功。
      */
     public void onWriteSuccess(string content)
+    {
+
+    }
+
+    /**
+     * 设备写入成功。
+     */
+    public void onWriteByteSuccess(byte[] content)
     {
 
     }
