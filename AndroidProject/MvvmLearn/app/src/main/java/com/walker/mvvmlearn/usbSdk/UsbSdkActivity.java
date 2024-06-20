@@ -36,7 +36,12 @@ public class UsbSdkActivity extends BaseActivity {
         viewBinding.ausBtnDisconnect.setOnClickListener(view -> USBTransferUtil.getInstance().disconnect());
         // 下发数据
         viewBinding.ausBtnSend.setOnClickListener(view -> {
+            // AT+RESTORE
+            // AT+UUID=FF12,FF03,FF01
+            // AT+SCAN=1
+            // AT+CONN=xx xx xx xx xx xx0
             String cmd = viewBinding.ausEt0.getText().toString();
+            if (cmd.contains(USBTransferUtil.MAC_START)) cmd = "AT+CONN=" + cmd;
             USBTransferUtil.getInstance().writeStr(cmd + "\r\n", "UTF-8", new OnUsbWriteCallback() {
                 @Override
                 public void onWriteSuccess(String content) {
@@ -91,6 +96,9 @@ public class UsbSdkActivity extends BaseActivity {
             public void onReceive(String hex) {
                 viewBinding.ausTvNotify.append("\n" + "<<: " + hex);
                 viewBinding.ausTvWr.append("\n" + "<<: " + hex);
+                if (hex.contains(USBTransferUtil.MAC_START)) {
+                    viewBinding.ausEt0.append("-" + hex);
+                }
             }
         });
 
@@ -133,5 +141,25 @@ public class UsbSdkActivity extends BaseActivity {
 
     public void clearNotify(View view) {
         viewBinding.ausTvNotify.setText("device>app");
+    }
+
+    //AT+RESTORE
+    //AT+UUID=FF12,FF03,FF01
+    //AT+SCAN=1
+    //AT+CONN=xx xx xx xx xx xx0
+    public void atRestore(View view) {
+        viewBinding.ausEt0.setText("AT+RESTORE");
+    }
+
+    public void atUuId(View view) {
+        viewBinding.ausEt0.setText("AT+UUID=FF12,FF03,FF01");
+    }
+
+    public void atScan(View view) {
+        viewBinding.ausEt0.setText("AT+SCAN=1");
+    }
+
+    public void atConn(View view) {
+        viewBinding.ausEt0.setText("AT+UUID=FF12,FF03,FF01");
     }
 }

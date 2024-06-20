@@ -33,6 +33,8 @@ import java.util.List;
  * USBSerial包是usb-serial-for-android源码，便于后期调试
  */
 public class USBTransferUtil {
+    public static final String MAC_START = "6200A1"; // 设备MAC的头部;
+    private static final String MARK = "0d0a"; // 换行"\r\n";
     public static boolean isConnectUSB = false;  // 连接标识
     private Context my_context;
     private UsbManager manager;  // usb管理器
@@ -58,6 +60,8 @@ public class USBTransferUtil {
     private OnUsbConnectedListener mOnUsbConnectedListener;
     private String mSerialNumber;
 
+    private long count = 0;
+
     public void setOnUsbDateCallback(OnUsbDateCallback mOnUsbDateCallback) {
         this.mOnUsbDateCallback = mOnUsbDateCallback;
     }
@@ -79,6 +83,7 @@ public class USBTransferUtil {
     public void init(Context context) {
         my_context = context;
         manager = (UsbManager) context.getSystemService(Context.USB_SERVICE);
+        count = 0;
     }
 
     public void setBaudRate(int baudRate) {
@@ -250,8 +255,13 @@ public class USBTransferUtil {
                 // 在这里处理接收到的 usb 数据 -------------------------------
                 String data_str = bytes2Hex(data);
                 LogUtil.e("收到 usb 数据 ------------------< " + data_str + "， " + new String(data) + "， " + mOnUsbDateCallback);
+                count ++;
+                if (count < 20 && isATData(data_str)) {
+                    data_str = new String(data);
+                }
+                String finalData_str = data_str;
                 ThreadUtil.runOnMain(() -> {
-                    if (mOnUsbDateCallback != null) mOnUsbDateCallback.onReceive(data_str);
+                    if (mOnUsbDateCallback != null) mOnUsbDateCallback.onReceive(finalData_str);
                 });
             }
 
@@ -275,7 +285,13 @@ public class USBTransferUtil {
         });
         inputOutputManager.start();
         isConnectUSB = true;  // 修改连接标识
+        count = 0;
         Toast.makeText(my_context, "连接成功", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean isATData(String hex) {
+        if (hex == null) return false;
+        return hex.startsWith(MARK) || hex.endsWith(MARK);
     }
 
     // 下发数据：建议使用线程池

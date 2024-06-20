@@ -66,14 +66,30 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/aus_btn_send"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="发Str"
-                    android:textAllCaps="false" />
+                    style="@style/button"
+                    android:text="发Str"/>
 
+                <TextView
+                    style="@style/button"
+                    android:text="AR"
+                    android:onClick="atRestore"/>
+
+                <TextView
+                    style="@style/button"
+                    android:text="AU"
+                    android:onClick="atUuId"/>
+
+                <TextView
+                    style="@style/button"
+                    android:text="AS"
+                    android:onClick="atScan"/>
+
+<!--                <TextView-->
+<!--                    style="@style/button"-->
+<!--                    android:text="AC"-->
+<!--                    android:onClick="atConn"/>-->
             </LinearLayout>
 
             <LinearLayout
