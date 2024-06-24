@@ -27,7 +27,7 @@ public class UsbSdkActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LogUtil.e("----->" + SystemUtil.getPhoneInfo(this));
-        USBTransferUtil.getInstance().init(this);
+        USBTransferUtil.getInstance().init(this, 0);
 
         viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_usb_sdk);
 
@@ -45,80 +45,14 @@ public class UsbSdkActivity extends BaseActivity {
             // AT+CONN=xx xx xx xx xx xx0
             String cmd = viewBinding.ausEt0.getText().toString();
             if (cmd.contains(USBTransferUtil.MAC_START)) cmd = "AT+CONN=" + cmd;
-            USBTransferUtil.getInstance().writeStr(cmd + "\r\n", "UTF-8", new OnUsbWriteCallback() {
-                @Override
-                public void onWriteSuccess(String content) {
-                    viewBinding.ausTvWr.append("\n" + ">>: " + content);
-                }
-
-                @Override
-                public void onWriteByteSuccess(byte[] content) {
-
-                }
-
-                @Override
-                public void onFail(String write, String msg) {
-                    viewBinding.ausTvWr.append("\n" + ">>:(fail) " + write);
-                }
-            });
+            USBTransferUtil.getInstance().writeBytes(USBTransferUtil.string2bytes(cmd + "\r\n", "UTF-8"));
         });
         // 下发数据
         viewBinding.ausSendHex.setOnClickListener(view -> {
             String cmd = viewBinding.ausEt1.getText().toString();
-            USBTransferUtil.getInstance().writeHex(cmd, new OnUsbWriteCallback() {
-                @Override
-                public void onWriteSuccess(String content) {
-                    viewBinding.ausTvWr.append("\n" + ">>: " + content);
-                }
-
-                @Override
-                public void onWriteByteSuccess(byte[] content) {
-                    viewBinding.ausTvWr.append("\n" + ">>: " + Arrays.toString(content));
-                }
-
-                @Override
-                public void onFail(String write, String msg) {
-                    viewBinding.ausTvWr.append("\n" + ">>:(fail) " + write);
-                }
-            });
+            USBTransferUtil.getInstance().writeBytes(USBTransferUtil.hex2bytes(cmd));
         });
-        USBTransferUtil.getInstance().setOnUsbConnectedListener(new OnUsbConnectedListener() {
-            @Override
-            public void onStartConnect() {
-                viewBinding.ausTvMac.setText("开始连接");
-            }
 
-            @Override
-            public void onConnected(String mac) {
-                viewBinding.ausTvMac.setText(mac + " 连接成功");
-            }
-
-            @Override
-            public void onConnectFail(String msg) {
-                viewBinding.ausTvMac.setText("连接失败 " + msg);
-            }
-
-            @Override
-            public void onDisconnect() {
-                viewBinding.ausTvMac.setText("连接断开");
-            }
-        });
-        USBTransferUtil.getInstance().setOnUsbDateCallback(new OnUsbDateCallback() {
-
-            @Override
-            public void onReceive(String hex) {
-                viewBinding.ausTvNotify.append("\n" + "<<: " + hex);
-                viewBinding.ausTvWr.append("\n" + "<<: " + hex);
-                if (hex.contains(USBTransferUtil.MAC_START)) {
-                    viewBinding.ausEt0.append("-" + hex);
-                }
-            }
-
-            @Override
-            public void onDeviceBack(byte[] bytes) {
-                viewBinding.ausTvNotify.append("\n" + "<<: " + Arrays.toString(bytes));
-            }
-        });
         viewBinding.ausEt2.setText(Arrays.toString(bsCmd));
 //        viewBinding.ausBtnDisconnect.setOnClickListener(view -> viewBinding.ausTvReceive.setText(""));
         viewBinding.ausSv1.getViewTreeObserver().addOnGlobalLayoutListener(() -> viewBinding.ausSv1.post(() -> viewBinding.ausSv1.fullScroll(View.FOCUS_DOWN)));
@@ -182,22 +116,7 @@ public class UsbSdkActivity extends BaseActivity {
     }
 
     public void sendBytes(View view) {
-        USBTransferUtil.getInstance().writeBytes(bsCmd, new OnUsbWriteCallback() {
-            @Override
-            public void onWriteSuccess(String content) {
-                viewBinding.ausTvWr.append("\n" + ">>: " + content);
-            }
-
-            @Override
-            public void onWriteByteSuccess(byte[] content) {
-                viewBinding.ausTvWr.append("\n" + ">>: " + Arrays.toString(content));
-            }
-
-            @Override
-            public void onFail(String write, String msg) {
-                viewBinding.ausTvWr.append("\n" + ">>:(fail) " + write);
-            }
-        });
+        USBTransferUtil.getInstance().writeBytes(bsCmd);
     }
 
     public void exit(View view) {

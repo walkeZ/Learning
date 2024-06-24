@@ -24,8 +24,8 @@ android {
         2 为子版本号
         3 为开发阶段版本号，开发阶段该版本号自增，对外发布时该版本号置为0，子版本号加1*/
 
-        versionCode 10001
-        versionName "1.0.1"
+        versionCode 10003
+        versionName "1.0.3"
 
         // 在自动生成的BuildConfig没有VERSION_CODE，这里主动生成一个字段
         buildConfigField("int", "VERSION_CODE", "${versionCode}")
