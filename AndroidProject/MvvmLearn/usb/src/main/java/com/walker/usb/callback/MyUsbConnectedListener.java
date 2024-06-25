@@ -3,7 +3,7 @@ package com.walker.usb.callback;
 public class MyUsbConnectedListener implements OnUsbConnectedListener {
 
     @Override
-    public void onStartConnect() {
+    public void onStartConnect(String msg) {
 
     }
 

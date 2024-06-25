@@ -67,20 +67,6 @@ public class HetIbUsbSDK : MonoBehaviour
         _mAdplatormSDK.Call("connect");
     }
 
-    // 发送16进制
-    public void SendHex(string hex)
-    {
-       //参数一：Android方法名，参数二+：Android方法的参数
-        _mAdplatormSDK.Call("writeHex", hex, new UsbWriteCallback());
-    }
-
-     // 发送字符串
-    public void SendStr(string str)
-    {
-       //参数一：Android方法名，参数二+：Android方法的参数
-        _mAdplatormSDK.Call("writeStr", str, new UsbWriteCallback());
-    }
-
     // 发送byte[]
     public void SendBytes(byte[] bytes)
     {
@@ -96,7 +82,7 @@ public class UsbConnectListener : AndroidJavaProxy
     public UsbConnectListener() : base("com.walker.usb.callback.OnUsbConnectedListener") { }
 
     // 连接开始连接。
-    public void onStartConnect()
+    public void onStartConnect(string msg)
     {
     }
 

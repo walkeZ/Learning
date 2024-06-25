@@ -9,13 +9,16 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Build;
-import android.widget.Toast;
 
 import com.walker.usb.USBSerial.driver.UsbSerialDriver;
 import com.walker.usb.USBSerial.driver.UsbSerialPort;
 import com.walker.usb.USBSerial.driver.UsbSerialProber;
 import com.walker.usb.USBSerial.util.SerialInputOutputManager;
 import com.walker.usb.USBSerial.util.LogUtil;
+import com.walker.usb.USBSerial.util.ThreadUtil;
+import com.walker.usb.callback.OnUsbConnectedListener;
+import com.walker.usb.callback.OnUsbDateCallback;
+import com.walker.usb.callback.OnUsbWriteCallback;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -35,7 +38,7 @@ public class USBTransferUtil {
      * @param state -2（连接断开） -1（连接失败）0（未连接） 1（开始连接） 2（连接成功）
      * @param msg   信息；2 返回mac， 其他范湖对应描述
      */
-    public static native void onUsbState(long coAddr, int state, String msg);
+//    public static native void onUsbState(long coAddr, int state, String msg);
 
     /**
      * native方法。Java >> nativeFunction >> JNI >> UE4
@@ -44,14 +47,14 @@ public class USBTransferUtil {
      * @param writeData 写入的内容（透传）
      * @param errorMsg  失败信息。成功是：success
      */
-    public static native void onWriteSuccess(long coAddr, boolean isSuccess, byte[] writeData, String errorMsg);
+//    public static native void onWriteSuccess(long coAddr, boolean isSuccess, byte[] writeData, String errorMsg);
 
     /**
      * usb的Data返回。透传
      *
      * @param data
      */
-    public static native void onDataBack(long coAddr, byte[] data);
+//    public static native void onDataBack(long coAddr, byte[] data);
 
     public static final String MAC_START = "6200A1"; // 设备MAC的头部;
     private static final String MARK = "0d0a"; // 换行"\r\n";
@@ -76,6 +79,18 @@ public class USBTransferUtil {
     private int parity = UsbSerialPort.PARITY_NONE;// 奇偶校验
     private String mSerialNumber;
     private long coAddr = 0; // c++ 对象地址，c++传入，回调(native)时传回去
+    private OnUsbDateCallback mOnUsbDateCallback;
+    private OnUsbConnectedListener mOnUsbConnectedListener;
+    private int count;
+
+    public void setOnUsbDateCallback(OnUsbDateCallback mOnUsbDateCallback) {
+        this.mOnUsbDateCallback = mOnUsbDateCallback;
+    }
+
+    public void setOnUsbConnectedListener(OnUsbConnectedListener mOnUsbConnectedListener) {
+        this.mOnUsbConnectedListener = mOnUsbConnectedListener;
+    }
+
     // 单例 -------------------------
     private static USBTransferUtil usbTransferUtil;
 
@@ -86,9 +101,8 @@ public class USBTransferUtil {
         return usbTransferUtil;
     }
 
-    public void init(Context context, long coAddr) {
+    public void init(Context context) {
         myContext = context;
-        this.coAddr = coAddr;
         manager = (UsbManager) context.getSystemService(Context.USB_SERVICE);
     }
 
@@ -98,7 +112,8 @@ public class USBTransferUtil {
 
     public void connect() {
         LogUtil.e("connect enter " + isConnectUSB);
-        onUsbState(coAddr, 1, "准备开始连接 " + isConnectUSB);
+//        onUsbState(coAddr, 1, "准备连接 " + isConnectUSB);
+        if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onStartConnect("准备连接 " + isConnectUSB);
         if (!isConnectUSB) {
             registerReceiver();  // 注册广播监听
             refreshDevice();  // 拿到已连接的usb设备列表
@@ -127,6 +142,9 @@ public class USBTransferUtil {
         availableDrivers.clear();
         availableDrivers = UsbSerialProber.getDefaultProber().findAllDrivers(manager);
         LogUtil.e("当前可用 usb 设备数量: " + availableDrivers.size());
+//        onUsbState(coAddr, 1, "检查可用 usb 设备数量: " + availableDrivers.size());
+        if (mOnUsbConnectedListener != null)
+            mOnUsbConnectedListener.onStartConnect("检查可用 usb 设备数量: " + availableDrivers.size());
         // 有设备可以连接
         if (availableDrivers.size() != 0) {
             // 当时开发用的是定制平板电脑有 2 个usb口，所以搜索到两个
@@ -140,6 +158,10 @@ public class USBTransferUtil {
                     if (productName.startsWith(IDENTIFICATION)) {
                         usbSerialDriver = availableDriver;
                     }
+                }
+                if (usbSerialDriver == null) {
+//                    onUsbState(coAddr, -1, "没有GD32的usb");
+                    if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onStartConnect("没有GD32的usb");
                 }
             } else {
                 // 通常手机只有充电口 1 个
@@ -166,19 +188,22 @@ public class USBTransferUtil {
                 manager.requestPermission(device, usbPermissionIntent);
             }
         } else {
-            onUsbState(coAddr, -1, "连接失败 请先接入设备");
-            // 没有设备
-            Toast.makeText(myContext, "请先接入设备", Toast.LENGTH_SHORT).show();
+//            onUsbState(coAddr, -1, "连接失败 请先接入设备");
+            if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onConnectFail("连接失败 请先接入设备 ");
         }
     }
 
     // 连接设备
     public void connectDevice() {
-        onUsbState(coAddr, 1, "开始连接 " + isConnectUSB);
+//        onUsbState(coAddr, 1, "开始连接 " + isConnectUSB);
+        if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onStartConnect("开始连接 " + isConnectUSB);
         if (isConnectUSB) return; //  通过日志可知。授权后继续走startReceiveData();  // 开启数据监听。不一定需要在广播中再次调用。
         if (usbSerialDriver == null || inputOutputManager != null) {
-            LogUtil.e("usbSerialDriver == null || inputOutputManager != null");
-            onUsbState(coAddr, -1, "连接失败 usbSerialDriver == null || inputOutputManager != null");
+            LogUtil.e("usbSerialDriver == null || inputOutputManager != null" + usbSerialDriver);
+//            onUsbState(coAddr, -1, "连接失败 usbSerialDriver " + usbSerialDriver);
+            if (mOnUsbConnectedListener != null) {
+                mOnUsbConnectedListener.onConnectFail("连接失败 usbSerialDriver " + usbSerialDriver + ", inputOutputManager " + inputOutputManager);
+            }
             return;
         }
         // 判断是否拥有权限
@@ -186,7 +211,10 @@ public class USBTransferUtil {
         if (hasPermission) {
             usbDeviceConnection = manager.openDevice(usbSerialDriver.getDevice());  // 拿到连接对象
             if (usbSerialPort == null) {
-                onUsbState(coAddr, -1, "连接失败 usb串口未初始化");
+//                onUsbState(coAddr, -1, "连接失败 usb串口未初始化");
+                if (mOnUsbConnectedListener != null) {
+                    mOnUsbConnectedListener.onConnectFail("连接失败 usb串口未初始化");
+                }
                 return;
             }
             try {
@@ -195,13 +223,18 @@ public class USBTransferUtil {
                 startReceiveData();  // 开启数据监听
             } catch (IOException e) {
                 e.printStackTrace();
-                onUsbState(coAddr, -1, "连接失败 usb串口打开失败");
+//                onUsbState(coAddr, -1, "连接失败 usb串口打开失败");
+                if (mOnUsbConnectedListener != null) {
+                    mOnUsbConnectedListener.onConnectFail("连接失败 usb串口打开失败");
+                }
                 LogUtil.e("usbSerialPort.open IOException");
             }
         } else {
             LogUtil.e("请先授予权限再连接");
-            onUsbState(coAddr, -1, "连接失败 请先授予权限再连接");
-            Toast.makeText(myContext, "请先授予权限再连接", Toast.LENGTH_SHORT).show();
+//            onUsbState(coAddr, -1, "连接失败 请先授予权限再连接");
+            if (mOnUsbConnectedListener != null) {
+                mOnUsbConnectedListener.onConnectFail("连接失败 请先授予权限再连接");
+            }
         }
     }
 
@@ -215,8 +248,19 @@ public class USBTransferUtil {
             public void onNewData(byte[] data) {
                 // 在这里处理接收到的 usb 数据 -------------------------------
                 String data_str = bytes2Hex(data);
-                LogUtil.e("收到 usb 数据 ------------------< " + data_str + "， " + new String(data));
-                onDataBack(coAddr, data);
+                LogUtil.e("收到 usb 数据 ------------< " + data_str + "， " + new String(data) + "， " + mOnUsbDateCallback);
+//                onDataBack(coAddr, data);
+                count ++;
+                if (count < 30 && isATData(data_str)) {
+                    data_str = new String(data);
+                }
+                String finalData_str = data_str;
+                ThreadUtil.runOnMain(() -> {
+                    if (mOnUsbDateCallback != null) {
+                        mOnUsbDateCallback.onReceive(finalData_str);
+                        mOnUsbDateCallback.onDeviceBack(data);
+                    }
+                });
             }
 
             @Override
@@ -233,11 +277,14 @@ public class USBTransferUtil {
         } catch (Exception e) {
             LogUtil.e(" 连接成功 usb getSerialNumber error " + e.getMessage());
         }
-        LogUtil.e(mSerialNumber + " 连接成功 ");
-        onUsbState(coAddr, 2, "" + mSerialNumber);
+        LogUtil.e(mSerialNumber + " 连接成功 " + mOnUsbConnectedListener);
+        count = 0;
+        ThreadUtil.runOnMain(() -> {
+            if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onConnected(mSerialNumber);
+        });
+//        onUsbState(coAddr, 2, "" + mSerialNumber);
         inputOutputManager.start();
         isConnectUSB = true;  // 修改连接标识
-        Toast.makeText(myContext, "连接成功", Toast.LENGTH_SHORT).show();
     }
 
     private boolean isATData(String hex) {
@@ -245,32 +292,7 @@ public class USBTransferUtil {
         return hex.startsWith(MARK) || hex.endsWith(MARK);
     }
 
-    // 下发数据：建议使用线程池
-    public void writeHex(String data_hex) {
-        if (usbSerialPort != null) {
-            // 当串口打开时再下发
-            if (usbSerialPort.isOpen()) {
-                byte[] data_bytes = hex2bytes(data_hex);  // 将字符数据转化为 byte[]
-                if (data_bytes == null || data_bytes.length == 0) return;
-                try {
-                    LogUtil.e("writeHex----------> " + data_hex);
-                    usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
-                    onWriteSuccess(coAddr, true, data_bytes, "success");
-                } catch (IOException e) {
-                    LogUtil.e("writeHex----------> error " + data_hex);
-                    onWriteSuccess(coAddr, false, data_bytes, "usb 发送失败，" + e.getMessage());
-                    e.printStackTrace();
-                }
-            } else {
-                onWriteSuccess(coAddr, false, hex2bytes(data_hex), "usb 未连接");
-                LogUtil.e("writeHex: usb 未连接");
-            }
-        } else {
-            onWriteSuccess(coAddr, false, hex2bytes(data_hex), "usb串口未找到");
-        }
-    }
-
-    public void writeBytes(byte[] data_bytes) {
+    public void writeBytes(byte[] data_bytes, OnUsbWriteCallback onUsbWriteCallback) {
         if (usbSerialPort != null) {
             // 当串口打开时再下发
             if (usbSerialPort.isOpen()) {
@@ -278,24 +300,41 @@ public class USBTransferUtil {
                 try {
                     LogUtil.e("writeBytes----------> " + bytes2Hex(data_bytes));
                     usbSerialPort.write(data_bytes, 0);  // 写入数据，延迟设置太大的话如果下发间隔太小可能报错
-                    onWriteSuccess(coAddr, true, data_bytes, "success");
+//                    onWriteSuccess(coAddr, true, data_bytes, "success");
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null) onUsbWriteCallback.onWriteByteSuccess(data_bytes);
+                    });
                 } catch (IOException e) {
                     LogUtil.e("writeBytes----------> error " + Arrays.toString(data_bytes));
-                    onWriteSuccess(coAddr, false, data_bytes, "usb 发送失败，" + e.getMessage());
+//                    onWriteSuccess(coAddr, false, data_bytes, "usb 发送失败，" + e.getMessage());
+                    ThreadUtil.runOnMain(() -> {
+                        if (onUsbWriteCallback != null)
+                            onUsbWriteCallback.onFail(bytes2Hex(data_bytes), "usb 发送失败，" + e.getMessage());
+                    });
                     e.printStackTrace();
                 }
             } else {
-                onWriteSuccess(coAddr, false, data_bytes, "usb 未连接");
+//                onWriteSuccess(coAddr, false, data_bytes, "usb 未连接");
+                ThreadUtil.runOnMain(() -> {
+                    if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(bytes2Hex(data_bytes), "usb 未连接");
+                });
                 LogUtil.e("writeBytes: usb 未连接");
             }
         } else {
-            onWriteSuccess(coAddr, false, data_bytes, "usb串口未找到");
+//            onWriteSuccess(coAddr, false, data_bytes, "usb串口未找到");
+            ThreadUtil.runOnMain(() -> {
+                if (onUsbWriteCallback != null) onUsbWriteCallback.onFail(bytes2Hex(data_bytes), "usb串口未找到");
+            });
         }
     }
 
     // 断开连接
     public void disconnect() {
         try {
+//            onUsbState(coAddr, -2, "连接断开");
+            ThreadUtil.runOnMain(() -> {
+                if (mOnUsbConnectedListener != null) mOnUsbConnectedListener.onDisconnect();
+            });
             // 停止数据接收监听
             if (inputOutputManager != null) {
                 inputOutputManager.stop();
@@ -324,7 +363,6 @@ public class USBTransferUtil {
             if (isConnectUSB) {
                 isConnectUSB = false;  // 修改标识
             }
-            onUsbState(coAddr, -2, "连接断开");
             LogUtil.e("断开连接");
         } catch (Exception e) {
             e.printStackTrace();

@@ -27,7 +27,7 @@ public class UsbSdkActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LogUtil.e("----->" + SystemUtil.getPhoneInfo(this));
-        USBTransferUtil.getInstance().init(this, 0);
+        USBTransferUtil.getInstance().init(this);
 
         viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_usb_sdk);
 
@@ -45,12 +45,12 @@ public class UsbSdkActivity extends BaseActivity {
             // AT+CONN=xx xx xx xx xx xx0
             String cmd = viewBinding.ausEt0.getText().toString();
             if (cmd.contains(USBTransferUtil.MAC_START)) cmd = "AT+CONN=" + cmd;
-            USBTransferUtil.getInstance().writeBytes(USBTransferUtil.string2bytes(cmd + "\r\n", "UTF-8"));
+            USBTransferUtil.getInstance().writeBytes(USBTransferUtil.string2bytes(cmd + "\r\n", "UTF-8"), null);
         });
         // 下发数据
         viewBinding.ausSendHex.setOnClickListener(view -> {
             String cmd = viewBinding.ausEt1.getText().toString();
-            USBTransferUtil.getInstance().writeBytes(USBTransferUtil.hex2bytes(cmd));
+            USBTransferUtil.getInstance().writeBytes(USBTransferUtil.hex2bytes(cmd), null);
         });
 
         viewBinding.ausEt2.setText(Arrays.toString(bsCmd));
@@ -116,7 +116,7 @@ public class UsbSdkActivity extends BaseActivity {
     }
 
     public void sendBytes(View view) {
-        USBTransferUtil.getInstance().writeBytes(bsCmd);
+        USBTransferUtil.getInstance().writeBytes(bsCmd, null);
     }
 
     public void exit(View view) {
